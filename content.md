@@ -1,4 +1,4 @@
 Deep Reinforcement Learning
 
 
-1. [](/incentivizing.md)
+1. [](../tree/master/incentivizing.md)
