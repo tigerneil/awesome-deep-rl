@@ -13,7 +13,7 @@ We evaluate several more sophisticated exploration strategies, including **Thomp
 
 In the Atari domain, our method provides the most consistent improvement across a range of games that pose a major challenge for prior methods. In addition to raw game-scores, we also develop an **AUC-100 metric** for the Atari Learning domain to evaluate the impact of exploration on this benchmark.
 
-![](incentizing.png)
+![](images/incentizing.png)
 
 ## Contribution
 Propose a new exploration method based on assigning exploration bonuses from a concurrently learned model of the system dynamics.
