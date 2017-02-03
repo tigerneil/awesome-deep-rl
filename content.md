@@ -1,4 +1,4 @@
 Deep Reinforcement Learning
 
 
-1. [](incentizing.md)
+1. [](incentivizing.md)
