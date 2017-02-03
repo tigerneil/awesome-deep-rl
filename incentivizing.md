@@ -12,3 +12,6 @@ In this paper, we consider the challenging Atari games domain, which requires pr
 We evaluate several more sophisticated exploration strategies, including **Thompson sampling and Boltzman exploration**, and propose a new *exploration* method based on assigning **exploration bonuses** from a **concurrently learned model** of the system dynamics. By parameterizing our **learned model** with a neural network, we are able to develop a scalable and efficient approach to exploration bonuses that can be applied to tasks with complex, high-dimensional state spaces. 
 
 In the Atari domain, our method provides the most consistent improvement across a range of games that pose a major challenge for prior methods. In addition to raw game-scores, we also develop an **AUC-100 metric** for the Atari Learning domain to evaluate the impact of exploration on this benchmark.
+
+## Contribution
+Propose a new exploration method based on assigning exploration bonuses from a concurrently learned model of the system dynamics.
