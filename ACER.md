@@ -12,3 +12,5 @@ Utilize recent developments in
 
 **Theoretical result:**
 Retrace operator can be rewritten from our proposed truncated importance sampling with bias correction technique.
+
+![](images/ACER.png)
