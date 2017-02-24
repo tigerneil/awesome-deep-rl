@@ -1,2 +1,5 @@
 # deep-reinforcement-learning-records
-for learning and researching on DRL
+
+Explicitly show the relationships between various techniques of deep reinforcement learning methods.
+
+Dedicated for learning and researching on DRL.
