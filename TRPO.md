@@ -24,3 +24,4 @@ performs robustly on a wide variety of tasks:
 1. approximations deviate from the theory
 2. TRPO **tends** to give monotonic improvement, with little tuning of hyperparameters.
 
+![](images/TRPO.png)
