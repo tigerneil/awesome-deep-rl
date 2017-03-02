@@ -15,3 +15,6 @@
 ## Connection with other methods
 
 * [Connecting Generative Adversarial Networks and Actor-Critic Methods](GANAC.md)
+
+## Connecting value and policy methods
+* [Bridging the Gap Between Value and Policy Based Reinforcement Learning](PCL.md)
