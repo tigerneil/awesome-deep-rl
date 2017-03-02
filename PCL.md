@@ -2,20 +2,16 @@
 
 Ofir Nachum, Mohammad Norouzi, Kelvin Xu, Dale Schuurmans
 
-A new notion of softmax temporal consistency that generalizes the standard hardmax Bellman consistency usually considered in 
-value based reinforcement learning (RL). 
+A new notion of softmax temporal consistency that generalizes the standard hardmax Bellman consistency usually considered in value based reinforcement learning (RL). 
 
-softmax consistent action values correspond to optimal policies that maximize
-entropy regularized expected reward. 
+softmax consistent action values correspond to optimal policies that maximize entropy regularized expected reward. 
 
-softmax consistent action values and the optimal policy must 
-satisfy a mutual compatibility property that holds across any state-action subsequence. 
+softmax consistent action values and the optimal policy must satisfy a mutual compatibility property that holds across any state-action subsequence. 
 
 ## New algorithm
-Path Consistency Learning (PCL), that minimizes the total inconsistency measured along multi-step subsequences extracted from both on and off policy traces. 
+Path Consistency Learning (PCL), that minimizes the total inconsistency measured along multi-step subsequences extracted from both on and off policy traces.
 
-An experimental evaluation demonstrates that PCL significantly outperforms strong actor-critic and Q-learning baselines across several benchmark tasks.
-
+## Contributions
 * A complete characterization of softmax temporal consistency, which generalizes the commonly used hardmax Bellman consistency.
 * A proof that Q-values satisfying softmax temporal consistency directly determine the optimal policy that maximizes entropy regularized expected discounted reward.
 * Identification of a new multi-step path-wise softmax consistency property that relates the optimal Q-values at the end points of any path to the log-probabilities of the optimal policy along actions of that path.
