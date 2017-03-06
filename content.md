@@ -13,6 +13,7 @@
 
 * [SAMPLE EFFICIENT ACTOR-CRITIC WITH EXPERIENCE REPLAY](ACER.md)
 * [REINFORCEMENT LEARNING WITH UNSUPERVISED AUXILIARY TASKS](UNREAL.md)
+* [Continuous control with deep reinforcement learning](DDPG.md)
 
 ## Connection with other methods
 
@@ -21,4 +22,5 @@
 ## Connecting value and policy methods
 * [Bridging the Gap Between Value and Policy Based Reinforcement Learning](PCL.md)
 * [Policy gradient and Q-learning](PGQ.md)
+
 
