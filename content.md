@@ -25,3 +25,6 @@
 
 ## Unifying
 * [Multi-step Reinforcement Learning: A Unifying Algorithm](MSRL.md)
+
+## Faster DRL
+* [Neural Episodic Control](NEC.md)
