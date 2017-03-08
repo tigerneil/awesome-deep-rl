@@ -23,4 +23,5 @@
 * [Bridging the Gap Between Value and Policy Based Reinforcement Learning](PCL.md)
 * [Policy gradient and Q-learning](PGQ.md)
 
-
+## Unifying
+* [Multi-step Reinforcement Learning: A Unifying Algorithm](MSRL.md)
