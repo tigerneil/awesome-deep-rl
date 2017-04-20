@@ -1,5 +1,5 @@
 # deep-reinforcement-learning-records
-
+![Landscape of **DRL**/GAN](images/landscape.jpeg)
 Explicitly show the relationships between various techniques of deep reinforcement learning methods.
 
 Dedicated for learning and researching on DRL. 
