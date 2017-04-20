@@ -2,7 +2,7 @@
 
 Explicitly show the relationships between various techniques of deep reinforcement learning methods.
 
-Dedicated for learning and researching on DRL.
+Dedicated for learning and researching on DRL. 
 
 ## Policy gradient methods
 
@@ -16,7 +16,7 @@ Dedicated for learning and researching on DRL.
 
 ## Actor-Critic methods
 
-* [The Reactor: A Sample-Efficient Actor-Critic Architecture](REACTOR.md)
+* [The Reactor: A Sample-Efficient Actor-Critic Architecture](REACTOR.md) 15 Apr 2017
 * [SAMPLE EFFICIENT ACTOR-CRITIC WITH EXPERIENCE REPLAY](ACER.md)
 * [REINFORCEMENT LEARNING WITH UNSUPERVISED AUXILIARY TASKS](UNREAL.md)
 * [Continuous control with deep reinforcement learning](DDPG.md)
