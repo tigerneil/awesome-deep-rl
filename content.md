@@ -11,9 +11,11 @@
 
 ## Actor-Critic methods
 
+* [The Reactor: A Sample-Efficient Actor-Critic Architecture](REACTOR.md)
 * [SAMPLE EFFICIENT ACTOR-CRITIC WITH EXPERIENCE REPLAY](ACER.md)
 * [REINFORCEMENT LEARNING WITH UNSUPERVISED AUXILIARY TASKS](UNREAL.md)
 * [Continuous control with deep reinforcement learning](DDPG.md)
+
 
 ## Connection with other methods
 
