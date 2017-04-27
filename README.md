@@ -36,3 +36,5 @@ Dedicated for learning and researching on DRL.
 ## Faster DRL
 * [Neural Episodic Control](NEC.md)
 
+## Apply RL to other domains
+* [TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING](RLTUNER.md)
