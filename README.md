@@ -13,7 +13,7 @@ Dedicated for learning and researching on DRL.
 ## Explorations in DRL
 
 * [Incentivizing Exploration In Reinforcement Learning With Deep Predictive Models](incentivizing.md)
-
+* [EX2: Exploration with Exemplar Models for Deep Reinforcement Learning](EX2.md)
 ## Actor-Critic methods
 
 * [The Reactor: A Sample-Efficient Actor-Critic Architecture](REACTOR.md) 15 Apr 2017
