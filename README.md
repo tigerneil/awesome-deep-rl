@@ -9,7 +9,7 @@ Dedicated for learning and researching on DRL.
 * [Trust Region Policy Optimization](TRPO.md)
 * [Reinforcement Learning with Deep Energy-Based Policies](DEBP.md)
 * [Q-PROP: SAMPLE-EFFICIENT POLICY GRADIENT WITH AN OFF-POLICY CRITIC](QPROP.md)
-* [Interpolated Policy Gradient: Merging On-Policy and Off-Policy Gradient Estimation for Deep Reinforcement Learning](IPG.md)
+* [Interpolated Policy Gradient: Merging On-Policy and Off-Policy Gradient Estimation for Deep Reinforcement Learning](IPG.md) 1 Jun 2017
 
 ## Explorations in DRL
 
