@@ -13,6 +13,7 @@ Dedicated for learning and researching on DRL.
 
 ## Explorations in DRL
 
+* [Count-Based Exploration with Neural Density Models](NDM.md) 14 Jun 2017
 * [Incentivizing Exploration In Reinforcement Learning With Deep Predictive Models](incentivizing.md)
 * [EX2: Exploration with Exemplar Models for Deep Reinforcement Learning](EX2.md)
 ## Actor-Critic methods
