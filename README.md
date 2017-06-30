@@ -12,8 +12,10 @@ Dedicated for learning and researching on DRL.
 * [Interpolated Policy Gradient: Merging On-Policy and Off-Policy Gradient Estimation for Deep Reinforcement Learning](IPG.md) 1 Jun 2017
 
 ## Explorations in DRL
+
 * [Count-Based Exploration in Feature Space for Reinforcement Learning](PhiEB.md) 25 Jun 2017
 * [Count-Based Exploration with Neural Density Models](NDM.md) 14 Jun 2017
+* [UCB and InfoGain Exploration via Q-Ensembles](QEnsemble.md) 11 Jun 2017
 * [Incentivizing Exploration In Reinforcement Learning With Deep Predictive Models](incentivizing.md)
 * [EX2: Exploration with Exemplar Models for Deep Reinforcement Learning](EX2.md)
 
