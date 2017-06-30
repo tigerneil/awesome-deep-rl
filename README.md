@@ -48,5 +48,6 @@ Dedicated for learning and researching on DRL.
 * [TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING](RLTUNER.md)
 
 ## Multiagent Settings
+* [Counterfactual Multi-Agent Policy Gradients](COMA.md)
 * [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](MADDPG.md) 7 Jun 2017
 * [Multiagent Bidirectionally-Coordinated Nets for Learning to Play StarCraft Combat Games](BiCNet.md) 29 Mar 2017
