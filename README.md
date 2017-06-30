@@ -35,6 +35,9 @@ Dedicated for learning and researching on DRL.
 * [Bridging the Gap Between Value and Policy Based Reinforcement Learning](PCL.md)
 * [Policy gradient and Q-learning](PGQ.md)
 
+## Reward design
+* [Reinforcement Learning with Corrupted Reward Channel](RLCRC.md) 23 May 2017
+
 ## Unifying
 * [Multi-step Reinforcement Learning: A Unifying Algorithm](MSRL.md)
 
