@@ -16,6 +16,7 @@ Dedicated for learning and researching on DRL.
 * [Count-Based Exploration with Neural Density Models](NDM.md) 14 Jun 2017
 * [Incentivizing Exploration In Reinforcement Learning With Deep Predictive Models](incentivizing.md)
 * [EX2: Exploration with Exemplar Models for Deep Reinforcement Learning](EX2.md)
+
 ## Actor-Critic methods
 
 * [The Reactor: A Sample-Efficient Actor-Critic Architecture](REACTOR.md) 15 Apr 2017
@@ -23,6 +24,8 @@ Dedicated for learning and researching on DRL.
 * [REINFORCEMENT LEARNING WITH UNSUPERVISED AUXILIARY TASKS](UNREAL.md)
 * [Continuous control with deep reinforcement learning](DDPG.md)
 
+## Option
+* [A Laplacian Framework for Option Discovery in Reinforcement Learning](LFOD.md) 16 Jun 2017
 
 ## Connection with other methods
 
