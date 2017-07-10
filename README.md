@@ -29,9 +29,12 @@ Dedicated for learning and researching on DRL.
 * [Continuous control with deep reinforcement learning](DDPG.md)
 
 ## Option
+
 * [A Laplacian Framework for Option Discovery in Reinforcement Learning](LFOD.md) 16 Jun 2017
 
 ## Connection with other methods
+
+* [Robust Imitation of Diverse Behaviors](GVG.md)
 * [Learning human behaviors from motion capture by adversarial imitation](GAIL.md)
 * [Connecting Generative Adversarial Networks and Actor-Critic Methods](GANAC.md)
 
