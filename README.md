@@ -32,7 +32,7 @@ Dedicated for learning and researching on DRL.
 * [A Laplacian Framework for Option Discovery in Reinforcement Learning](LFOD.md) 16 Jun 2017
 
 ## Connection with other methods
-
+* [Learning human behaviors from motion capture by adversarial imitation](GAIL.md)
 * [Connecting Generative Adversarial Networks and Actor-Critic Methods](GANAC.md)
 
 ## Connecting value and policy methods
