@@ -5,6 +5,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 Dedicated for learning and researching on DRL. 
 
 ## Policy gradient methods
+* [Emergence of Locomotion Behaviours in Rich Environments](DPPO.md)
 * [Equivalence Between Policy Gradients and Soft Q-Learning](PGSQL.md)
 * [Trust Region Policy Optimization](TRPO.md)
 * [Reinforcement Learning with Deep Energy-Based Policies](DEBP.md)
