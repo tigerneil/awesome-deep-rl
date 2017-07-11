@@ -14,7 +14,7 @@ Dedicated for learning and researching on DRL.
 
 ## Explorations in DRL
  
-* [Noisy Networks for Exploration](NoisyNet.md) 30 Jun 2017
+* [Noisy Networks for Exploration](NoisyNet.md) 30 Jun 2017 [implementation](https://github.com/Kaixhin/NoisyNet-A3C)
 * [Count-Based Exploration in Feature Space for Reinforcement Learning](PhiEB.md) 25 Jun 2017
 * [Count-Based Exploration with Neural Density Models](NDM.md) 14 Jun 2017
 * [UCB and InfoGain Exploration via Q-Ensembles](QEnsemble.md) 11 Jun 2017
