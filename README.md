@@ -59,3 +59,6 @@ Dedicated for learning and researching on DRL.
 * [Counterfactual Multi-Agent Policy Gradients](COMA.md)
 * [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](MADDPG.md) 7 Jun 2017
 * [Multiagent Bidirectionally-Coordinated Nets for Learning to Play StarCraft Combat Games](BiCNet.md) 29 Mar 2017
+
+## New design
+* [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
