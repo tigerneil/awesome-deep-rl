@@ -62,3 +62,6 @@ Dedicated for learning and researching on DRL.
 
 ## New design
 * [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
+
+## Multitask
+* [Distral: Robust Multitask Reinforcement Learning](Distral.md) 13 July 2017
