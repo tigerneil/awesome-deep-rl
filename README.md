@@ -3,7 +3,11 @@
 Explicitly show the relationships between various techniques of deep reinforcement learning methods.
 
 Dedicated for learning and researching on DRL. 
-
+## Value based methods
+* [Deep Q-Networks](DQN.md)
+* [Prioritized Experience](PER.md)
+* [Dueling Network Architecture](Dueling.md)
+* [Learning from Demonstrations for Real World Reinforcement Learning](DQfD.md)
 ## Policy gradient methods
 * [Emergence of Locomotion Behaviours in Rich Environments](DPPO.md) 7 July 2017
 * [Equivalence Between Policy Gradients and Soft Q-Learning](PGSQL.md)
