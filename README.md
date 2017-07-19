@@ -5,6 +5,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 Dedicated for learning and researching on DRL. 
 ## Value based methods
 * [Deep Q-Networks](DQN.md)
+* [Double DQN](DDQN.md)
 * [Prioritized Experience](PER.md)
 * [Dueling Network Architecture](Dueling.md)
 * [Learning from Demonstrations for Real World Reinforcement Learning](DQfD.md)
