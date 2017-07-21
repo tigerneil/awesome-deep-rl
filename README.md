@@ -84,7 +84,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 * [Multiagent Bidirectionally-Coordinated Nets for Learning to Play StarCraft Combat Games](BiCNet.md) 29 Mar 2017
 
 ## New design
-
+* [Reverse Curriculum Generation for Reinforcement Learning](RECUR.md)
 * [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
 
 ## Multitask
