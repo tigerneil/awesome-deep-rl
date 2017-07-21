@@ -1,6 +1,6 @@
 # deep-reinforcement-learning-records
 ![Landscape of **DRL**/GAN](images/landscape.jpeg)
-Explicitly show the relationships between various techniques of deep reinforcement learning methods.
+Explicitly show the relationships between various techniques of deep reinforcement learning methods. **Recommendations and suggestions are welcome**. 
 
 Dedicated for learning and researching on DRL. 
 ## Value based methods
