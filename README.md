@@ -85,6 +85,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 
 ## New design
 * [Reverse Curriculum Generation for Reinforcement Learning](RECUR.md)
+* [Trial without Error: Towards Safe Reinforcement Learning via Human Intervention](HIRL.md)
 * [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
 
 ## Multitask
