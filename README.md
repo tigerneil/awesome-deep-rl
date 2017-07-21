@@ -5,12 +5,16 @@ Explicitly show the relationships between various techniques of deep reinforceme
 **Recommendations and suggestions are welcome**. 
 
 ## Value based methods
+
 * [Deep Q-Networks](DQN.md)
 * [Double DQN](DDQN.md)
 * [Prioritized Experience](PER.md)
 * [Dueling Network Architecture](Dueling.md)
 * [Learning from Demonstrations for Real World Reinforcement Learning](DQfD.md)
+
 ## Policy gradient methods
+
+* [Proximal Policy Optimization Algorithms](PPO.md) 20 July 2017
 * [Emergence of Locomotion Behaviours in Rich Environments](DPPO.md) 7 July 2017
 * [Equivalence Between Policy Gradients and Soft Q-Learning](PGSQL.md)
 * [Trust Region Policy Optimization](TRPO.md)
@@ -35,6 +39,13 @@ Explicitly show the relationships between various techniques of deep reinforceme
 * [REINFORCEMENT LEARNING WITH UNSUPERVISED AUXILIARY TASKS](UNREAL.md)
 * [Continuous control with deep reinforcement learning](DDPG.md)
 
+## Model-based methods
+* [Learning model-based planning from scratch](IBP.md) 19 July 2017
+
+## Model-free + Model-based
+
+* [Imagination-Augmented Agents for Deep Reinforcement Learning](I2As.md) 19 July 2017
+
 ## Option
 
 * [A Laplacian Framework for Option Discovery in Reinforcement Learning](LFOD.md) 16 Jun 2017
@@ -46,28 +57,36 @@ Explicitly show the relationships between various techniques of deep reinforceme
 * [Connecting Generative Adversarial Networks and Actor-Critic Methods](GANAC.md)
 
 ## Connecting value and policy methods
+
 * [Bridging the Gap Between Value and Policy Based Reinforcement Learning](PCL.md)
 * [Policy gradient and Q-learning](PGQ.md)
 
 ## Reward design
+
 * [Reinforcement Learning with Corrupted Reward Channel](RLCRC.md) 23 May 2017
 
 ## Unifying
+
 * [Multi-step Reinforcement Learning: A Unifying Algorithm](MSRL.md)
 
 ## Faster DRL
+
 * [Neural Episodic Control](NEC.md)
 
 ## Apply RL to other domains
+
 * [TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING](RLTUNER.md)
 
 ## Multiagent Settings
+
 * [Counterfactual Multi-Agent Policy Gradients](COMA.md)
 * [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](MADDPG.md) 7 Jun 2017
 * [Multiagent Bidirectionally-Coordinated Nets for Learning to Play StarCraft Combat Games](BiCNet.md) 29 Mar 2017
 
 ## New design
+
 * [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
 
 ## Multitask
+
 * [Distral: Robust Multitask Reinforcement Learning](Distral.md) 13 July 2017
