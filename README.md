@@ -24,6 +24,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 
 ## Explorations in DRL
 
+* [The Uncertainty Bellman Equation and Exploration](UBE.md) 15 Sep 2017
 * [Noisy Networks for Exploration](NoisyNet.md) 30 Jun 2017 [implementation](https://github.com/Kaixhin/NoisyNet-A3C)
 * [Count-Based Exploration in Feature Space for Reinforcement Learning](PhiEB.md) 25 Jun 2017
 * [Count-Based Exploration with Neural Density Models](NDM.md) 14 Jun 2017
