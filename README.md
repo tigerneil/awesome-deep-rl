@@ -78,7 +78,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 * [TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING](RLTUNER.md)
 
 ## Multiagent Settings
-
+* [Learning with Opponent-Learning Awareness](LOLA.md) 13 Sep 2017
 * [Counterfactual Multi-Agent Policy Gradients](COMA.md)
 * [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](MADDPG.md) 7 Jun 2017
 * [Multiagent Bidirectionally-Coordinated Nets for Learning to Play StarCraft Combat Games](BiCNet.md) 29 Mar 2017
