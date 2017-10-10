@@ -5,7 +5,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 **Recommendations and suggestions are welcome**. 
 
 ## Value based methods
-
+* [Rainbow: Combining Improvements in Deep Reinforcement Learning](Rainbow.md) 6 Oct 2017
 * [Deep Q-Networks](DQN.md)
 * [Double DQN](DDQN.md)
 * [Prioritized Experience](PER.md)
