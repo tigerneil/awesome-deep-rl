@@ -6,11 +6,11 @@ Explicitly show the relationships between various techniques of deep reinforceme
 
 ## Value based methods
 * [Rainbow: Combining Improvements in Deep Reinforcement Learning](Rainbow.md) 6 Oct 2017
-* [Deep Q-Networks](DQN.md)
+* [Learning from Demonstrations for Real World Reinforcement Learning](DQfD.md) 12 Apr 2017
+* [Dueling Network Architecture](Dueling.md)
 * [Double DQN](DDQN.md)
 * [Prioritized Experience](PER.md)
-* [Dueling Network Architecture](Dueling.md)
-* [Learning from Demonstrations for Real World Reinforcement Learning](DQfD.md)
+* [Deep Q-Networks](DQN.md)
 
 ## Policy gradient methods
 
