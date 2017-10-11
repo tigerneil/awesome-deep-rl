@@ -16,11 +16,12 @@ Explicitly show the relationships between various techniques of deep reinforceme
 
 * [Proximal Policy Optimization Algorithms](PPO.md) 20 July 2017
 * [Emergence of Locomotion Behaviours in Rich Environments](DPPO.md) 7 July 2017
+* [Interpolated Policy Gradient: Merging On-Policy and Off-Policy Gradient Estimation for Deep Reinforcement Learning](IPG.md) 1 Jun 2017
 * [Equivalence Between Policy Gradients and Soft Q-Learning](PGSQL.md)
 * [Trust Region Policy Optimization](TRPO.md)
 * [Reinforcement Learning with Deep Energy-Based Policies](DEBP.md)
 * [Q-PROP: SAMPLE-EFFICIENT POLICY GRADIENT WITH AN OFF-POLICY CRITIC](QPROP.md)
-* [Interpolated Policy Gradient: Merging On-Policy and Off-Policy Gradient Estimation for Deep Reinforcement Learning](IPG.md) 1 Jun 2017
+
 
 ## Explorations in DRL
 
