@@ -80,6 +80,8 @@ Explicitly show the relationships between various techniques of deep reinforceme
 * [TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING](RLTUNER.md)
 
 ## Multiagent Settings
+
+* [Continuous Adaptation via Meta-Learning in Nonstationary and Competitive Environments](RoboSumo.md) 10 Oct 2017
 * [Learning with Opponent-Learning Awareness](LOLA.md) 13 Sep 2017
 * [Counterfactual Multi-Agent Policy Gradients](COMA.md)
 * [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](MADDPG.md) 7 Jun 2017
