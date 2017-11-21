@@ -95,3 +95,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 ## Multitask
 
 * [Distral: Robust Multitask Reinforcement Learning](Distral.md) 13 July 2017
+
+## Observational Learning
+
+* [Observational Learning by Reinforcement Learning](OLRL.md) 20 Jun 2017
