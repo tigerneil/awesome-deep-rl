@@ -81,10 +81,9 @@ Explicitly show the relationships between various techniques of deep reinforceme
 
 ## Multiagent Settings
 
-* [Counterfactual Multi-Agent Policy Gradients](COMA.md) 15 Jan 2018
 * [Continuous Adaptation via Meta-Learning in Nonstationary and Competitive Environments](RoboSumo.md) 10 Oct 2017
 * [Learning with Opponent-Learning Awareness](LOLA.md) 13 Sep 2017
-* [Counterfactual Multi-Agent Policy Gradients](COMA.md)
+* [Counterfactual Multi-Agent Policy Gradients](COMA.md) 
 * [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](MADDPG.md) 7 Jun 2017
 * [Multiagent Bidirectionally-Coordinated Nets for Learning to Play StarCraft Combat Games](BiCNet.md) 29 Mar 2017
 
