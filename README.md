@@ -93,7 +93,7 @@ Explicitly show the relationships between various techniques of deep reinforceme
 * [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
 
 ## Multitask
-
+* [Zero-Shot Task Generalization with Multi-Task Deep Reinforcement Learning](ZSTG.md) 7 Nov 2017
 * [Distral: Robust Multitask Reinforcement Learning](Distral.md) 13 July 2017
 
 ## Observational Learning
