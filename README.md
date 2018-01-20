@@ -1,7 +1,7 @@
 # deep-reinforcement-learning-records
 ![Landscape of **DRL**/GAN](images/landscape.jpeg)
 Explicitly show the relationships between various techniques of deep reinforcement learning methods. Dedicated for learning and researching on DRL. 
-This project is for learning and researching on DRL. This area is so hot that everyday we can see new ideas happen. I would like to give an explicit landscape for deep rl, one reason is for better understanding existed methods and theoretical results, the other is to seek potential developments based on these findings. Any suggestion/improvement is welcomed. 
+This project is for learning and researching on DRL. This area is so hot that everyday we can see new ideas happen. I would like to give an explicit landscape for deep rl, one reason is for aquire the better understanding of existing methods and theoretical results, the other is to seek potential developments based on these findings. Any suggestion/improvement is welcomed. 
 
 **Recommendations and suggestions are welcome**. 
 
