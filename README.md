@@ -14,7 +14,7 @@ This project is for learning and researching on DRL. This area is so hot that ev
 * [Deep Q-Networks](DQN.md)
 
 ## Policy gradient methods
-
+* [Expected Policy Gradients for Reinforcement Learning](EPG.md) 10 Jan 2018
 * [Proximal Policy Optimization Algorithms](PPO.md) 20 July 2017
 * [Emergence of Locomotion Behaviours in Rich Environments](DPPO.md) 7 July 2017
 * [Interpolated Policy Gradient: Merging On-Policy and Off-Policy Gradient Estimation for Deep Reinforcement Learning](IPG.md) 1 Jun 2017
