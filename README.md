@@ -101,3 +101,6 @@ This project is for learning and researching on DRL. This area is so hot that ev
 ## Observational Learning
 
 * [Observational Learning by Reinforcement Learning](OLRL.md) 20 Jun 2017
+
+## Applications
+* [DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills](dmimic.md) 9 Apr 2018
