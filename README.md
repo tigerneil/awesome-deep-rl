@@ -6,6 +6,7 @@ This project is for learning and researching on DRL. This area is so hot that ev
 **Recommendations and suggestions are welcome**. 
 
 ## Value based methods
+* [TreeQN and ATreeC: Differentiable Tree-Structured Models for Deep Reinforcement Learning](https://arxiv.org/pdf/1710.11417) 8 Mar 2018
 * [DISTRIBUTED PRIORITIZED EXPERIENCE REPLAY](https://arxiv.org/pdf/1803.00933.pdf) 2 Mar 2018
 * [An Analysis of Categorical Distributional Reinforcement Learning](C51.md) 22 Feb 2018
 * [Rainbow: Combining Improvements in Deep Reinforcement Learning](Rainbow.md) 6 Oct 2017
