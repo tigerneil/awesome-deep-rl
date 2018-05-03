@@ -92,6 +92,7 @@ This project is for learning and researching on DRL. This area is so hot that ev
 * [Multiagent Bidirectionally-Coordinated Nets for Learning to Play StarCraft Combat Games](BiCNet.md) 29 Mar 2017
 
 ## New design
+* [IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Learner Architectures](https://arxiv.org/pdf/1802.01561.pdf) 9 Feb 2018
 * [Reverse Curriculum Generation for Reinforcement Learning](RECUR.md)
 * [Trial without Error: Towards Safe Reinforcement Learning via Human Intervention](HIRL.md)
 * [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
