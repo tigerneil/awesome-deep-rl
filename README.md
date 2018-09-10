@@ -53,7 +53,7 @@ This project is for learning and researching on DRL. This area is so hot that ev
 * [Imagination-Augmented Agents for Deep Reinforcement Learning](I2As.md) 19 July 2017
 
 ## Option
-
+* [Variational Option Discovery Algorithms](VALOR.md) 26 July 2018
 * [A Laplacian Framework for Option Discovery in Reinforcement Learning](LFOD.md) 16 Jun 2017
 
 ## Connection with other methods
