@@ -119,5 +119,7 @@ This project is for learning and researching on DRL. This area is so hot that ev
 ## Inverse RL
 * [ADDRESSING SAMPLE INEFFICIENCY AND REWARD BIAS IN INVERSE REINFORCEMENT LEARNING](OP-GAIL.md) 9 Sep 2018
 
+## Time
+* [Time Limits in Reinforcement Learning](PEB.md)
 ## Applications
 * [DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills](dmimic.md) 9 Apr 2018
