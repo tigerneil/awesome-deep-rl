@@ -109,7 +109,9 @@ This project is for learning and researching on DRL. This area is so hot that ev
 * [Unsupervised Meta-Learning for Reinforcement Learning](UML.md) 12 Jun 2018
 
 ## Distributional
+
 * [Implicit Quantile Networks for Distributional Reinforcement Learning](IQN.md) 14 Jun 2018
+* [DISTRIBUTED DISTRIBUTIONAL DETERMINISTIC POLICY GRADIENTS](D4PG.md) 23 Apr 2018
 * [An Analysis of Categorical Distributional Reinforcement Learning](C51-analysis.md) 22 Feb 2018
 * [Distributional Reinforcement Learning with Quantile Regression](QR-DQN.md) 27 Oct 2017
 * [A Distributional Perspective on Reinforcement Learning](C51.md) 21 July 2017
