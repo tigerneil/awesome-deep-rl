@@ -115,7 +115,7 @@ This project is for learning and researching on DRL. This area is so hot that ev
 * [A Distributional Perspective on Reinforcement Learning](C51.md) 21 July 2017
 
 ## Inverse RL
-* []()
+* [ADDRESSING SAMPLE INEFFICIENCY AND REWARD BIAS IN INVERSE REINFORCEMENT LEARNING](OP-GAIL.md) 9 Sep 2018
 
 ## Applications
 * [DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills](dmimic.md) 9 Apr 2018
