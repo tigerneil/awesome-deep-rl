@@ -114,5 +114,8 @@ This project is for learning and researching on DRL. This area is so hot that ev
 * [Distributional Reinforcement Learning with Quantile Regression](QR-DQN.md) 27 Oct 2017
 * [A Distributional Perspective on Reinforcement Learning](C51.md) 21 July 2017
 
+## Inverse RL
+* []()
+
 ## Applications
 * [DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills](dmimic.md) 9 Apr 2018
