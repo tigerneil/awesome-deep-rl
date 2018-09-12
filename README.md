@@ -112,6 +112,7 @@ This project is for learning and researching on DRL. This area is so hot that ev
 ## Distributional
 
 * [Implicit Quantile Networks for Distributional Reinforcement Learning](IQN.md) 14 Jun 2018
+* [Nonlinear Distributional Gradient Temporal-Difference Learning](GTD.md) 20 May 2018
 * [DISTRIBUTED DISTRIBUTIONAL DETERMINISTIC POLICY GRADIENTS](D4PG.md) 23 Apr 2018
 * [An Analysis of Categorical Distributional Reinforcement Learning](C51-analysis.md) 22 Feb 2018
 * [Distributional Reinforcement Learning with Quantile Regression](QR-DQN.md) 27 Oct 2017
