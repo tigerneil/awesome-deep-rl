@@ -46,6 +46,7 @@ This project is for learning and researching on DRL. This area is so hot that ev
 * [Continuous control with deep reinforcement learning](DDPG.md)
 
 ## Model-based methods
+* [Model-Based Stabilisation of Deep Reinforcement Learning](MBDQN.md) 6 Sep 2018
 * [Learning model-based planning from scratch](IBP.md) 19 July 2017
 
 ## Model-free + Model-based
