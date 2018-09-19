@@ -3,6 +3,9 @@
 This project is built for people who are learning and researching on latest deep reinforcement learning methods.
 
 **Recommendations and suggestions are welcome**. 
+## General guidances
+* [Principles of Deep RL by David Silver](p10.md)
+
 
 ## Value based methods
 
