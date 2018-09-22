@@ -2,6 +2,9 @@
 ![Landscape of **DRL**/GAN](images/landscape.jpeg)
 This project is built for people who are learning and researching on latest deep reinforcement learning methods.
 
+Illustrations:
+![](images/ACER.png)
+
 **Recommendations and suggestions are welcome**. 
 ## General guidances
 * [Principles of Deep RL by David Silver](p10.md)
