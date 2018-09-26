@@ -1,4 +1,6 @@
 # Awesome-deep-reinforcement-learning
+![updated Landscape of **DRL**](images/awesome-drl.png)
+
 ![Landscape of **DRL**/GAN](images/landscape.jpeg)
 This project is built for people who are learning and researching on latest deep reinforcement learning methods.
 
