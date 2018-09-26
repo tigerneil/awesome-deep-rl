@@ -91,7 +91,7 @@ Illustrations:
 * [TUNING RECURRENT NEURAL NETWORKS WITH REINFORCEMENT LEARNING](RLTUNER.md)
 
 ## Multiagent Settings
-
+* [The Mechanics of n-Player Differentiable Games](SGA.md) 
 * [Continuous Adaptation via Meta-Learning in Nonstationary and Competitive Environments](RoboSumo.md) 10 Oct 2017
 * [Learning with Opponent-Learning Awareness](LOLA.md) 13 Sep 2017
 * [Counterfactual Multi-Agent Policy Gradients](COMA.md) 
