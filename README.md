@@ -12,7 +12,7 @@ Illustrations:
 **Recommendations and suggestions are welcome**. 
 ## General guidances
 * [Principles of Deep RL by David Silver](p10.md)
-
+* [general introduction to deep rl (in Chinese)](https://www.jianshu.com/p/dfd987aa765a)
 
 ## Value based methods
 
