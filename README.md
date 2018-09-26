@@ -14,6 +14,9 @@ Illustrations:
 * [Principles of Deep RL by David Silver](p10.md)
 * [general introduction to deep rl (in Chinese)](https://www.jianshu.com/p/dfd987aa765a)
 
+## General Benchmark Testing Frameworks
+* [S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning](SRL.md) 25 Sept 2018
+
 ## Value based methods
 
 * [TreeQN and ATreeC: Differentiable Tree-Structured Models for Deep Reinforcement Learning](https://arxiv.org/pdf/1710.11417) 8 Mar 2018
@@ -135,3 +138,4 @@ Illustrations:
 * [Time Limits in Reinforcement Learning](PEB.md)
 ## Applications
 * [DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills](dmimic.md) 9 Apr 2018
+
