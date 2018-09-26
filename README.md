@@ -1,4 +1,5 @@
-# Awesome-deep-reinforcement-learning
+# Awesome Deep Reinforcement Learning project
+
 ![updated Landscape of **DRL**](images/awesome-drl.png)
 
 ![Landscape of **DRL**/GAN](images/landscape.jpeg)
