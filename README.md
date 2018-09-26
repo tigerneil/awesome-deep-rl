@@ -20,6 +20,7 @@ Illustrations:
 
 ## General Benchmark Testing Frameworks
 * [S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning](SRL.md) 25 Sept 2018
+* [dopamine](https://github.com/google/dopamine)
 
 ## Value based methods
 
