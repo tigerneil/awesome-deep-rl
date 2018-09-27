@@ -21,7 +21,7 @@ Illustrations:
 ## General Benchmark Testing Frameworks
 * [S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning](SRL.md) 25 Sept 2018
 * [dopamine](https://github.com/google/dopamine)
-
+* [StarCraft II](https://github.com/deepmind/pysc2)
 ## Value based methods
 
 * [TreeQN and ATreeC: Differentiable Tree-Structured Models for Deep Reinforcement Learning](https://arxiv.org/pdf/1710.11417) 8 Mar 2018
