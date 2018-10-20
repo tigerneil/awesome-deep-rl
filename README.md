@@ -22,6 +22,9 @@ Illustrations:
 * [S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning](SRL.md) 25 Sept 2018
 * [dopamine](https://github.com/google/dopamine)
 * [StarCraft II](https://github.com/deepmind/pysc2)
+* [tfrl](https://github.com/deepmind/trfl)
+* [chainerrl](https://github.com/chainer/chainerrl)
+
 ## Value based methods
 
 * [TreeQN and ATreeC: Differentiable Tree-Structured Models for Deep Reinforcement Learning](https://arxiv.org/pdf/1710.11417) 8 Mar 2018
@@ -34,6 +37,8 @@ Illustrations:
 * [Deep Q-Networks](DQN.md)
 
 ## Policy gradient methods
+
+* [Clipped Action Policy Gradient](CAPG.md) 22 June 2018
 * [Expected Policy Gradients for Reinforcement Learning](EPG.md) 10 Jan 2018
 * [Proximal Policy Optimization Algorithms](PPO.md) 20 July 2017
 * [Emergence of Locomotion Behaviours in Rich Environments](DPPO.md) 7 July 2017
