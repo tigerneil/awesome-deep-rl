@@ -134,6 +134,7 @@ Illustrations:
 
 ## Distributional
 
+* [GAN Q-learning](GANQL.md) 20 July 2018
 * [Implicit Quantile Networks for Distributional Reinforcement Learning](IQN.md) 14 Jun 2018
 * [Nonlinear Distributional Gradient Temporal-Difference Learning](GTD.md) 20 May 2018
 * [DISTRIBUTED DISTRIBUTIONAL DETERMINISTIC POLICY GRADIENTS](D4PG.md) 23 Apr 2018
