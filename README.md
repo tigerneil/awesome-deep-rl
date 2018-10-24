@@ -109,6 +109,7 @@ Illustrations:
 ## Multiagent Settings
 
 * [INTRINSIC SOCIAL MOTIVATION VIA CAUSAL INFLUENCE IN MULTI-AGENT RL](ISMCI.md) 19 Oct 2018
+* [Modeling Others using Oneself in Multi-Agent Reinforcement Learning](SOM.md) 26 Feb 2018
 * [The Mechanics of n-Player Differentiable Games](SGA.md) 15 Feb 2018 
 * [Continuous Adaptation via Meta-Learning in Nonstationary and Competitive Environments](RoboSumo.md) 10 Oct 2017
 * [Learning with Opponent-Learning Awareness](LOLA.md) 13 Sep 2017
@@ -117,12 +118,14 @@ Illustrations:
 * [Multiagent Bidirectionally-Coordinated Nets for Learning to Play StarCraft Combat Games](BiCNet.md) 29 Mar 2017
 
 ## New design
+
 * [IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Learner Architectures](https://arxiv.org/pdf/1802.01561.pdf) 9 Feb 2018
 * [Reverse Curriculum Generation for Reinforcement Learning](RECUR.md)
 * [Trial without Error: Towards Safe Reinforcement Learning via Human Intervention](HIRL.md)
 * [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
 
 ## Multitask
+
 * [Zero-Shot Task Generalization with Multi-Task Deep Reinforcement Learning](ZSTG.md) 7 Nov 2017
 * [Distral: Robust Multitask Reinforcement Learning](Distral.md) 13 July 2017
 
@@ -131,6 +134,7 @@ Illustrations:
 * [Observational Learning by Reinforcement Learning](OLRL.md) 20 Jun 2017
 
 ## Meta Learning
+
 * [Unsupervised Meta-Learning for Reinforcement Learning](UML.md) 12 Jun 2018
 
 ## Distributional
@@ -144,10 +148,13 @@ Illustrations:
 * [A Distributional Perspective on Reinforcement Learning](C51.md) 21 July 2017
 
 ## Inverse RL
+
 * [ADDRESSING SAMPLE INEFFICIENCY AND REWARD BIAS IN INVERSE REINFORCEMENT LEARNING](OP-GAIL.md) 9 Sep 2018
 
 ## Time
+
 * [Time Limits in Reinforcement Learning](PEB.md)
+
 ## Applications
 * [DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills](dmimic.md) 9 Apr 2018
 
