@@ -108,6 +108,7 @@ Illustrations:
 
 ## Multiagent Settings
 
+* [INTRINSIC SOCIAL MOTIVATION VIA CAUSAL INFLUENCE IN MULTI-AGENT RL](ISMCI.md) 19 Oct 2018
 * [The Mechanics of n-Player Differentiable Games](SGA.md) 15 Feb 2018 
 * [Continuous Adaptation via Meta-Learning in Nonstationary and Competitive Environments](RoboSumo.md) 10 Oct 2017
 * [Learning with Opponent-Learning Awareness](LOLA.md) 13 Sep 2017
