@@ -108,6 +108,7 @@ Illustrations:
 
 ## Multiagent Settings
 
+* [Bayesian Action Decoder for Deep Multi-Agent Reinforcement Learning](bad.md) 4 Nov 2018
 * [INTRINSIC SOCIAL MOTIVATION VIA CAUSAL INFLUENCE IN MULTI-AGENT RL](ISMCI.md) 19 Oct 2018
 * [Modeling Others using Oneself in Multi-Agent Reinforcement Learning](SOM.md) 26 Feb 2018
 * [The Mechanics of n-Player Differentiable Games](SGA.md) 15 Feb 2018 
