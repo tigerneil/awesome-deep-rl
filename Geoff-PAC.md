@@ -1,7 +1,7 @@
 # Generalized Off-Policy Actor-Critic
 > Shangtong Zhang, Wendelin Boehmer, Shimon Whiteson
 
-[Download](https://arxiv.org/pdf/1903.11329.pdf)
+[Download from arxiv](https://arxiv.org/pdf/1903.11329.pdf)
 
 ## Abstract
 We propose a new objective, the counterfactual objective, unifying existing objectives for off-policy policy gradient algorithms in the continuing reinforcement learning (RL) setting. 
