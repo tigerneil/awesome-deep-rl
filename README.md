@@ -51,6 +51,7 @@ Illustrations:
 
 ## Explorations in DRL
 
+* [Approximate Exploration through State Abstraction](MBIE-EB.md) 24 Jan 2019
 * [The Uncertainty Bellman Equation and Exploration](UBE.md) 15 Sep 2017
 * [Noisy Networks for Exploration](NoisyNet.md) 30 Jun 2017 [implementation](https://github.com/Kaixhin/NoisyNet-A3C)
 * [Count-Based Exploration in Feature Space for Reinforcement Learning](PhiEB.md) 25 Jun 2017
