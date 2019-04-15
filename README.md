@@ -62,7 +62,9 @@ Illustrations:
 * [EX2: Exploration with Exemplar Models for Deep Reinforcement Learning](EX2.md)
 
 ## Actor-Critic methods
+
 * [Generalized Off-Policy Actor-Critic](Geoff-PAC.md) 27 Mar 2019
+* [Soft Actor-Critic Algorithms and Applications](https://arxiv.org/pdf/1812.05905.pdf) 29 Jan 2019
 * [The Reactor: A Sample-Efficient Actor-Critic Architecture](REACTOR.md) 15 Apr 2017
 * [SAMPLE EFFICIENT ACTOR-CRITIC WITH EXPERIENCE REPLAY](ACER.md)
 * [REINFORCEMENT LEARNING WITH UNSUPERVISED AUXILIARY TASKS](UNREAL.md)
