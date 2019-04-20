@@ -37,7 +37,8 @@ Illustrations:
 * [Deep Q-Networks](DQN.md)
 
 ## Policy gradient methods
-
+ 
+* [Policy Gradient Search: Online Planning and Expert Iteration without Search Trees](https://arxiv.org/pdf/1904.03646.pdf) 7 Apr 2019
 * [Clipped Action Policy Gradient](CAPG.md) 22 June 2018
 * [Expected Policy Gradients for Reinforcement Learning](EPG.md) 10 Jan 2018
 * [Proximal Policy Optimization Algorithms](PPO.md) 20 July 2017
@@ -96,6 +97,7 @@ Illustrations:
 
 ## Reward design
 
+* [End-to-End Robotic Reinforcement Learning without Reward Engineering](https://arxiv.org/pdf/1904.07854.pdf) 16 Apr 2019
 * [Reinforcement Learning with Corrupted Reward Channel](RLCRC.md) 23 May 2017
 
 ## Unifying
