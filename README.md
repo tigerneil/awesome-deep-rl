@@ -38,7 +38,7 @@ Illustrations:
 
 ## Policy gradient methods
  
-* [Policy Gradient Search: Online Planning and Expert Iteration without Search Trees](https://arxiv.org/pdf/1904.03646.pdf) 7 Apr 2019
+* [Policy Gradient Search: Online Planning and Expert Iteration without Search Trees](PGS.md) 7 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.03646.pdf)
 * [Clipped Action Policy Gradient](CAPG.md) 22 June 2018
 * [Expected Policy Gradients for Reinforcement Learning](EPG.md) 10 Jan 2018
 * [Proximal Policy Optimization Algorithms](PPO.md) 20 July 2017
@@ -72,6 +72,7 @@ Illustrations:
 * [Continuous control with deep reinforcement learning](DDPG.md)
 
 ## Model-based methods
+
 * [Model Based Reinforcement Learning for Atari](https://arxiv.org/pdf/1903.00374.pdf) 5 Mar 2019
 * [Model-Based Stabilisation of Deep Reinforcement Learning](MBDQN.md) 6 Sep 2018
 * [Learning model-based planning from scratch](IBP.md) 19 July 2017
@@ -81,6 +82,7 @@ Illustrations:
 * [Imagination-Augmented Agents for Deep Reinforcement Learning](I2As.md) 19 July 2017
 
 ## Option
+
 * [Variational Option Discovery Algorithms](VALOR.md) 26 July 2018
 * [A Laplacian Framework for Option Discovery in Reinforcement Learning](LFOD.md) 16 Jun 2017
 
@@ -97,7 +99,7 @@ Illustrations:
 
 ## Reward design
 
-* [End-to-End Robotic Reinforcement Learning without Reward Engineering](https://arxiv.org/pdf/1904.07854.pdf) 16 Apr 2019
+* [End-to-End Robotic Reinforcement Learning without Reward Engineering](VICE.md) 16 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.07854.pdf)
 * [Reinforcement Learning with Corrupted Reward Channel](RLCRC.md) 23 May 2017
 
 ## Unifying
