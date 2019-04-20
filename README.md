@@ -132,6 +132,7 @@ Illustrations:
 
 ## Multitask
 
+* [Kickstarting Deep Reinforcement Learning](https://arxiv.org/pdf/1803.03835.pdf) 10 Mar 2018
 * [Zero-Shot Task Generalization with Multi-Task Deep Reinforcement Learning](ZSTG.md) 7 Nov 2017
 * [Distral: Robust Multitask Reinforcement Learning](Distral.md) 13 July 2017
 
