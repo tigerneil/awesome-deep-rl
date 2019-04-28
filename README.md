@@ -15,6 +15,8 @@ Illustrations:
 
 **Recommendations and suggestions are welcome**. 
 ## General guidances
+
+* [Ray Interference: a Source of Plateaus in Deep Reinforcement Learning](RayInterference.md) 25 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.11455.pdf)
 * [Principles of Deep RL by David Silver](p10.md)
 * [general introduction to deep rl (in Chinese)](https://www.jianshu.com/p/dfd987aa765a)
 
