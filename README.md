@@ -1,4 +1,4 @@
-# Awesome Deep Reinforcement Learning project
+# Awesome Deep Reinforcement Learning
 
 updated Landscape of **DRL**
 
