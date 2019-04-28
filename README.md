@@ -20,7 +20,7 @@ Illustrations:
 
 ## General Benchmark Testing Frameworks
 
-* [Quantifying Generalization in Reinforcement Learning](Coinrun.md) 20 Dec 2018
+* [Quantifying Generalization in Reinforcement Learning](Coinrun.md) 20 Dec 2018 [arxiv](https://arxiv.org/pdf/1812.02341.pdf)
 * [S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning](SRL.md) 25 Sept 2018
 * [dopamine](https://github.com/google/dopamine)
 * [StarCraft II](https://github.com/deepmind/pysc2)
