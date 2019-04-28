@@ -19,6 +19,8 @@ Illustrations:
 * [general introduction to deep rl (in Chinese)](https://www.jianshu.com/p/dfd987aa765a)
 
 ## General Benchmark Testing Frameworks
+
+* [Quantifying Generalization in Reinforcement Learning](Coinrun.md) 20 Dec 2018
 * [S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning](SRL.md) 25 Sept 2018
 * [dopamine](https://github.com/google/dopamine)
 * [StarCraft II](https://github.com/deepmind/pysc2)
