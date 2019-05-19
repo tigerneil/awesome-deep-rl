@@ -19,7 +19,7 @@ Illustrations:
 * [Challenges of Real-World Reinforcement Learning](ChallengesRealWorldRL.md) 29 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.12901.pdf)
 * [Ray Interference: a Source of Plateaus in Deep Reinforcement Learning](RayInterference.md) 25 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.11455.pdf)
 * [Principles of Deep RL by David Silver](p10.md)
-* [general introduction to deep rl (in Chinese)](https://www.jianshu.com/p/dfd987aa765a)
+* [University AI's General introduction to deep rl (in Chinese)](https://www.jianshu.com/p/dfd987aa765a)
 * [OpenAI's spinningup](https://spinningup.openai.com/en/latest/)
 
 ## General Benchmark Testing Frameworks
