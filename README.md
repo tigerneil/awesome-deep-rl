@@ -21,6 +21,8 @@ Illustrations:
 * [Principles of Deep RL by David Silver](p10.md)
 * [University AI's General introduction to deep rl (in Chinese)](https://www.jianshu.com/p/dfd987aa765a)
 * [OpenAI's spinningup](https://spinningup.openai.com/en/latest/)
+* [The Promise of Hierarchical Reinforcement Learning](https://thegradient.pub/the-promise-of-hierarchical-reinforcement-learning/) 9 Mar 2019
+
 
 ## General Benchmark Testing Frameworks
 
