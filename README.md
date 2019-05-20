@@ -154,6 +154,7 @@ Illustrations:
 
 ## Meta Learning
 
+* [ProMP: Proximal Meta-Policy Search](ProMP.md) 16 Oct 2018 [arxiv](https://arxiv.org/pdf/1810.06784)
 * [Unsupervised Meta-Learning for Reinforcement Learning](UML.md) 12 Jun 2018
 
 ## Distributional
