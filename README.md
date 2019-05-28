@@ -175,6 +175,10 @@ Illustrations:
 * [Distributional Reinforcement Learning with Quantile Regression](QR-DQN.md) 27 Oct 2017
 * [A Distributional Perspective on Reinforcement Learning](C51.md) 21 July 2017
 
+## Safety
+
+* [Verifiable Reinforcement Learning via Policy Extraction](Viper.md) 22 May 2018 [arxiv](https://arxiv.org/pdf/1805.08328.pdf)
+
 ## Inverse RL
 
 * [ADDRESSING SAMPLE INEFFICIENCY AND REWARD BIAS IN INVERSE REINFORCEMENT LEARNING](OP-GAIL.md) 9 Sep 2018
