@@ -46,8 +46,11 @@ Illustrations:
 * [Deep Q-Networks](DQN.md)
 
 ## Policy gradient methods
- 
+
+
 * [Policy Gradient Search: Online Planning and Expert Iteration without Search Trees](PGS.md) 7 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.03646.pdf)
+* [SUPERVISED POLICY UPDATE FOR DEEP REINFORCEMENT LEARNING](SPU.md) 24 Dec 2018 [arxiv](https://arxiv.org/pdf/1805.11706v4.pdf)
+* [PPO-CMA: Proximal Policy Optimization with Covariance Matrix Adaptation](PPO-CMA.md) 5 Oct 2018 [arxiv](https://arxiv.org/pdf/1810.02541v6.pdf)
 * [Clipped Action Policy Gradient](CAPG.md) 22 June 2018
 * [Expected Policy Gradients for Reinforcement Learning](EPG.md) 10 Jan 2018
 * [Proximal Policy Optimization Algorithms](PPO.md) 20 July 2017
