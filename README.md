@@ -175,6 +175,10 @@ Illustrations:
 * [Distributional Reinforcement Learning with Quantile Regression](QR-DQN.md) 27 Oct 2017
 * [A Distributional Perspective on Reinforcement Learning](C51.md) 21 July 2017
 
+## Planning
+
+* [Search on the Replay Buffer: Bridging Planning and Reinforcement Learning](SoRB.md) 12 June 2019 [arxiv](https://arxiv.org/pdf/1906.05253.pdf)
+
 ## Safety
 
 * [Verifiable Reinforcement Learning via Policy Extraction](Viper.md) 22 May 2018 [arxiv](https://arxiv.org/pdf/1805.08328.pdf)
