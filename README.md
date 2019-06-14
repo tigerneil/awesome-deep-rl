@@ -187,6 +187,11 @@ Illustrations:
 
 * [ADDRESSING SAMPLE INEFFICIENCY AND REWARD BIAS IN INVERSE REINFORCEMENT LEARNING](OP-GAIL.md) 9 Sep 2018
 
+## No reward RL
+
+* [Fast Task Inference with Variational Intrinsic Successor Features](VISR.md) 2 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.05030.pdf)
+* [Curiosity-driven Exploration by Self-supervised Prediction](https://arxiv.org/pdf/1705.05363) 15 May 2017 
+
 ## Time
 
 * [Time Limits in Reinforcement Learning](PEB.md)
