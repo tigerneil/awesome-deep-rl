@@ -184,6 +184,7 @@ Illustrations:
 
 ## Safety
 
+* [Robust Reinforcement Learning for Continuous Control with Model Misspecification](MPO.md) 18 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.07516.pdf)
 * [Verifiable Reinforcement Learning via Policy Extraction](Viper.md) 22 May 2018 [arxiv](https://arxiv.org/pdf/1805.08328.pdf)
 
 ## Inverse RL
