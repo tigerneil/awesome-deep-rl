@@ -87,6 +87,7 @@ Illustrations:
 
 ## Model-based methods
 
+* [When to use parametric models in reinforcement learning?](parametric.md) 12 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.05243.pdf)
 * [Model Based Reinforcement Learning for Atari](https://arxiv.org/pdf/1903.00374.pdf) 5 Mar 2019
 * [Model-Based Stabilisation of Deep Reinforcement Learning](MBDQN.md) 6 Sep 2018
 * [Learning model-based planning from scratch](IBP.md) 19 July 2017
