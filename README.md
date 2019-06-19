@@ -95,6 +95,10 @@ Illustrations:
 
 * [Imagination-Augmented Agents for Deep Reinforcement Learning](I2As.md) 19 July 2017
 
+## Hierarchical
+
+* [Language as an Abstraction for Hierarchical Deep Reinforcement Learning](HAL.md) 18 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.07343.pdf)
+
 ## Option
 
 * [Variational Option Discovery Algorithms](VALOR.md) 26 July 2018
