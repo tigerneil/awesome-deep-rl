@@ -211,3 +211,7 @@ Illustrations:
 
 * [Sample-efficient Adversarial Imitation Learning from Observation](LQR+GAIfO.md) 18 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.07374.pdf) 
 
+## Use Natural Language
+
+* [Using Natural Language for Reward Shaping in Reinforcement Learning](LEARN.md) 31 May 2019 [arxiv](https://www.cs.utexas.edu/~ai-lab/downloadPublication.php?filename=http://www.cs.utexas.edu/users/ml/papers/goyal.ijcai19.pdf&pubid=127757)
+
