@@ -48,7 +48,7 @@ Illustrations:
 
 ## Policy gradient methods
 
-
+* [Direct Policy Gradients: Direct Optimization of Policies in Discrete Action Spaces](DirPG.md) [arxiv](https://arxiv.org/pdf/1906.06062.pdf)
 * [Policy Gradient Search: Online Planning and Expert Iteration without Search Trees](PGS.md) 7 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.03646.pdf)
 * [SUPERVISED POLICY UPDATE FOR DEEP REINFORCEMENT LEARNING](SPU.md) 24 Dec 2018 [arxiv](https://arxiv.org/pdf/1805.11706v4.pdf)
 * [PPO-CMA: Proximal Policy Optimization with Covariance Matrix Adaptation](PPO-CMA.md) 5 Oct 2018 [arxiv](https://arxiv.org/pdf/1810.02541v6.pdf)
