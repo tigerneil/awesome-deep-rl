@@ -202,3 +202,7 @@ Illustrations:
 ## Applications
 * [DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills](dmimic.md) 9 Apr 2018
 
+## Adversarial learning
+
+* [Sample-efficient Adversarial Imitation Learning from Observation](LQR+GAIfO.md) 18 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.07374.pdf) 
+
