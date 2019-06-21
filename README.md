@@ -34,8 +34,10 @@ Illustrations:
 * [StarCraft II](https://github.com/deepmind/pysc2)
 * [tfrl](https://github.com/deepmind/trfl)
 * [chainerrl](https://github.com/chainer/chainerrl)
+* [PARL](https://github.com/PaddlePaddle/PARL) 
 
 ## Value based methods
+
 
 * [Recurrent Value Functions](RVF.md) 23 May 2019 [arxiv](https://arxiv.org/pdf/1905.09562.pdf)
 * [Stochastic Lipschitz Q-Learning](LipschitzQ.md) 24 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.10653.pdf)
