@@ -220,3 +220,6 @@ Illustrations:
 
 * [Using Natural Language for Reward Shaping in Reinforcement Learning](LEARN.md) 31 May 2019 [arxiv](https://www.cs.utexas.edu/~ai-lab/downloadPublication.php?filename=http://www.cs.utexas.edu/users/ml/papers/goyal.ijcai19.pdf&pubid=127757)
 
+## Generative and contrastive representation learning
+
+* [Unsupervised State Representation Learning in Atari](ST-DIM.md) 19 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.08226.pdf)
