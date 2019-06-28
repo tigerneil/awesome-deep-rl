@@ -226,4 +226,4 @@ Illustrations:
 
 ## Belief
 
-* [Shaping Belief States with Generative Environment Models for RL](GenerativeBelief.md) [arxiv](https://arxiv.org/pdf/1906.09237v2.pdf)
+* [Shaping Belief States with Generative Environment Models for RL](GenerativeBelief.md) 24 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.09237v2.pdf)
