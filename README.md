@@ -16,6 +16,7 @@ Illustrations:
 **Recommendations and suggestions are welcome**. 
 ## General guidances
 
+* [RLDM 2019 Notes by David Abel](https://david-abel.github.io/notes/rldm_2019.pdf) 11 July 2019
 * [A Survey of Reinforcement Learning Informed by Natural Language](RLNL.md) 10 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.03926.pdf)
 * [Challenges of Real-World Reinforcement Learning](ChallengesRealWorldRL.md) 29 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.12901.pdf)
 * [Ray Interference: a Source of Plateaus in Deep Reinforcement Learning](RayInterference.md) 25 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.11455.pdf)
