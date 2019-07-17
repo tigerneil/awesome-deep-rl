@@ -18,6 +18,7 @@ Illustrations:
 **Recommendations and suggestions are welcome**. 
 ## General guidances
 
+* [Multiagent Reinforcement Learning by Marc Lanctot RLSS @ Lille](http://mlanctot.info/files/papers/Lanctot_MARL_RLSS2019_Lille.pdf) 11 July 2019
 * [RLDM 2019 Notes by David Abel](https://david-abel.github.io/notes/rldm_2019.pdf) 11 July 2019
 * [A Survey of Reinforcement Learning Informed by Natural Language](RLNL.md) 10 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.03926.pdf)
 * [Challenges of Real-World Reinforcement Learning](ChallengesRealWorldRL.md) 29 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.12901.pdf)
