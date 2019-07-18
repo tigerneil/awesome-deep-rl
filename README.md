@@ -29,6 +29,10 @@ Illustrations:
 * [The Promise of Hierarchical Reinforcement Learning](https://thegradient.pub/the-promise-of-hierarchical-reinforcement-learning/) 9 Mar 2019
 * [Deep Reinforcement Learning that Matters](reproducing.md) 30 Jan 2019 [arxiv](https://arxiv.org/pdf/1709.06560.pdf)
 
+## Foundations and theory
+
+* [General non-linear Bellman equations](GNLBE.md) 9 July 2019 [arxiv](https://arxiv.org/pdf/1907.07331.pdf)
+
 
 ## General Benchmark Testing Frameworks
 
