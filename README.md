@@ -32,7 +32,7 @@ Illustrations:
 ## Foundations and theory
 
 * [General non-linear Bellman equations](GNLBE.md) 9 July 2019 [arxiv](https://arxiv.org/pdf/1907.07331.pdf)
-
+* [Monte Carlo Gradient Estimation in Machine Learning](MCGE.md) 25 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.10652.pdf)
 
 ## General Benchmark Testing Frameworks
 
