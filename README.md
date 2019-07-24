@@ -1,5 +1,7 @@
 # Awesome Deep Reinforcement Learning
 
+Join our [slack channel](https://join.slack.com/t/universityai/shared_invite/enQtNjk1ODExMzM5Mjg1LTA5YTYyOGNkNDA3ZmQyMzI3MDFjN2EzYjgxZmRlZmUxZWY0ODIzOWZhODhhNTE3ODAxNmI1ZTNjYzI0ZmYwNDc) to have deeper discussions.
+
 updated Landscape of **DRL**
 
 ![updated Landscape of **DRL**](images/awesome-drl.png)
@@ -16,6 +18,8 @@ Illustrations:
 **Recommendations and suggestions are welcome**. 
 ## General guidances
 
+* [Multiagent Reinforcement Learning by Marc Lanctot RLSS @ Lille](http://mlanctot.info/files/papers/Lanctot_MARL_RLSS2019_Lille.pdf) 11 July 2019
+* [RLDM 2019 Notes by David Abel](https://david-abel.github.io/notes/rldm_2019.pdf) 11 July 2019
 * [A Survey of Reinforcement Learning Informed by Natural Language](RLNL.md) 10 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.03926.pdf)
 * [Challenges of Real-World Reinforcement Learning](ChallengesRealWorldRL.md) 29 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.12901.pdf)
 * [Ray Interference: a Source of Plateaus in Deep Reinforcement Learning](RayInterference.md) 25 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.11455.pdf)
@@ -25,6 +29,10 @@ Illustrations:
 * [The Promise of Hierarchical Reinforcement Learning](https://thegradient.pub/the-promise-of-hierarchical-reinforcement-learning/) 9 Mar 2019
 * [Deep Reinforcement Learning that Matters](reproducing.md) 30 Jan 2019 [arxiv](https://arxiv.org/pdf/1709.06560.pdf)
 
+## Foundations and theory
+
+* [General non-linear Bellman equations](GNLBE.md) 9 July 2019 [arxiv](https://arxiv.org/pdf/1907.07331.pdf)
+* [Monte Carlo Gradient Estimation in Machine Learning](MCGE.md) 25 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.10652.pdf)
 
 ## General Benchmark Testing Frameworks
 
