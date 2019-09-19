@@ -239,3 +239,4 @@ Illustrations:
 ## Meta Gradient 
 
 * [Discovery of Useful Questions as Auxiliary Tasks](GVF.md) 10 Sep 2019 [arxiv](https://arxiv.org/pdf/1909.04607.pdf)
+* [Meta-Gradient Reinforcement Learning](MGRL.md) 24 May 2018 [arxiv](https://arxiv.org/pdf/1805.09801.pdf)
