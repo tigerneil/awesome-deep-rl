@@ -180,8 +180,10 @@ Illustrations:
 
 ## Meta Learning
 
+* [Discovery of Useful Questions as Auxiliary Tasks](GVF.md) 10 Sep 2019 [arxiv](https://arxiv.org/pdf/1909.04607.pdf)
 * [Meta-learning of Sequential Strategies](MetaSS.md) 8 May 2019 [arxiv](https://arxiv.org/pdf/1905.03030.pdf)
 * [Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables](PEARL.md) 19 Mar 2019 [arxiv](https://arxiv.org/pdf/1903.08254.pdf)
+* [Meta-Gradient Reinforcement Learning](MGRL.md) 24 May 2018 [arxiv](https://arxiv.org/pdf/1805.09801.pdf)
 * [ProMP: Proximal Meta-Policy Search](ProMP.md) 16 Oct 2018 [arxiv](https://arxiv.org/pdf/1810.06784)
 * [Unsupervised Meta-Learning for Reinforcement Learning](UML.md) 12 Jun 2018
 
@@ -236,7 +238,3 @@ Illustrations:
 
 * [Shaping Belief States with Generative Environment Models for RL](GenerativeBelief.md) 24 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.09237v2.pdf)
 
-## Meta Gradient 
-
-* [Discovery of Useful Questions as Auxiliary Tasks](GVF.md) 10 Sep 2019 [arxiv](https://arxiv.org/pdf/1909.04607.pdf)
-* [Meta-Gradient Reinforcement Learning](MGRL.md) 24 May 2018 [arxiv](https://arxiv.org/pdf/1805.09801.pdf)
