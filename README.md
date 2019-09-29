@@ -111,6 +111,7 @@ Illustrations:
 
 ## Hierarchical
 
+* [WHY DOES HIERARCHY (SOMETIMES) WORK SO WELL IN REINFORCEMENT LEARNING?](HIRO.md) 23 Sep 2019 [arxiv](https://arxiv.org/pdf/1909.10618.pdf) 
 * [Language as an Abstraction for Hierarchical Deep Reinforcement Learning](HAL.md) 18 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.07343.pdf)
 
 ## Option
