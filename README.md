@@ -223,6 +223,7 @@ Illustrations:
 
 ## Time
 
+* [Interval timing in deep reinforcement learning agents](Intervaltime.md) 31 May 2019 [arxiv](https://arxiv.org/pdf/1905.13469.pdf)
 * [Time Limits in Reinforcement Learning](PEB.md)
 
 ## Applications
