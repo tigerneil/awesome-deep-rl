@@ -245,3 +245,5 @@ Illustrations:
 
 * [Shaping Belief States with Generative Environment Models for RL](GenerativeBelief.md) 24 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.09237v2.pdf)
 
+## 
+* [Learning Reciprocity in Complex Sequential Social Dilemmas](Reciprocity.md) 19 Mar 2019 [arxiv](https://arxiv.org/pdf/1903.08082.pdf)
