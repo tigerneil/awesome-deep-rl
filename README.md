@@ -152,6 +152,7 @@ Illustrations:
 * [Evolutionary Reinforcement Learning for Sample-Efficient Multiagent Coordination](MERL.md) 18 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.07315.pdf)
 * [A Regularized Opponent Model with Maximum Entropy Objective](ROMMEO.md) 17 May 2019 [arxiv](https://arxiv.org/pdf/1905.08087.pdf)
 * [Deep Q-Learning for Nash Equilibria: Nash-DQN](NashDQN.md) 23 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.10554.pdf)
+* [Malthusian Reinforcement Learning](MRL.md) 3 Mar 2019 [arxiv](https://arxiv.org/pdf/1812.07019.pdf)
 * [Bayesian Action Decoder for Deep Multi-Agent Reinforcement Learning](bad.md) 4 Nov 2018
 * [INTRINSIC SOCIAL MOTIVATION VIA CAUSAL INFLUENCE IN MULTI-AGENT RL](ISMCI.md) 19 Oct 2018
 * [QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning](http://www.cs.ox.ac.uk/people/shimon.whiteson/pubs/rashidicml18.pdf) 30 Mar 2018
