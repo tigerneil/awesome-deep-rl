@@ -245,5 +245,9 @@ Illustrations:
 
 * [Shaping Belief States with Generative Environment Models for RL](GenerativeBelief.md) 24 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.09237v2.pdf)
 
+## PAC
+* [Provably Convergent Off-Policy Actor-Critic with Function Approximation](COF-PAC.md) 11 Nov 2019 [arxiv](https://arxiv.org/pdf/1911.04384.pdf)
+
+
 ## 
 * [Learning Reciprocity in Complex Sequential Social Dilemmas](Reciprocity.md) 19 Mar 2019 [arxiv](https://arxiv.org/pdf/1903.08082.pdf)
