@@ -31,7 +31,7 @@ This project is built for people who are learning and researching on latest deep
 - [Observational Learning](#observational-learning)
 - [Meta Learning](#meta-learning)
 - [Distributional](#distributional)
-- [Planning](#)(#planning)
+- [Planning](#planning)
 - [Safety](#safety)
 - [Inverse RL](#inverse-rl)
 - [No reward RL](#no-reward-rl)
