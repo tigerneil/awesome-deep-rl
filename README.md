@@ -11,7 +11,7 @@ This project is built for people who are learning and researching on latest deep
 ## Content
 - [General guidances](#general-guidances)
 - [Foundations and theory](#foundations-and-theory)
-- [General Benchmark Testing Frameworks](General Benchmark Testing Frameworks)
+- [General Benchmark Testing Frameworks](#general-benchmark-testing-frameworks)
 - [Value based](#value-based)
 - [Policy gradient](#policy-gradient)
 - [Explorations](#explorations)
