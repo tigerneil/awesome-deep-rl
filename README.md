@@ -1,7 +1,7 @@
 # Awesome Deep Reinforcement Learning
 
 ## Content
-- [General guidances](## General guidances)
+- [General guidances](#general-guidances)
 
 updated Landscape of **DRL**
 
