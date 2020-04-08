@@ -1,6 +1,7 @@
 # Awesome Deep Reinforcement Learning
 
-Join our [slack channel](https://join.slack.com/t/universityai/shared_invite/enQtNjk1ODExMzM5Mjg1LTA5YTYyOGNkNDA3ZmQyMzI3MDFjN2EzYjgxZmRlZmUxZWY0ODIzOWZhODhhNTE3ODAxNmI1ZTNjYzI0ZmYwNDc) to have deeper discussions.
+## Content
+- [General guidances](## General guidances)
 
 updated Landscape of **DRL**
 
