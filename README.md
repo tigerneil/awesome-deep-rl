@@ -69,6 +69,7 @@ Illustrations:
 
 ## General Benchmark Testing Frameworks
 
+* [Spriteworld: a flexible, configurable python-based reinforcement learning environment](https://github.com/deepmind/spriteworld)
 * [Chainerrl Visualizer](https://github.com/chainer/chainerrl-visualizer)
 * [Behaviour Suite for Reinforcement Learning](BSRL.md) 13 Aug 2019 [arxiv](https://arxiv.org/pdf/1908.03568.pdf) | [code](https://github.com/deepmind/bsuite)
 * [Quantifying Generalization in Reinforcement Learning](Coinrun.md) 20 Dec 2018 [arxiv](https://arxiv.org/pdf/1812.02341.pdf)
