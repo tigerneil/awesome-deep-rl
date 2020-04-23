@@ -80,8 +80,9 @@ Illustrations:
 * [chainerrl](https://github.com/chainer/chainerrl)
 * [PARL](https://github.com/PaddlePaddle/PARL) 
 
-## Value based
+## Value based methods
 
+* [Harnessing Structures for Value-Based Planning and Reinforcement Learning](SVRL.md) 5 Feb 2020 [arxiv](https://arxiv.org/abs/1909.12255) | [code](https://github.com/YyzHarry/SV-RL)
 * [Recurrent Value Functions](RVF.md) 23 May 2019 [arxiv](https://arxiv.org/pdf/1905.09562.pdf)
 * [Stochastic Lipschitz Q-Learning](LipschitzQ.md) 24 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.10653.pdf)
 * [TreeQN and ATreeC: Differentiable Tree-Structured Models for Deep Reinforcement Learning](https://arxiv.org/pdf/1710.11417) 8 Mar 2018
