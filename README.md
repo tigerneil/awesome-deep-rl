@@ -11,7 +11,7 @@ This project is built for people who are learning and researching on latest deep
 ## Content
 - [General guidances](#general-guidances)
 - [Foundations and theory](#foundations-and-theory)
-- [General Benchmark Testing Frameworks](#general-benchmark-testing-frameworks)
+- [General benchmark frameworks](#general-benchmark-testing-frameworks)
 - [Value based](#value-based)
 - [Policy gradient](#policy-gradient)
 - [Explorations](#explorations)
@@ -67,7 +67,7 @@ Illustrations:
 * [General non-linear Bellman equations](GNLBE.md) 9 July 2019 [arxiv](https://arxiv.org/pdf/1907.07331.pdf)
 * [Monte Carlo Gradient Estimation in Machine Learning](MCGE.md) 25 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.10652.pdf)
 
-## General Benchmark Testing Frameworks
+## General benchmark frameworks
 
 * [Spriteworld: a flexible, configurable python-based reinforcement learning environment](https://github.com/deepmind/spriteworld)
 * [Chainerrl Visualizer](https://github.com/chainer/chainerrl-visualizer)
@@ -80,7 +80,7 @@ Illustrations:
 * [chainerrl](https://github.com/chainer/chainerrl)
 * [PARL](https://github.com/PaddlePaddle/PARL) 
 
-## Value based methods
+## Value based
 
 * [Harnessing Structures for Value-Based Planning and Reinforcement Learning](SVRL.md) 5 Feb 2020 [arxiv](https://arxiv.org/abs/1909.12255) | [code](https://github.com/YyzHarry/SV-RL)
 * [Recurrent Value Functions](RVF.md) 23 May 2019 [arxiv](https://arxiv.org/pdf/1905.09562.pdf)
