@@ -1,9 +1,8 @@
 # Awesome Deep Reinforcement Learning
 
+## Landscape of Deep RL
 
 ![updated Landscape of **DRL**](images/awesome-drl.png)
-
-Landscape of **DRL**
 
 This project is built for people who are learning and researching on latest deep reinforcement learning methods.
 
