@@ -9,3 +9,5 @@ We use this framework to introduce operator-based versions of traditional policy
 We also use the understanding we develop of the role of I and P to propose a new global lower bound of the expected return. 
 
 This new perspective allows us to further bridge the gap between policy-based and value-based methods, showing how Reinforce and the Bellman optimality operator, for example, can be seen as two sides of the same coin.
+
+download link: https://arxiv.org/pdf/2006.11266.pdf
