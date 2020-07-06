@@ -94,6 +94,7 @@ Illustrations:
 
 ## Policy gradient
 
+* [An operator view of policy gradient methods](OVPG.md) [arxiv](https://arxiv.org/pdf/2006.11266.pdf)
 * [Direct Policy Gradients: Direct Optimization of Policies in Discrete Action Spaces](DirPG.md) [arxiv](https://arxiv.org/pdf/1906.06062.pdf)
 * [Policy Gradient Search: Online Planning and Expert Iteration without Search Trees](PGS.md) 7 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.03646.pdf)
 * [SUPERVISED POLICY UPDATE FOR DEEP REINFORCEMENT LEARNING](SPU.md) 24 Dec 2018 [arxiv](https://arxiv.org/pdf/1805.11706v4.pdf)
