@@ -94,7 +94,7 @@ Illustrations:
 
 ## Policy gradient
 
-* [Phasic Policy Gradient](PPG.md) 9 Sep 2020 [arxiv](https://arxiv.org/pdf/2009.04416.pdf)
+* [Phasic Policy Gradient](PPG.md) 9 Sep 2020 [arxiv](https://arxiv.org/pdf/2009.04416.pdf) [code](https://github.com/openai/phasic-policy-gradient)
 * [An operator view of policy gradient methods](OVPG.md) 22 Jun 2020 [arxiv](https://arxiv.org/pdf/2006.11266.pdf)
 * [Direct Policy Gradients: Direct Optimization of Policies in Discrete Action Spaces](DirPG.md) 14 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.06062.pdf)
 * [Policy Gradient Search: Online Planning and Expert Iteration without Search Trees](PGS.md) 7 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.03646.pdf)
