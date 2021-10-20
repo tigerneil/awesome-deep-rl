@@ -67,6 +67,7 @@ Illustrations:
 
 ## General benchmark frameworks
 
+* [Dataset for Offline RL](https://github.com/rail-berkeley/d4rl)
 * [Spriteworld: a flexible, configurable python-based reinforcement learning environment](https://github.com/deepmind/spriteworld)
 * [Chainerrl Visualizer](https://github.com/chainer/chainerrl-visualizer)
 * [Behaviour Suite for Reinforcement Learning](BSRL.md) 13 Aug 2019 [arxiv](https://arxiv.org/pdf/1908.03568.pdf) | [code](https://github.com/deepmind/bsuite)
