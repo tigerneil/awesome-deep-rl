@@ -134,7 +134,8 @@ Illustrations:
 * [Continuous control with deep reinforcement learning](DDPG.md)
 
 ## Model-based
-
+ 
+* [Self-Consistent Models and Values](sc.md) 25 Oct 2021 [arxiv](https://arxiv.org/pdf/2110.12840.pdf)
 * [When to use parametric models in reinforcement learning?](parametric.md) 12 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.05243.pdf)
 * [Model Based Reinforcement Learning for Atari](https://arxiv.org/pdf/1903.00374.pdf) 5 Mar 2019
 * [Model-Based Stabilisation of Deep Reinforcement Learning](MBDQN.md) 6 Sep 2018
