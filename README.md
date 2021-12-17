@@ -6,6 +6,13 @@
 
 This project is built for people who are learning and researching on latest deep reinforcement learning methods.
 
+## Roadmap
+1. Preliminary
+2. Basic
+3. Medium
+4. Advanced
+5. SOTA
+
 ## Content
 - [General guidances](#general-guidances)
 - [Foundations and theory](#foundations-and-theory)
