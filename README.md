@@ -82,10 +82,15 @@ Illustrations:
 
 ## Unsupervised
 
-
-* [Curiosity-driven Exploration by Self-supervised Prediction](https://arxiv.org/pdf/1705.05363) 15 May 2017 
+* [URLB: Unsupervised Reinforcement Learning Benchmark](https://arxiv.org/abs/2110.15191) 28 Oct 2021
+* [APS: Active Pretraining with Successor Feature](https://arxiv.org/abs/2108.13956) 31 Aug 2021
+* [Behavior From the Void: Unsupervised Active Pre-Training](https://arxiv.org/abs/2103.04551) 8 Mar 2021
 * [Reinforcement Learning with Prototypical Representations](https://arxiv.org/abs/2102.11271) 22 Feb 2021
+* [Efficient Exploration via State Marginal Matching](https://arxiv.org/abs/1906.05274) 12 Jun 2019
+* [Self-Supervised Exploration via Disagreement](https://arxiv.org/abs/1906.04161) 10 Jun 2019
+* [Exploration by Random Network Distillation](https://arxiv.org/abs/1810.12894) 30 Oct 2018
 * [Diversity is All You Need: Learning Skills without a Reward Function](https://arxiv.org/abs/1802.06070) 16 Feb 2018
+* [Curiosity-driven Exploration by Self-supervised Prediction](https://arxiv.org/pdf/1705.05363) 15 May 2017 
 
 ## Value based
 
