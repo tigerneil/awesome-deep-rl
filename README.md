@@ -67,6 +67,7 @@ Illustrations:
 
 ## General benchmark frameworks
 
+* [Unsupervised RL Benchmark](https://github.com/rll-research/url_benchmark)
 * [Dataset for Offline RL](https://github.com/rail-berkeley/d4rl)
 * [Spriteworld: a flexible, configurable python-based reinforcement learning environment](https://github.com/deepmind/spriteworld)
 * [Chainerrl Visualizer](https://github.com/chainer/chainerrl-visualizer)
@@ -78,6 +79,13 @@ Illustrations:
 * [tfrl](https://github.com/deepmind/trfl)
 * [chainerrl](https://github.com/chainer/chainerrl)
 * [PARL](https://github.com/PaddlePaddle/PARL) 
+
+## Unsupervised
+
+
+* [Curiosity-driven Exploration by Self-supervised Prediction](https://arxiv.org/pdf/1705.05363) 15 May 2017 
+* [Reinforcement Learning with Prototypical Representations](https://arxiv.org/abs/2102.11271) 22 Feb 2021
+* [Diversity is All You Need: Learning Skills without a Reward Function](https://arxiv.org/abs/1802.06070) 16 Feb 2018
 
 ## Value based
 
