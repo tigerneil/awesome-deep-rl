@@ -1,5 +1,7 @@
 # Awesome Deep Reinforcement Learning
 
+**Dec 2021 update: Unsupervised RL**
+
 ## Landscape of Deep RL
 
 ![updated Landscape of **DRL**](images/awesome-drl.png)
