@@ -76,6 +76,7 @@ Illustrations:
 
 ## General benchmark frameworks
 
+* [MuJoCo](http://mujoco.org/) | [MuJoCo Chinese version](https://github.com/tigerneil/mujoco-zh)
 * [Unsupervised RL Benchmark](https://github.com/rll-research/url_benchmark)
 * [Dataset for Offline RL](https://github.com/rail-berkeley/d4rl)
 * [Spriteworld: a flexible, configurable python-based reinforcement learning environment](https://github.com/deepmind/spriteworld)
