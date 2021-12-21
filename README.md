@@ -57,6 +57,7 @@ Illustrations:
 
 **Recommendations and suggestions are welcome**. 
 ## General guidances
+* [Awesome Offline RL](https://github.com/hanjuku-kaso/awesome-offline-rl)
 * [Reinforcement Learning Today](http://reinforcementlearning.today/)
 * [Multiagent Reinforcement Learning by Marc Lanctot RLSS @ Lille](http://mlanctot.info/files/papers/Lanctot_MARL_RLSS2019_Lille.pdf) 11 July 2019
 * [RLDM 2019 Notes by David Abel](https://david-abel.github.io/notes/rldm_2019.pdf) 11 July 2019
