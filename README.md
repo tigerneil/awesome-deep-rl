@@ -78,6 +78,8 @@ Illustrations:
 
 * [Brax](https://github.com/google/brax/) <img src="https://github.com/google/brax/raw/main/docs/img/brax_logo.gif" width="336" height="80" alt="BRAX"/>
 
+![](https://github.com/google/brax/raw/main/docs/img/fetch.gif)
+
 * [MuJoCo](http://mujoco.org/) | [MuJoCo Chinese version](https://github.com/tigerneil/mujoco-zh)
 * [Unsupervised RL Benchmark](https://github.com/rll-research/url_benchmark)
 * [Dataset for Offline RL](https://github.com/rail-berkeley/d4rl)
