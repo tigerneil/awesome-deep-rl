@@ -19,6 +19,8 @@ This project is built for people who are learning and researching on latest deep
 - [General guidances](#general-guidances)
 - [Foundations and theory](#foundations-and-theory)
 - [General benchmark frameworks](#general-benchmark-testing-frameworks)
+- [Unsupervised](#unsupervised)
+- [Offline](#offline)
 - [Value based](#value-based)
 - [Policy gradient](#policy-gradient)
 - [Explorations](#explorations)
@@ -106,6 +108,11 @@ Illustrations:
 * [Exploration by Random Network Distillation](https://arxiv.org/abs/1810.12894) 30 Oct 2018
 * [Diversity is All You Need: Learning Skills without a Reward Function](https://arxiv.org/abs/1802.06070) 16 Feb 2018
 * [Curiosity-driven Exploration by Self-supervised Prediction](https://arxiv.org/pdf/1705.05363) 15 May 2017 
+
+## Offline
+* [PerSim: Data-efficient Offline Reinforcement Learning with Heterogeneous Agents via Personalized Simulators](https://arxiv.org/abs/2102.06961) 10 Nov 2021
+* [A General Offline Reinforcement Learning Framework for Interactive Recommendation]() AAAI 2021
+
 
 ## Value based
 
