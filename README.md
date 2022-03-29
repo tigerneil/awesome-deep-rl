@@ -17,6 +17,7 @@ This project is built for people who are learning and researching on latest deep
 
 ## Content
 - [General guidances](#general-guidances)
+- [2022](#2022)
 - [Foundations and theory](#foundations-and-theory)
 - [General benchmark frameworks](#general-benchmark-testing-frameworks)
 - [Unsupervised](#unsupervised)
@@ -71,6 +72,10 @@ Illustrations:
 * [OpenAI's spinningup](https://spinningup.openai.com/en/latest/)
 * [The Promise of Hierarchical Reinforcement Learning](https://thegradient.pub/the-promise-of-hierarchical-reinforcement-learning/) 9 Mar 2019
 * [Deep Reinforcement Learning that Matters](reproducing.md) 30 Jan 2019 [arxiv](https://arxiv.org/pdf/1709.06560.pdf)
+
+
+## 2022
+* Reinforcement Learning with Action-Free Pre-Training from Videos [arxiv](https://arxiv.org/abs/2203.13880) [repo](https://github.com/younggyoseo/apv)
 
 ## Foundations and theory
 
