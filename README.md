@@ -1,6 +1,8 @@
 # Awesome Deep Reinforcement Learning
 
-**Dec 2021 update: Unsupervised RL**
+> **Mar 2022 update: 2022**
+
+> **Dec 2021 update: Unsupervised RL**
 
 ## Landscape of Deep RL
 
