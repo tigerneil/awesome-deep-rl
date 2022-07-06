@@ -1,6 +1,6 @@
 # Awesome Deep Reinforcement Learning
 
-> **Mar 2022 update: 2022**
+> **Mar 2022 update: papers released in 2022**
 
 > **Dec 2021 update: Unsupervised RL**
 
@@ -10,8 +10,6 @@ Reinforcement learning is the fundamental framework for building AGI. Therefore 
 ## Landscape of Deep RL
 
 ![updated Landscape of **DRL**](images/awesome-drl.png)
-
-This project is built for people who are learning and researching on latest deep reinforcement learning methods.
 
 ## Roadmap
 1. Preliminary
