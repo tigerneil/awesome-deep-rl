@@ -1,7 +1,7 @@
 # Awesome Deep Reinforcement Learning
 
-> **Mar 2022 update: papers released in 2022**
-
+> **July 2022 update: EDDICT added**
+> **Mar 2022 update: a few papers released in early 2022**
 > **Dec 2021 update: Unsupervised RL**
 
 ## Introduction to awesome drl
