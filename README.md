@@ -160,6 +160,7 @@ Illustrations:
 
 ## Explorations
 
+* [Entropic Desired Dynamics for Intrinsic Control](EDDICT.md) 2021 [openreview](https://openreview.net/pdf?id=lBSSxTgXmiK)
 * [Self-Supervised Exploration via Disagreement](Disagreement.md) 10 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.04161.pdf)
 * [Approximate Exploration through State Abstraction](MBIE-EB.md) 24 Jan 2019
 * [The Uncertainty Bellman Equation and Exploration](UBE.md) 15 Sep 2017
