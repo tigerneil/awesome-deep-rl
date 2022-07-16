@@ -11,18 +11,10 @@ Reinforcement learning is the fundamental framework for building AGI. Therefore 
 
 ![updated Landscape of **DRL**](images/awesome-drl.png)
 
-## Roadmap
-1. Preliminary
-2. Basic
-3. Medium
-4. Advanced
-5. SOTA
-
 ## Content
 - [Awesome Deep Reinforcement Learning](#awesome-deep-reinforcement-learning)
   - [Introduction to awesome drl](#introduction-to-awesome-drl)
   - [Landscape of Deep RL](#landscape-of-deep-rl)
-  - [Roadmap](#roadmap)
   - [Content](#content)
   - [General guidances](#general-guidances)
   - [2022](#2022)
