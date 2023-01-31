@@ -103,6 +103,8 @@ Illustrations:
 * [tfrl](https://github.com/deepmind/trfl)
 * [chainerrl](https://github.com/chainer/chainerrl)
 * [PARL](https://github.com/PaddlePaddle/PARL) 
+* [DI-engine: a generalized decision intelligence engine. It supports various Deep RL algorithms](https://github.com/opendilab/DI-engine)
+* [PPO x Family: Course in Chinese for Deep RL](https://github.com/opendilab/PPOxFamily)
 
 ## Unsupervised
 
