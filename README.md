@@ -82,6 +82,9 @@ Illustrations:
 ## 2022
 * Reinforcement Learning with Action-Free Pre-Training from Videos [arxiv](https://arxiv.org/abs/2203.13880) [repo](https://github.com/younggyoseo/apv)
 
+## Generalist policies
+* [Foundation Policies with Hilbert Representations](HILP.md) [arxiv](https://arxiv.org/abs/2402.15567) [repo](https://github.com/seohongpark/HILP) 23 Feb 2024
+
 ## Foundations and theory
 
 * [General non-linear Bellman equations](GNLBE.md) 9 July 2019 [arxiv](https://arxiv.org/pdf/1907.07331.pdf)
