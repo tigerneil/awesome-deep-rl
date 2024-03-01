@@ -1,5 +1,6 @@
 # Awesome Deep Reinforcement Learning
 
+> **Mar 1 2024 update: HILP added**
 > **July 2022 update: EDDICT added**
 > 
 > **Mar 2022 update: a few papers released in early 2022**
@@ -74,6 +75,8 @@ Illustrations:
 * [The Promise of Hierarchical Reinforcement Learning](https://thegradient.pub/the-promise-of-hierarchical-reinforcement-learning/) 9 Mar 2019
 * [Deep Reinforcement Learning that Matters](reproducing.md) 30 Jan 2019 [arxiv](https://arxiv.org/pdf/1709.06560.pdf)
 
+## 2024
+* [Foundation Policies with Hilbert Representations](HILP.md) [arxiv](https://arxiv.org/abs/2402.15567) [repo](https://github.com/seohongpark/HILP) 23 Feb 2024
 
 ## 2022
 * Reinforcement Learning with Action-Free Pre-Training from Videos [arxiv](https://arxiv.org/abs/2203.13880) [repo](https://github.com/younggyoseo/apv)
