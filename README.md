@@ -1,6 +1,7 @@
 # Awesome Deep Reinforcement Learning
 
 > **Mar 1 2024 update: HILP added**
+> 
 > **July 2022 update: EDDICT added**
 > 
 > **Mar 2022 update: a few papers released in early 2022**
