@@ -112,6 +112,7 @@ Illustrations:
 * [PARL](https://github.com/PaddlePaddle/PARL) 
 * [DI-engine: a generalized decision intelligence engine. It supports various Deep RL algorithms](https://github.com/opendilab/DI-engine)
 * [PPO x Family: Course in Chinese for Deep RL](https://github.com/opendilab/PPOxFamily)
+* [ClawBench: 153 discrete browser tasks across 144 real websites and 15 categories, with sparse terminal rewards — an interactive web environment for RL / bandit / online-learning research on browser agents (7 frontier models evaluated; top agent solves 33.3%)](https://github.com/reacher-z/ClawBench) | [arxiv](https://arxiv.org/abs/2604.08523) | [code](https://github.com/reacher-z/ClawBench)
 
 ## Unsupervised
 
