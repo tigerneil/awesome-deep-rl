@@ -19,7 +19,17 @@ Reinforcement learning is the fundamental framework for building AGI. Therefore 
 
 ## The 2026 frontier
 
-The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally.
+The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Top-conference RL work is now concentrated at NeurIPS, ICML, ICLR, CoRL/RSS, AAAI/IJCAI/AAMAS, and UAI, while the canonical test-of-time foundations still remain DQN, PPO, SAC, AlphaGo, MuZero, and world models. The latest frontier is also deeply shaped by LLM-agent RL, preference optimization (RLHF/DPO/GRPO), and embodied AI systems that couple perception, control, and long-horizon planning.
+
+Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally.
+
+### Top-conference and award-worthy anchors
+
+* **NeurIPS, ICML, ICLR**: RL, world models, policy optimization, uncertainty-aware control, and sequence modeling for decision-making.
+* **CoRL / RSS / ICRA / IROS**: embodied AI, dexterous manipulation, sim-to-real transfer, and safe real-world control.
+* **AAAI / IJCAI / AAMAS / UAI**: agentic decision-making, planning, Bayesian RL, and multi-agent coordination.
+* **Classic test-of-time anchors**: DQN, PPO, SAC, AlphaGo, MuZero, World Models, and Inverse RL remain the core conceptual reference stack.
+* **LLM and agent RL**: RLHF, DPO, GRPO, ReAct, WebArena, and foundation-model policies such as OpenVLA and Octo.
 
 ## Content
 - [Awesome Deep Reinforcement Learning](#awesome-deep-reinforcement-learning)
