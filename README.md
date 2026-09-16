@@ -8,6 +8,8 @@
 > 
 > **Dec 2021 update: Unsupervised RL**
 
+> **September 2026 update: [2026 frontier guide](2026.md) and a new [interactive homepage](index.html)**
+
 ## Introduction to awesome drl
 Reinforcement learning is the fundamental framework for building AGI. Therefore we share important contributions within this awesome drl project. 
 
@@ -15,10 +17,15 @@ Reinforcement learning is the fundamental framework for building AGI. Therefore 
 
 ![updated Landscape of **DRL**](images/awesome-drl.png)
 
+## The 2026 frontier
+
+The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally.
+
 ## Content
 - [Awesome Deep Reinforcement Learning](#awesome-deep-reinforcement-learning)
   - [Introduction to awesome drl](#introduction-to-awesome-drl)
   - [Landscape of Deep RL](#landscape-of-deep-rl)
+  - [The 2026 frontier](#the-2026-frontier)
   - [Content](#content)
   - [General guidances](#general-guidances)
   - [2022](#2022)
