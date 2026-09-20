@@ -8,7 +8,7 @@
 > 
 > **Dec 2021 update: Unsupervised RL**
 
-> **September 2026 update: [2026 frontier guide](2026.md) and a new [interactive homepage](index.html)**
+> **September 17, 2026: [Embodied RL research update](2026.md#september-2026-update-embodied-rl), 12 new research notes, and the [interactive atlas](index.html). Sources checked through September 17; preprints and adjacent VLA developments are labeled.**
 
 ## Introduction to awesome drl
 Reinforcement learning is the fundamental framework for building AGI. Therefore we share important contributions within this awesome drl project. 
@@ -21,9 +21,9 @@ Reinforcement learning is the fundamental framework for building AGI. Therefore 
 
 The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Top-conference RL work is now concentrated at NeurIPS, ICML, ICLR, CoRL/RSS, AAAI/IJCAI/AAMAS, and UAI, while the canonical test-of-time foundations still remain DQN, PPO, SAC, AlphaGo, MuZero, and world models. The latest frontier is also deeply shaped by LLM-agent RL, preference optimization (RLHF/DPO/GRPO), and embodied AI systems that couple perception, control, and long-horizon planning.
 
-Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally.
+Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally. Browse the [research lab directory](index.html#labs) to discover leading LLM and RL groups by research focus, organization type, and region.
 
-### Top-conference and award-worthy anchors
+### Conference and foundational reading map
 
 * **NeurIPS, ICML, ICLR**: RL, world models, policy optimization, uncertainty-aware control, and sequence modeling for decision-making.
 * **CoRL / RSS / ICRA / IROS**: embodied AI, dexterous manipulation, sim-to-real transfer, and safe real-world control.
@@ -31,11 +31,39 @@ Start with the [2026 frontier guide](2026.md), or use the [interactive homepage]
 * **Classic test-of-time anchors**: DQN, PPO, SAC, AlphaGo, MuZero, World Models, and Inverse RL remain the core conceptual reference stack.
 * **LLM and agent RL**: RLHF, DPO, GRPO, ReAct, WebArena, and foundation-model policies such as OpenVLA and Octo.
 
+## 2026 · Embodied RL
+
+Latest curated notes, ordered by first public date. See the [frontier guide](2026.md) for evaluation limits and artifact availability. Results are author-reported; dates do not imply peer review.
+
+* [FMAPPO: Multi-agent factory navigation](FMAPPO.md) — 13 Sep 2026. Sim-to-real coordination; physical arms disabled.
+* [HaWMPO: Hallucination-aware policy optimization](HaWMPO.md) — 9 Sep 2026. Reliability-weighted imagined rollouts.
+* [VLA-Precision: Online RL for precision manipulation](VLA-Precision.md) — 3 Sep 2026. Human intervention, value calibration, and efficient updates.
+* [WorldSample: Real-robot RL with world modelling](WorldSample.md) — 2 Jul 2026. Synthetic transitions grounded in real experience.
+* [Object-Centric Residual RL](Object-Centric-Residual-RL.md) — 17 Jun 2026. Simulation-trained corrections to a frozen VLA.
+* [RL Token: Efficient online robot RL](RL-Token.md) — 19 Mar 2026 official release. Compact representations for precision skills.
+* [RISE: Compositional world-model RL](RISE.md) — 11 Feb 2026. Policy improvement through imagined dynamics and values.
+* [TwinRL: Digital twin-driven robot RL](TwinRL.md) — 9 Feb 2026. Simulation warm-up and human-guided physical refinement.
+
+## 2026 · Agent RL
+
+* [EnvACE: Environment rehearsal for agentic RL](EnvACE.md) — 6 Aug 2026. Tool-agent RL; not a physical-robot result.
+
+## 2026 · Embodied context
+
+Benchmark and foundation-policy developments are relevant to RL without necessarily introducing an RL algorithm.
+
+* [Gemini Robotics 2: Whole-body intelligence](Gemini-Robotics-2.md) — 30 Jul 2026 official announcement; RL recipe not established.
+* [Xiaomi-Robotics-1: VLA data scaling](Xiaomi-Robotics-1.md) — 16 Jul 2026. Pretraining/adaptation context.
+* [WorldArena: Functional world-model evaluation](WorldArena.md) — 9 Feb 2026. Benchmark, not an RL algorithm.
+
 ## Content
 - [Awesome Deep Reinforcement Learning](#awesome-deep-reinforcement-learning)
   - [Introduction to awesome drl](#introduction-to-awesome-drl)
   - [Landscape of Deep RL](#landscape-of-deep-rl)
   - [The 2026 frontier](#the-2026-frontier)
+  - [2026 · Embodied RL](#2026--embodied-rl)
+  - [2026 · Agent RL](#2026--agent-rl)
+  - [2026 · Embodied context](#2026--embodied-context)
   - [Content](#content)
   - [General guidances](#general-guidances)
   - [2022](#2022)

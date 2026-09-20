@@ -4,7 +4,7 @@ const $ = id => document.getElementById(id);
 let saved;
 try { const stored = JSON.parse(localStorage.getItem('rl-atlas-saved') || '[]'); saved = new Set(Array.isArray(stored) ? stored.filter(id => catalog.some(item => item.id === id)) : []); } catch { saved = new Set(); }
 let active = 'All resources', limit = 12, savedOnly = false;
-const featured = ['PPO','DQN','HILP','TRPO','Rainbow','2026','DDPG','MADDPG','HIRO'];
+const featured = ['2026','FMAPPO','HaWMPO','VLA-Precision','WorldSample','Object-Centric-Residual-RL','RL-Token','RISE','TwinRL','EnvACE','PPO','DQN'];
 const icons = ['◎','⌘','◇','⌁','⊞','△'];
 const groups = [...new Set(catalog.map(item => item.category))].sort();
 $('resource-count').textContent = catalog.length;
@@ -77,7 +77,8 @@ $('reset').onclick = () => {active='All resources';savedOnly=false;$('search').v
 $('saved-top').onclick = () => {savedOnly=!savedOnly;active='All resources';$('search').value='';limit=12;render();$('library').scrollIntoView({behavior:reduced.matches?'instant':'smooth'});};
 $('view-toggle').onclick = () => {const list = $('cards').classList.toggle('list'); $('view-toggle').textContent=list?'⊞':'☷'; $('view-toggle').setAttribute('aria-label',list?'Switch to grid view':'Switch to list view');};
 $('random').onclick = () => {const notes=catalog.filter(i=>i.file && i.id!=='README');openNote(notes[Math.floor(Math.random()*notes.length)]);};
-for(const id of ['guide','frontier-link']) $(id).onclick = event => {event.preventDefault();const guide=catalog.find(i=>i.id==='2026');if(guide)openNote(guide);};
+$('latest-embodied').onclick = () => {active='2026 · Embodied RL';savedOnly=false;limit=12;$('search').value='';render();$('library').scrollIntoView({behavior:reduced.matches?'instant':'smooth'});};
+for(const id of ['guide','frontier-link','read-frontier']) $(id).onclick = event => {event.preventDefault();const guide=catalog.find(i=>i.id==='2026');if(guide)openNote(guide);};
 document.addEventListener('keydown',event => {if(event.key==='/' && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName) && !$('reader').open) {event.preventDefault();$('search').focus();$('library').scrollIntoView();}});
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const canvas = $('network'), ctx = canvas.getContext('2d');
