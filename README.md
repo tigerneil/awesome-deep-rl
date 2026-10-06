@@ -376,6 +376,7 @@ Illustrations:
 
 
 ## Applications
+* [MEND: RL For Flow Models via Proximal Velocity Matching](MEND.md) 5 Oct 2026 [arxiv](https://arxiv.org/abs/2610.05954) [code](https://github.com/shreshthsaini/MEND-RL) [project](https://shreshthsaini.github.io/MEND-RL/)
 * [Benchmarks for Deep Off-Policy Evaluation](bdope.md) 30 Mar 2021 [arxiv](https://arxiv.org/pdf/2103.16596.pdf)
 * [Learning Reciprocity in Complex Sequential Social Dilemmas](Reciprocity.md) 19 Mar 2019 [arxiv](https://arxiv.org/pdf/1903.08082.pdf)
 * [DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills](dmimic.md) 9 Apr 2018
