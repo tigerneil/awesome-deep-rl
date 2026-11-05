@@ -23,7 +23,7 @@ Reinforcement learning is the fundamental framework for building AGI. Therefore 
 
 The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Top-conference RL work is now concentrated at NeurIPS, ICML, ICLR, CoRL/RSS, AAAI/IJCAI/AAMAS, and UAI, while the canonical test-of-time foundations still remain DQN, PPO, SAC, AlphaGo, MuZero, and world models. The latest frontier is also deeply shaped by LLM-agent RL, preference optimization (RLHF/DPO/GRPO), and embodied AI systems that couple perception, control, and long-horizon planning.
 
-Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally. Browse the [research lab directory](index.html#labs) to discover leading LLM and RL groups by research focus, organization type, and region.
+Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally—opening the homepage automatically syncs the latest online Embodied RL, VLA, and Agentic RL preprints alongside the curated notes (see [WEBSITE.md](WEBSITE.md#automatic-online-update-on-page-open)). Browse the [research lab directory](index.html#labs) to discover leading LLM and RL groups by research focus, organization type, and region.
 
 ### Conference and foundational reading map
 

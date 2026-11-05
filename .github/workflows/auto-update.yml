@@ -1,0 +1,38 @@
+name: Auto-Update Deep RL Live Feed
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch latest online RL papers and rebuild catalog
+        run: |
+          python3 -B scripts/update-live-feed.py
+          python3 -B scripts/build-catalog.py
+
+      - name: Commit and push if live feed or catalog changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/live-feed.json assets/catalog.js
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(feed): auto-update live research feed"
+            git push origin master
+          fi
