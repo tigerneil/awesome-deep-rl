@@ -8,7 +8,9 @@
 > 
 > **Dec 2021 update: Unsupervised RL**
 
-> **September 17, 2026: [Embodied RL research update](2026.md#september-2026-update-embodied-rl), 12 new research notes, and the [interactive atlas](index.html). Sources checked through September 17; preprints and adjacent VLA developments are labeled.**
+> **November 6, 2026: [Embodied & agentic RL research update](2026.md#november-2026-update-embodied-and-agentic-rl), 26 curated 2026 research notes (14 added since September), and the [interactive atlas](index.html). Sources checked through November 6, 2026; preprints and adjacent VLA/benchmark developments are labeled.**
+>
+> **September 17, 2026: [Embodied RL research update](2026.md#november-2026-update-embodied-and-agentic-rl), 12 research notes, and the [interactive atlas](index.html).**
 
 ## Introduction to awesome drl
 Reinforcement learning is the fundamental framework for building AGI. Therefore we share important contributions within this awesome drl project. 
@@ -35,6 +37,14 @@ Start with the [2026 frontier guide](2026.md), or use the [interactive homepage]
 
 Latest curated notes, ordered by first public date. See the [frontier guide](2026.md) for evaluation limits and artifact availability. Results are author-reported; dates do not imply peer review.
 
+* [PolicyIK: High-precision RL inverse kinematics](PolicyIK.md) — 3 Nov 2026. Closed-loop joint-reference RL on simulated and physical arms.
+* [VLA-Stem: Reflex-like safety for VLA execution](VLA-Stem.md) — 28 Oct 2026. Trajectory modulation around static and dynamic obstacles.
+* [AtomicRL: Long-horizon subtask-gated VLA RL](AtomicRL.md) — 21 Oct 2026. Subtask residual gating, bottleneck exploration, and Real2Sim2Real transfer.
+* [WoVR+: Interface-aligned world-model VLA RL](WoVR-Plus.md) — 13 Oct 2026. Multi-view predictions and stage-local imagined rollouts.
+* [DRIVE: Diversity-driven VLA RL fine-tuning](DRIVE.md) — 8 Oct 2026. Success-conditioned behavioral diversity for out-of-domain robustness.
+* [eRLT: Action-relevant token routing for VLA RL](eRLT.md) — 2 Oct 2026. Multi-layer token routing for sample-efficient online precision RL.
+* [FIND: Agentic reset-free real-world VLA RL](FIND.md) — 25 Sep 2026. Scene-conditioned task selection and self-evaluated residual RL.
+* [VLaRL: Latent-conditioned sim-to-real residual RL](VLaRL.md) — 25 Sep 2026. Latent alignment for zero-shot physical deployment of residual policies.
 * [FMAPPO: Multi-agent factory navigation](FMAPPO.md) — 13 Sep 2026. Sim-to-real coordination; physical arms disabled.
 * [HaWMPO: Hallucination-aware policy optimization](HaWMPO.md) — 9 Sep 2026. Reliability-weighted imagined rollouts.
 * [VLA-Precision: Online RL for precision manipulation](VLA-Precision.md) — 3 Sep 2026. Human intervention, value calibration, and efficient updates.
@@ -46,12 +56,18 @@ Latest curated notes, ordered by first public date. See the [frontier guide](202
 
 ## 2026 · Agent RL
 
+* [ARPG: Dependency-aware LLM MDP design](ARPG.md) — 3 Nov 2026. Automated MDP formulation and simulator generation before RL training.
+* [RLiD: Decision-plane RL for language agents](RLiD.md) — 2 Nov 2026. Single-pass action-menu optimization and trajectory distillation.
+* [ANTE: Verified-belief world models for coding agents](ANTE.md) — 11 Oct 2026. Pre-action outcome forecasts and belief-anchored credit on SWE-bench.
 * [EnvACE: Environment rehearsal for agentic RL](EnvACE.md) — 6 Aug 2026. Tool-agent RL; not a physical-robot result.
 
 ## 2026 · Embodied context
 
 Benchmark and foundation-policy developments are relevant to RL without necessarily introducing an RL algorithm.
 
+* [CRONOS: Non-episodic VLA RL benchmark](CRONOS.md) — 3 Nov 2026. Shared-scene ManiSkill3 benchmark for infrequent scene resets.
+* [RAVEL: World-model policy ranking and audit limits](RAVEL.md) — 31 Oct 2026. Separates ranking fidelity from closed-loop optimization safety.
+* [Recursive Self-Improvement in Physical AI](Physical-AI-RSI.md) — 28 Oct 2026. Survey and L0–L3 evidence rubric for learner versus improver updates.
 * [Gemini Robotics 2: Whole-body intelligence](Gemini-Robotics-2.md) — 30 Jul 2026 official announcement; RL recipe not established.
 * [Xiaomi-Robotics-1: VLA data scaling](Xiaomi-Robotics-1.md) — 16 Jul 2026. Pretraining/adaptation context.
 * [WorldArena: Functional world-model evaluation](WorldArena.md) — 9 Feb 2026. Benchmark, not an RL algorithm.
