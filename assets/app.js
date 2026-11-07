@@ -1,7 +1,11 @@
 'use strict';
+const VENUE_RE = /\b(NeurIPS\s*202[56](?:\s+Spotlight|\s+Oral)?|ICML\s*202[56](?:\s+Spotlight|\s+Oral)?|ICLR\s*202[56](?:\s+Spotlight|\s+Oral)?|CoRL\s*202[56](?:\s+Oral)?|RSS\s*202[56]|CVPR\s*202[56]|AAAI\s*202[56](?:\s+Oral)?)\b/i;
 const baseCatalog = (window.RL_CATALOG || []).map(item => {
-  const m = `${item.description || ''} ${item.body || ''}`.match(/\b(202[0-9]-\d{2}-\d{2})\b/);
-  return Object.assign({publishedAt: m ? m[1] : ''}, item);
+  const blob = `${item.description || ''} ${item.body || ''}`;
+  const m = blob.match(/\b(202[0-9]-\d{2}-\d{2})\b/);
+  const vm = item.id !== '2026' && item.id !== 'README' ? blob.match(/Conference venue:\s*([^\n.]+)|status:\s*paper;\s*arxiv record lists\s*(RSS 2026)|\b(NeurIPS 2026|ICML 2026|ICLR 2026|CoRL 2026|RSS 2026|AAAI 2026(?:\s+Oral)?)\b/i) : null;
+  const venue = vm ? (vm[1] || vm[2] || vm[3] || '').replace(/\s*\([^)]*\)/g, '').trim() : '';
+  return Object.assign({publishedAt: m ? m[1] : '', venue}, item);
 });
 let catalog = baseCatalog.slice();
 const $ = id => document.getElementById(id);
@@ -19,7 +23,7 @@ try {
   saved = new Set(Array.isArray(stored) ? stored.filter(id => typeof id === 'string' && (id.startsWith('live-') || baseCatalog.some(item => item.id === id))) : []);
 } catch { saved = new Set(); }
 let active = 'All resources', limit = 12, savedOnly = false;
-const baseFeatured = ['2026','PolicyIK','ARPG','CRONOS','RLiD','RAVEL','VLA-Stem','Physical-AI-RSI','AtomicRL','WoVR-Plus','ANTE','DRIVE','MEND','eRLT','FIND','VLaRL','FMAPPO','HaWMPO','VLA-Precision','WorldSample','Object-Centric-Residual-RL','RL-Token','RISE','TwinRL','EnvACE','PPO','DQN'];
+const baseFeatured = ['2026','S2C','WM-Nav','LARBRID','Parallel-Safe-RL','PTR-CRL','Reward-Budgeting','RcRL','BEAKER','HOI-DexRL','PolicyIK','ARPG','CRONOS','HLO-AMP','MESA','RLiD','RAVEL','VLA-Stem','Physical-AI-RSI','AtomicRL','WoVR-Plus','ANTE','DRIVE','MEND','eRLT','FIND','VLaRL','NSPG','Relative-Value-Learning','OopsieVerse','SHAPO','RLA-WM','USER-RL','MemRL','Embodied-R1','FMAPPO','HaWMPO','VLA-Precision','WorldSample','Object-Centric-Residual-RL','RL-Token','RISE','TwinRL','EnvACE','PPO','DQN'];
 let featured = baseFeatured.slice();
 const icons = ['◎','⌘','◇','⌁','⊞','△'];
 let groups = [...new Set(catalog.map(item => item.category))].sort();
@@ -45,7 +49,7 @@ function save(item) {
 }
 function render() {
   const query = $('search').value.trim().toLowerCase();
-  let items = catalog.filter(i => (active === 'All resources' || i.category === active) && (!savedOnly || saved.has(i.id)) && `${i.title} ${i.id} ${i.category} ${i.description} ${i.body}`.toLowerCase().includes(query));
+  let items = catalog.filter(i => (active === 'All resources' || i.category === active) && (!savedOnly || saved.has(i.id)) && `${i.title} ${i.id} ${i.category} ${i.venue || ''} ${i.description} ${i.body}`.toLowerCase().includes(query));
   const sort = $('sort').value;
   items.sort((a,b) => {
     if (sort === 'az') return a.title.localeCompare(b.title);
@@ -66,12 +70,12 @@ function render() {
     const top = document.createElement('div'); top.className = 'card-top';
     const icon = document.createElement('span'); icon.className = 'resource-icon'; icon.textContent = icons[index%icons.length]; icon.setAttribute('aria-hidden','true');
     const bookmark = document.createElement('button'); bookmark.className = 'save'; bookmark.textContent = saved.has(item.id) ? '▰' : '▱'; bookmark.setAttribute('aria-label', `${saved.has(item.id) ? 'Remove' : 'Save'} ${item.title}`); bookmark.setAttribute('aria-pressed',saved.has(item.id)); bookmark.onclick = () => save(item); top.append(icon,bookmark);
-    const tag = document.createElement('div'); tag.className = 'tag'; tag.textContent = item.category;
+    const tag = document.createElement('div'); tag.className = 'tag'; tag.textContent = item.venue ? `${item.category} · ${item.venue}` : item.category;
     const title = document.createElement('h3'); title.textContent = item.title;
     const description = document.createElement('p'); description.className = 'description'; description.textContent = item.description;
     const bottom = document.createElement('div'); bottom.className = 'card-bottom'; const kind = document.createElement('span');
-    kind.textContent = item.live ? `LIVE ARXIV · ${item.publishedAt || '2026'}` : (item.file ? 'RESEARCH NOTE' : 'EXTERNAL RESOURCE');
-    if (item.live) kind.className = 'live-badge';
+    kind.textContent = item.live ? (item.venue ? `LIVE · ${item.venue.toUpperCase()}` : `LIVE ARXIV · ${item.publishedAt || '2026'}`) : (item.venue ? `${item.venue.toUpperCase()} · NOTE` : (item.file ? 'RESEARCH NOTE' : 'EXTERNAL RESOURCE'));
+    if (item.live || item.venue) kind.className = 'live-badge';
     const open = document.createElement(hasNote ? 'button' : 'a'); open.className = 'open-resource';
     open.textContent = item.live ? 'Explore live note ↗' : (hasNote ? 'Explore note ↗' : 'View resource ↗');
     if(hasNote) open.onclick = () => openNote(item); else {open.href = safeURL(item.url); open.target = '_blank'; open.rel = 'noopener noreferrer';}
@@ -108,12 +112,13 @@ const EMBODIED_RE = /\b(robot|robotic|robotics|embodied|manipulation|locomotion|
 const AGENT_RE = /\b(agentic|llm agent|language agent|multi-agent|tool use|tool-use|web agent|webrl|web task|gui agent|coding agent|software agent|search agent|multi-turn reinforcement learning|reasoning agent|agent workflow|computer use)\b/i;
 const WEB_ONLY_RE = /\b(web agent|webrl|web task|browser|gui agent)\b/i;
 const VLA_WM_RE = /\b(vision-language-action|vla|world model|world simulation|embodied benchmark|robotic manipulation|physical ai|embodied navigation|sim-to-real)\b/i;
-function classifyLivePaper(title, summary, keywords) {
+function classifyLivePaper(title, summary, keywords, venue) {
   const blob = `${title} ${summary} ${(keywords || []).join(' ')}`;
   const hasRL = RL_RE.test(blob), hasEmbodied = EMBODIED_RE.test(blob), hasAgent = AGENT_RE.test(blob), hasWeb = WEB_ONLY_RE.test(blob), hasVlaWm = VLA_WM_RE.test(blob);
   if (hasRL && hasWeb && !/\b(robot|robotic|humanoid|manipulation|locomotion)\b/i.test(blob)) return '2026 · Agent RL';
   if (hasRL && hasEmbodied) return '2026 · Embodied RL';
   if (hasRL && hasAgent) return '2026 · Agent RL';
+  if (hasRL && venue) return '2026 · Conference RL';
   if (hasVlaWm && hasEmbodied) return '2026 · Embodied context';
   return null;
 }
@@ -129,7 +134,9 @@ function buildLiveItem(raw) {
   const keywords = Array.isArray(p.ai_keywords || p.keywords) ? (p.ai_keywords || p.keywords).map(String) : [];
   const pub = String(p.publishedAt || raw.publishedAt || '').slice(0, 10);
   if (!pub.startsWith('202')) return null;
-  const category = p.category || classifyLivePaper(title, summary, keywords);
+  const vm = `${title} ${summary}`.match(VENUE_RE);
+  const venue = p.venue || (vm && !/workshop|symposium/i.test(summary) ? vm[1] : '');
+  const category = p.category || classifyLivePaper(title, summary, keywords, venue);
   if (!category) return null;
   const rawAuthors = Array.isArray(p.authors) ? p.authors.map(a => typeof a === 'string' ? a : (a && a.name ? a.name : '')).filter(Boolean) : [];
   const authorsStr = rawAuthors.length ? rawAuthors.slice(0, 8).join(', ') + (rawAuthors.length > 8 ? ' et al' : '') : 'arXiv authors';
@@ -138,14 +145,16 @@ function buildLiveItem(raw) {
   if (p.githubRepo) links.push(`* Code: [${p.githubRepo}](${p.githubRepo})`);
   if (p.projectPage) links.push(`* Project page: [${p.projectPage}](${p.projectPage})`);
   const kwLine = keywords.length ? `\n\nKeywords: ${keywords.slice(0, 8).join(', ')}.` : '';
-  const body = `# ${title}\n\nFirst public date: ${pub}.\n\nAuthors: ${authorsStr}.\n\nClassification: ${category} (live auto-indexed preprint).\n\n## Abstract & key idea\n\n${summary}${kwLine}\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on ${pub} and reflects the authors' public preprint abstract (\`arXiv:${pid}\`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n${links.join('\n')}`;
+  const venueLine = venue ? ` Conference venue: ${venue}.` : '';
+  const body = `# ${title}\n\nFirst public date: ${pub}.${venueLine}\n\nAuthors: ${authorsStr}.\n\nClassification: ${category} (${venue ? venue + ' · live auto-indexed' : 'live auto-indexed preprint'}).\n\n## Abstract & key idea\n\n${summary}${kwLine}\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on ${pub} and reflects the authors' public preprint abstract (\`arXiv:${pid}\`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n${links.join('\n')}`;
   return {
     id: `live-${pid}`,
     arxivId: pid,
     title,
     category,
-    description: `(${pub}) — ${aiSummary || summary}`.slice(0, 230),
+    description: `(${pub}) — ${venue ? '[' + venue + '] ' : ''}${aiSummary || summary}`.slice(0, 230),
     publishedAt: pub,
+    venue,
     url: absUrl,
     file: '',
     body,
@@ -171,8 +180,8 @@ function applyLiveCatalog(candidates, latestHint) {
   const liveItems = accepted.slice(0, 24);
   catalog = [...baseCatalog, ...liveItems];
   const liveIds = liveItems.map(i => i.id);
-  featured = ['2026', 'PolicyIK', 'ARPG', 'CRONOS', ...liveIds.slice(0, 6), ...baseFeatured.slice(4), ...liveIds.slice(6)];
-  let latestDate = latestHint || '2026-11-06';
+  featured = ['2026', 'S2C', 'WM-Nav', 'LARBRID', 'Parallel-Safe-RL', 'PTR-CRL', 'Reward-Budgeting', 'RcRL', 'BEAKER', 'HOI-DexRL', ...liveIds.slice(0, 6), ...baseFeatured.slice(10), ...liveIds.slice(6)];
+  let latestDate = latestHint || '2026-11-07';
   for (const item of liveItems) if (item.publishedAt && item.publishedAt > latestDate) latestDate = item.publishedAt;
   if ($('live-status')) {
     $('live-status').textContent = liveItems.length
@@ -182,7 +191,8 @@ function applyLiveCatalog(candidates, latestHint) {
   if ($('frontier-update-summary') && liveItems.length) {
     const embCount = catalog.filter(i => i.category === '2026 · Embodied RL').length;
     const agCount = catalog.filter(i => i.category === '2026 · Agent RL').length;
-    $('frontier-update-summary').textContent = `Explore ${embCount} embodied RL studies, ${agCount} agent RL notes, and clearly labeled world-model benchmarks and VLA releases—including ${liveItems.length} live preprints synced automatically from online feeds.`;
+    const confCount = catalog.filter(i => i.category === '2026 · Conference RL').length;
+    $('frontier-update-summary').textContent = `Explore ${embCount} embodied RL studies, ${agCount} agent RL notes, ${confCount} core conference RL notes (NeurIPS, ICML, ICLR, CoRL, RSS, AAAI 2026), and ${liveItems.length} live preprints synced automatically from online feeds.`;
   }
   render();
   return liveItems;
@@ -207,7 +217,7 @@ async function syncLiveOnline(manual = false) {
   ];
   const results = await Promise.all(endpoints);
   const pooled = [];
-  let latestHint = '2026-11-06';
+  let latestHint = '2026-11-07';
   for (const res of results) {
     if (!res) continue;
     if (Array.isArray(res)) pooled.push(...res);
@@ -236,7 +246,8 @@ $('reset').onclick = () => {active='All resources';savedOnly=false;$('search').v
 $('saved-top').onclick = () => {savedOnly=!savedOnly;active='All resources';$('search').value='';limit=12;render();$('library').scrollIntoView({behavior:reduced.matches?'instant':'smooth'});};
 $('view-toggle').onclick = () => {const list = $('cards').classList.toggle('list'); $('view-toggle').textContent=list?'⊞':'☷'; $('view-toggle').setAttribute('aria-label',list?'Switch to grid view':'Switch to list view');};
 $('random').onclick = () => {const notes=catalog.filter(i=>(i.file||i.body) && i.id!=='README');openNote(notes[Math.floor(Math.random()*notes.length)]);};
-$('latest-embodied').onclick = () => {active='2026 · Embodied RL';savedOnly=false;limit=16;$('search').value='';render();$('library').scrollIntoView({behavior:reduced.matches?'instant':'smooth'});};
+$('latest-embodied').onclick = () => {active='2026 · Embodied RL';savedOnly=false;limit=24;$('search').value='';render();$('library').scrollIntoView({behavior:reduced.matches?'instant':'smooth'});};
+if ($('latest-conference')) $('latest-conference').onclick = () => {active='2026 · Conference RL';savedOnly=false;limit=12;$('search').value='';render();$('library').scrollIntoView({behavior:reduced.matches?'instant':'smooth'});};
 if ($('sync-live')) $('sync-live').onclick = () => syncLiveOnline(true);
 for(const id of ['guide','frontier-link','read-frontier']) $(id).onclick = event => {event.preventDefault();const guide=catalog.find(i=>i.id==='2026');if(guide)openNote(guide);};
 document.addEventListener('keydown',event => {if(event.key==='/' && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName) && !$('reader').open) {event.preventDefault();$('search').focus();$('library').scrollIntoView();}});

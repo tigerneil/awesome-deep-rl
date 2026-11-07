@@ -42,6 +42,19 @@ VLA_OR_WM_TERMS = re.compile(
 )
 
 
+VENUE_RE = re.compile(r"\b(NeurIPS\s*202[56]|ICML\s*202[56]|ICLR\s*202[56]|CoRL\s*202[56]|RSS\s*202[56]|CVPR\s*202[56]|AAAI\s*202[56])\b", re.I)
+
+
+def extract_venue(text: str) -> str:
+    if re.search(r"workshop|symposium", text, re.I):
+        return ""
+    m = VENUE_RE.search(text or "")
+    if not m:
+        return ""
+    raw = re.sub(r"\s+", " ", m.group(1)).upper()
+    return raw.replace("NEURIPS", "NeurIPS").replace("CORL", "CoRL")
+
+
 def norm_title(title: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", title.lower())
 
@@ -49,7 +62,7 @@ def norm_title(title: str) -> str:
 def load_existing_curated() -> tuple[set[str], set[str], str]:
     arxiv_ids: set[str] = set()
     titles: set[str] = set()
-    latest_date = "2026-11-06"
+    latest_date = "2026-11-07"
     for md in ROOT.glob("*.md"):
         text = md.read_text(encoding="utf-8", errors="ignore")
         for match in re.findall(r"\b(\d{4}\.\d{4,5})\b", text):
@@ -63,7 +76,7 @@ def load_existing_curated() -> tuple[set[str], set[str], str]:
     return arxiv_ids, titles, latest_date
 
 
-def classify_paper(title: str, summary: str, keywords: list[str]) -> str | None:
+def classify_paper(title: str, summary: str, keywords: list[str], venue: str = "") -> str | None:
     blob = f"{title} {summary} {' '.join(keywords)}"
     has_rl = bool(RL_TERMS.search(blob))
     has_embodied = bool(EMBODIED_TERMS.search(blob))
@@ -77,6 +90,8 @@ def classify_paper(title: str, summary: str, keywords: list[str]) -> str | None:
         return "2026 · Embodied RL"
     if has_rl and has_agent:
         return "2026 · Agent RL"
+    if has_rl and venue:
+        return "2026 · Conference RL"
     if has_vla_wm and has_embodied:
         return "2026 · Embodied context"
     return None
@@ -133,6 +148,7 @@ def fetch_hf_candidates() -> list[dict]:
                     "keywords": keywords,
                     "publishedAt": pub,
                     "authors": authors,
+                    "venue": extract_venue(f"{title} {summary}"),
                     "githubRepo": paper.get("githubRepo") or "",
                     "projectPage": paper.get("projectPage") or "",
                 }
@@ -141,51 +157,56 @@ def fetch_hf_candidates() -> list[dict]:
 
 
 def fetch_arxiv_candidates() -> list[dict]:
-    query = (
+    queries = [
         '(cat:cs.RO OR cat:cs.LG OR cat:cs.AI) AND '
-        '(all:"reinforcement learning" OR all:"vision-language-action" OR all:"embodied agent")'
-    )
-    url = (
-        "https://export.arxiv.org/api/query?search_query="
-        + urllib.parse.quote(query)
-        + "&sortBy=submittedDate&sortOrder=descending&max_results=50"
-    )
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        '(all:"reinforcement learning" OR all:"vision-language-action" OR all:"embodied agent")',
+        '(co:"NeurIPS 2026" OR co:"ICML 2026" OR co:"ICLR 2026" OR co:"CoRL 2026" OR co:"RSS 2026") AND '
+        '(all:"reinforcement learning" OR all:"world model" OR all:"vision-language-action")',
+    ]
     candidates: list[dict] = []
-    try:
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            xml_bytes = resp.read()
-        root = ET.fromstring(xml_bytes)
-        ns = {"atom": "http://www.w3.org/2005/Atom"}
-        for entry in root.findall("atom:entry", ns):
-            id_text = entry.findtext("atom:id", default="", namespaces=ns)
-            m = re.search(r"(\d{4}\.\d{4,5})", id_text)
-            if not m:
-                continue
-            pid = m.group(1)
-            title = re.sub(r"\s+", " ", entry.findtext("atom:title", default="", namespaces=ns).strip())
-            summary = re.sub(r"\s+", " ", entry.findtext("atom:summary", default="", namespaces=ns).strip())
-            pub = entry.findtext("atom:published", default="", namespaces=ns)[:10]
-            authors = [
-                a.findtext("atom:name", default="", namespaces=ns).strip()
-                for a in entry.findall("atom:author", ns)
-                if a.findtext("atom:name", default="", namespaces=ns)
-            ]
-            candidates.append(
-                {
-                    "arxivId": pid,
-                    "title": title,
-                    "summary": summary,
-                    "aiSummary": "",
-                    "keywords": [],
-                    "publishedAt": pub,
-                    "authors": authors,
-                    "githubRepo": "",
-                    "projectPage": "",
-                }
-            )
-    except Exception as exc:
-        print(f"[warn] Failed to fetch arXiv API: {exc}")
+    ns = {"atom": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
+    for query in queries:
+        url = (
+            "https://export.arxiv.org/api/query?search_query="
+            + urllib.parse.quote(query)
+            + "&sortBy=submittedDate&sortOrder=descending&max_results=40"
+        )
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                xml_bytes = resp.read()
+            root = ET.fromstring(xml_bytes)
+            for entry in root.findall("atom:entry", ns):
+                id_text = entry.findtext("atom:id", default="", namespaces=ns)
+                m = re.search(r"(\d{4}\.\d{4,5})", id_text)
+                if not m:
+                    continue
+                pid = m.group(1)
+                title = re.sub(r"\s+", " ", entry.findtext("atom:title", default="", namespaces=ns).strip())
+                summary = re.sub(r"\s+", " ", entry.findtext("atom:summary", default="", namespaces=ns).strip())
+                comment = re.sub(r"\s+", " ", entry.findtext("arxiv:comment", default="", namespaces=ns).strip())
+                pub = entry.findtext("atom:published", default="", namespaces=ns)[:10]
+                authors = [
+                    a.findtext("atom:name", default="", namespaces=ns).strip()
+                    for a in entry.findall("atom:author", ns)
+                    if a.findtext("atom:name", default="", namespaces=ns)
+                ]
+                candidates.append(
+                    {
+                        "arxivId": pid,
+                        "title": title,
+                        "summary": summary,
+                        "aiSummary": "",
+                        "keywords": [],
+                        "publishedAt": pub,
+                        "authors": authors,
+                        "venue": extract_venue(f"{comment} {summary}"),
+                        "githubRepo": "",
+                        "projectPage": "",
+                    }
+                )
+        except Exception as exc:
+            print(f"[warn] Failed to fetch arXiv API: {exc}")
     return candidates
 
 
@@ -193,13 +214,15 @@ def build_live_item(paper: dict, category: str) -> dict:
     pid = paper["arxivId"]
     title = paper["title"]
     pub = paper["publishedAt"]
+    venue = paper.get("venue") or ""
     authors_list = paper["authors"]
     authors_str = ", ".join(authors_list[:8]) + (" et al" if len(authors_list) > 8 else "")
     if not authors_str:
         authors_str = "arXiv authors"
 
     short_summary = paper["aiSummary"] or paper["summary"]
-    description = f"({pub}) — {short_summary}"[:230]
+    venue_prefix = f"[{venue}] " if venue else ""
+    description = f"({pub}) — {venue_prefix}{short_summary}"[:230]
     arxiv_abs = f"https://arxiv.org/abs/{pid}"
     arxiv_pdf = f"https://arxiv.org/pdf/{pid}"
 
@@ -213,11 +236,13 @@ def build_live_item(paper: dict, category: str) -> dict:
     if paper.get("keywords"):
         kw_line = f"\n\nKeywords: {', '.join(paper['keywords'][:8])}."
 
+    venue_line = f" Conference venue: {venue}." if venue else ""
+    status_label = f"{venue} · live auto-indexed" if venue else "live auto-indexed preprint"
     body = (
         f"# {title}\n\n"
-        f"First public date: {pub}.\n\n"
+        f"First public date: {pub}.{venue_line}\n\n"
         f"Authors: {authors_str}.\n\n"
-        f"Classification: {category} (live auto-indexed preprint).\n\n"
+        f"Classification: {category} ({status_label}).\n\n"
         f"## Abstract & key idea\n\n"
         f"{paper['summary']}{kw_line}\n\n"
         f"## Evidence boundary\n\n"
@@ -235,6 +260,7 @@ def build_live_item(paper: dict, category: str) -> dict:
         "category": category,
         "description": description,
         "publishedAt": pub,
+        "venue": venue,
         "url": arxiv_abs,
         "file": "",
         "body": body,
@@ -256,7 +282,7 @@ def main() -> None:
         nt = norm_title(cand["title"])
         if not pid or pid in curated_ids or pid in seen_ids or nt in curated_titles:
             continue
-        category = classify_paper(cand["title"], cand["summary"], cand.get("keywords") or [])
+        category = classify_paper(cand["title"], cand["summary"], cand.get("keywords") or [], cand.get("venue") or "")
         if not category:
             continue
         seen_ids.add(pid)
