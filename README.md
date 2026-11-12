@@ -196,6 +196,8 @@ Illustrations:
 * [S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning](SRL.md) 25 Sept 2018
 * [dopamine](https://github.com/google/dopamine)
 * [StarCraft II](https://github.com/deepmind/pysc2)
+* [MineRL](https://minerl.io/) | [BASALT benchmark](https://github.com/minerllabs/basalt-benchmark) Minecraft environments and human demonstration datasets (MineRL Diamond competitions; BASALT: learning from human feedback on fuzzy tasks)
+* [PokéAgent Challenge](https://pokeagentchallenge.com/) [arxiv](https://arxiv.org/abs/2603.15563) Pokémon benchmark with a competitive Battling track (20M+ battle trajectories; heuristic, RL and LLM baselines) and an RPG Speedrunning track
 * [tfrl](https://github.com/deepmind/trfl)
 * [chainerrl](https://github.com/chainer/chainerrl)
 * [PARL](https://github.com/PaddlePaddle/PARL) 
