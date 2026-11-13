@@ -191,6 +191,7 @@ Illustrations:
 * [Dataset for Offline RL](https://github.com/rail-berkeley/d4rl)
 * [Spriteworld: a flexible, configurable python-based reinforcement learning environment](https://github.com/deepmind/spriteworld)
 * [Chainerrl Visualizer](https://github.com/chainer/chainerrl-visualizer)
+* [GraphAllocBench: A Flexible Benchmark for Preference-Conditioned Multi-Objective Policy Learning](https://arxiv.org/abs/2601.20753) Jan 2026 [arxiv](https://arxiv.org/abs/2601.20753) | [code](https://github.com/jzh001/GraphAllocBench)
 * [Behaviour Suite for Reinforcement Learning](BSRL.md) 13 Aug 2019 [arxiv](https://arxiv.org/pdf/1908.03568.pdf) | [code](https://github.com/deepmind/bsuite)
 * [Quantifying Generalization in Reinforcement Learning](Coinrun.md) 20 Dec 2018 [arxiv](https://arxiv.org/pdf/1812.02341.pdf)
 * [S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning](SRL.md) 25 Sept 2018
