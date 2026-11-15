@@ -14,7 +14,7 @@ for line in readme.splitlines():
         continue
     links = re.findall(r'\[([^\]]+)\]\(([^)]+)\)', line)
     for title, url in links:
-        if url.endswith('.md'):
+        if url.endswith('.md') and (url not in mapping or not mapping[url][0].startswith('2026 ·')):
             mapping[url] = (category, title)
     if links and not any(url.endswith('.md') for _, url in links):
         title, url = links[0]

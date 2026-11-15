@@ -1,23 +1,8 @@
 {
-  "updatedAt": "2026-11-15T06:19:52Z",
-  "latestDate": "2026-11-12",
+  "updatedAt": "2026-11-15T17:01:44Z",
+  "latestDate": "2026-11-15",
   "count": 24,
   "items": [
-    {
-      "id": "live-2611.17287",
-      "arxivId": "2611.17287",
-      "title": "Negative-Only Policy Optimization for One-Sided Verifiable Rewards",
-      "category": "2026 · Conference RL",
-      "description": "(2026-11-12) — [NeurIPS 2026] Reinforcement learning with verifiable rewards (RLVR) typically relies on a verifier that can reliably judge whether sampled solutions are correct. However, in many realistic settings, complete verifi",
-      "publishedAt": "2026-11-12",
-      "venue": "NeurIPS 2026",
-      "url": "https://arxiv.org/abs/2611.17287",
-      "file": "",
-      "body": "# Negative-Only Policy Optimization for One-Sided Verifiable Rewards\n\nFirst public date: 2026-11-12. Conference venue: NeurIPS 2026.\n\nAuthors: Jiacheng Xu, Shuo He, Fuxiang Zhang, Chaojie Wang, Bo An.\n\nClassification: 2026 · Conference RL (NeurIPS 2026 · live auto-indexed).\n\n## Abstract & key idea\n\nReinforcement learning with verifiable rewards (RLVR) typically relies on a verifier that can reliably judge whether sampled solutions are correct. However, in many realistic settings, complete verification is generally unavailable, while cheap checks can only falsify failures. We formalize this regime as one-sided verifiability (OSV): verified negatives are reliable counterexamples, but verified positives are merely non-falsified candidates and may contain many false positives. This asymmetry makes standard RLVR unreliable, because reinforcing verified positives can directly reward shortcuts that pass partial checks. To address this issue, we propose Negative-Only Policy Optimization (NOPO), which treats verified positives as unlabeled and updates the policy only by suppressing trusted verified negatives. Specifically, NOPO combines a reference-relative negative suppression loss with a group-level adapter that scales each update by the proportion of non-falsified responses. Across unit-test, constraint-check, and LLM self-verifiers, NOPO improves pass@k over baselines on code, logic, and math benchmarks when oracle rewards are unavailable. These gains persist under inference-time scaling and cross-benchmark transfer.\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on 2026-11-12 and reflects the authors' public preprint abstract (`arXiv:2611.17287`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n* Paper: [arXiv:2611.17287](https://arxiv.org/abs/2611.17287)\n* PDF: [arXiv PDF](https://arxiv.org/pdf/2611.17287)",
-      "live": true,
-      "githubRepo": "",
-      "projectPage": ""
-    },
     {
       "id": "live-2611.17060",
       "arxivId": "2611.17060",
@@ -304,21 +289,6 @@
       "projectPage": ""
     },
     {
-      "id": "live-2611.15493",
-      "arxivId": "2611.15493",
-      "title": "The Illusion of Diversity: Aligning LLM Exploration via Effective Entropy",
-      "category": "2026 · Conference RL",
-      "description": "(2026-11-11) — [NeurIPS 2026] Reinforcement learning with verifiable rewards has shifted the alignment paradigm of large language models from subjective preference to objective correctness, yet a fundamental disconnect persists be",
-      "publishedAt": "2026-11-11",
-      "venue": "NeurIPS 2026",
-      "url": "https://arxiv.org/abs/2611.15493",
-      "file": "",
-      "body": "# The Illusion of Diversity: Aligning LLM Exploration via Effective Entropy\n\nFirst public date: 2026-11-11. Conference venue: NeurIPS 2026.\n\nAuthors: Xiaoliang Fu, Jiaye Lin, Yangyi Fang, Cong Qin, Binbin Zheng, Chaowen Hu, Zekai Shao.\n\nClassification: 2026 · Conference RL (NeurIPS 2026 · live auto-indexed).\n\n## Abstract & key idea\n\nReinforcement learning with verifiable rewards has shifted the alignment paradigm of large language models from subjective preference to objective correctness, yet a fundamental disconnect persists between exploration diversity and reasoning validity. Existing strategies predominantly rely on \"blind\" entropy metrics, e.g., token-level or global sequence-level entropy, which structurally fail to distinguish between effective reasoning and potential hallucinations. This misalignment creates an illusion of diversity, where high entropy tends to signal chaotic degeneration rather than valuable exploration. To bridge this gap, we introduce Effective Entropy, a validity-aware entropy concept that quantifies diversity exclusively within the valid subspace and systematically filters out the noise of incorrect trajectories. Built on this concept, we instantiate VEPO, a simple Validity-aware Entropy Policy Optimization method that directly incorporates effective entropy into RLVR training. VEPO induces an adaptive attraction dynamic that drives up the probability of under-explored valid trajectories, a mechanism that matches the practical regime of large-scale autoregressive models where sequence probabilities remain extremely small. Experiments on six mathematical reasoning benchmarks with 1.5B and 7B DeepSeek-R1-Distill-Qwen models show consistent aggregate accuracy gains over GRPO and competitive repeated-sampling success. A direct evaluation with matched correct counts finds more distinct strategies on commonly solved MATH500 problems, supported by paired statistical tests and three-seed training comparisons.\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on 2026-11-11 and reflects the authors' public preprint abstract (`arXiv:2611.15493`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n* Paper: [arXiv:2611.15493](https://arxiv.org/abs/2611.15493)\n* PDF: [arXiv PDF](https://arxiv.org/pdf/2611.15493)",
-      "live": true,
-      "githubRepo": "",
-      "projectPage": ""
-    },
-    {
       "id": "live-2611.15491",
       "arxivId": "2611.15491",
       "title": "What Makes a VLA Reactive? A Study of Execution Strategies for Dynamic Manipulation",
@@ -359,6 +329,36 @@
       "url": "https://arxiv.org/abs/2611.15426",
       "file": "",
       "body": "# SimRec: Learning to Search, Ask, and Recommend from Simulated Interaction\n\nFirst public date: 2026-11-11.\n\nAuthors: Yaxin Zhang, Xingyu Wu, Yuchen Yan, Yuqin Dai, Hong Zhao, Lixing Shen, Zhan Chen, Jian Shao et al.\n\nClassification: 2026 · Agent RL (live auto-indexed preprint).\n\n## Abstract & key idea\n\nLLM-based recommendation agents can search catalogs, inspect products, ask users, and revise rejected recommendations. However, these behaviors are often governed by hand-designed workflows, while existing training methods optimize isolated components such as query rewriting or list ranking rather than the interaction policy as a whole. We present SimRec, a reinforcement learning framework that trains the full interaction policy of a tool-integrated recommendation agent. SimRec introduces two components. A task-anchored user simulator provides feedback on every recommendation: conditioned on the current task need rather than on user profile, and it can be an external LLM or the recommender itself under self-play. A task-aligned reward optimizes the whole trajectory with GRPO, crediting natural retrieval quality and valid tool use alongside the final hit, with training-only target injection to handle sparse hits over large catalogs. On ESCI and Amazon C4, SimRec improves the NDCG@100 of a Qwen3-4B agent from 32.23% to 35.42% and from 22.94% to 24.72%}, outperforming training-free agents on far larger backbones and task-aligned baselines on NDCG. Analysis shows that the trained agent verifies candidates, uses preferences, and recovers from rejected recommendations far more often than its untrained counterpart. Our code is available at https://github.com/ZJU-REAL/SimRec .\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on 2026-11-11 and reflects the authors' public preprint abstract (`arXiv:2611.15426`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n* Paper: [arXiv:2611.15426](https://arxiv.org/abs/2611.15426)\n* PDF: [arXiv PDF](https://arxiv.org/pdf/2611.15426)",
+      "live": true,
+      "githubRepo": "",
+      "projectPage": ""
+    },
+    {
+      "id": "live-2611.15048",
+      "arxivId": "2611.15048",
+      "title": "Does Your World Model Know Actions Have Consequences?",
+      "category": "2026 · Embodied context",
+      "description": "(2026-11-11) — Embodied world models (WMs) are implicit learning systems that predict the next future latent state directly from observations and actions. Unique from other end-to-end learning systems, the dynamics predictor of WM",
+      "publishedAt": "2026-11-11",
+      "venue": "",
+      "url": "https://arxiv.org/abs/2611.15048",
+      "file": "",
+      "body": "# Does Your World Model Know Actions Have Consequences?\n\nFirst public date: 2026-11-11.\n\nAuthors: Ayush Gaggar, Jared Berry, Todd D. Murphey.\n\nClassification: 2026 · Embodied context (live auto-indexed preprint).\n\n## Abstract & key idea\n\nEmbodied world models (WMs) are implicit learning systems that predict the next future latent state directly from observations and actions. Unique from other end-to-end learning systems, the dynamics predictor of WMs can simulate the environment's response to alternative actions without physical deployment nor pre-specifying states of the dynamical system. Current metrics focus on the quality of model outputs, e.g., clarity of reconstructions or task success, but fail to assess the fidelity of modeling consequences of counterfactual actions. Inspecting the forced response to action perturbations through sensitivity analysis is one way to audit how well WMs can predict the consequences of counterfactual actions. Deploying WMs on hardware will require new evaluation frameworks to analyze the tradeoffs between state error and accurate sensitivity prediction.\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on 2026-11-11 and reflects the authors' public preprint abstract (`arXiv:2611.15048`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n* Paper: [arXiv:2611.15048](https://arxiv.org/abs/2611.15048)\n* PDF: [arXiv PDF](https://arxiv.org/pdf/2611.15048)",
+      "live": true,
+      "githubRepo": "",
+      "projectPage": ""
+    },
+    {
+      "id": "live-2611.14956",
+      "arxivId": "2611.14956",
+      "title": "Binding Mode Matters: Hotspot-Aware Drug Discovery via Explorative Preferences",
+      "category": "2026 · Conference RL",
+      "description": "(2026-11-11) — [NeurIPS 2026] Discovering hit molecules requires not just high binding affinity, but also the identification of diverse binding modes, which are critical for experimental assays. Existing generative approaches have",
+      "publishedAt": "2026-11-11",
+      "venue": "NeurIPS 2026",
+      "url": "https://arxiv.org/abs/2611.14956",
+      "file": "",
+      "body": "# Binding Mode Matters: Hotspot-Aware Drug Discovery via Explorative Preferences\n\nFirst public date: 2026-11-11. Conference venue: NeurIPS 2026.\n\nAuthors: Dingshuo Chen, Hao Yang, Kuangqi Zhou, Zhixun Li, Qiang Liu, Xiangxiang Zeng, Shu Wu, Yaosen Min.\n\nClassification: 2026 · Conference RL (NeurIPS 2026 · live auto-indexed).\n\n## Abstract & key idea\n\nDiscovering hit molecules requires not just high binding affinity, but also the identification of diverse binding modes, which are critical for experimental assays. Existing generative approaches have predominantly relied on optimizing a scalar docking score, obscuring the distinct contributions of key binding determinants. To this end, we introduce a paradigm shift by formulating target-based drug design as a multi-objective exploration task, where each objective explicitly corresponds to enhancing interactions with a specific hotspot. Here, we introduce BindMol, a novel generative framework driven by a customized multi-objective reinforcement learning algorithm. By incorporating explorative preferences during training, our approach efficiently uncovers molecules with diverse and desirable binding profiles. Empirical results demonstrate that BindMol facilitates the discovery of high-affinity compounds characterized by both structural novelty and diverse binding modes. Validated across target-based drug discovery and multi-property optimization tasks, our approach provides a versatile paradigm for goal-oriented drug discovery.\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on 2026-11-11 and reflects the authors' public preprint abstract (`arXiv:2611.14956`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n* Paper: [arXiv:2611.14956](https://arxiv.org/abs/2611.14956)\n* PDF: [arXiv PDF](https://arxiv.org/pdf/2611.14956)",
       "live": true,
       "githubRepo": "",
       "projectPage": ""

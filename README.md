@@ -8,7 +8,9 @@
 > 
 > **Dec 2021 update: Unsupervised RL**
 
-> **November 7, 2026: [Top AI conference & embodied RL update](2026.md#november-2026-update-embodied-and-agentic-rl), 46 curated 2026 research notes across NeurIPS 2026, ICML 2026, ICLR 2026, CoRL 2026, RSS 2026, and AAAI 2026, plus the [interactive atlas](index.html) with automatic online preprint sync. Sources checked through November 7, 2026.**
+> **November 15, 2026: [Top AI conference Oral, Spotlight & RL update](2026.md#november-2026-update-embodied-and-agentic-rl), 68 curated 2026 research notes across NeurIPS 2026, ICML 2026, ICLR 2026, CoRL 2026, RSS 2026, IJCAI 2026, and AAAI 2026, plus the [interactive atlas](index.html) with automatic online preprint sync. Sources checked through November 15, 2026.**
+>
+> **November 7, 2026: [Top AI conference & embodied RL update](2026.md#november-2026-update-embodied-and-agentic-rl), 46 curated 2026 research notes across NeurIPS 2026, ICML 2026, ICLR 2026, CoRL 2026, RSS 2026, and AAAI 2026, plus the [interactive atlas](index.html) with automatic online preprint sync.**
 >
 > **November 6, 2026: [Embodied & agentic RL research update](2026.md#november-2026-update-embodied-and-agentic-rl), 26 curated 2026 research notes (14 added since September), and the [interactive atlas](index.html).**
 >
@@ -23,7 +25,7 @@ Reinforcement learning is the fundamental framework for building AGI. Therefore 
 
 ## The 2026 frontier
 
-The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Top-conference RL work is now concentrated at NeurIPS, ICML, ICLR, CoRL/RSS, AAAI/IJCAI/AAMAS, and UAI, while the canonical test-of-time foundations still remain DQN, PPO, SAC, AlphaGo, MuZero, and world models. The latest frontier is also deeply shaped by LLM-agent RL, preference optimization (RLHF/DPO/GRPO), and embodied AI systems that couple perception, control, and long-horizon planning.
+The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Top-conference RL work is now concentrated at NeurIPS, ICML, ICLR, CoRL/RSS, AAAI/IJCAI/AAMAS, and UAI, while the canonical test-of-time foundations still remain DQN, A3C, PPO, SAC, AlphaGo, MuZero, and world models. The latest frontier is also deeply shaped by LLM-agent RL, preference optimization (RLHF/DPO/GRPO), and embodied AI systems that couple perception, control, and long-horizon planning.
 
 Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally—opening the homepage automatically syncs the latest online Embodied RL, VLA, and Agentic RL preprints alongside the curated notes (see [WEBSITE.md](WEBSITE.md#automatic-online-update-on-page-open)). Browse the [research lab directory](index.html#labs) to discover leading LLM and RL groups by research focus, organization type, and region.
 
@@ -32,13 +34,14 @@ Start with the [2026 frontier guide](2026.md), or use the [interactive homepage]
 * **NeurIPS, ICML, ICLR**: RL, world models, policy optimization, uncertainty-aware control, and sequence modeling for decision-making.
 * **CoRL / RSS / ICRA / IROS**: embodied AI, dexterous manipulation, sim-to-real transfer, and safe real-world control.
 * **AAAI / IJCAI / AAMAS / UAI**: agentic decision-making, planning, Bayesian RL, and multi-agent coordination.
-* **Classic test-of-time anchors**: DQN, PPO, SAC, AlphaGo, MuZero, World Models, and Inverse RL remain the core conceptual reference stack.
-* **LLM and agent RL**: RLHF, DPO, GRPO, ReAct, WebArena, and foundation-model policies such as OpenVLA and Octo.
+* **Classic test-of-time anchors**: DQN, A3C (ICML 2026 Test of Time Award), PPO, SAC, AlphaGo, MuZero, World Models, and Inverse RL remain the core conceptual reference stack.
+* **LLM and agent RL**: RLHF, DPO, GRPO, SDPO, ReAct, WebArena, and foundation-model policies such as OpenVLA and Octo.
 
 ## 2026 · Embodied RL
 
-Latest curated notes, ordered by first public date. Conference acceptances (NeurIPS, CoRL, RSS, ICLR, AAAI) are explicitly tagged where established; unmarked entries are recent preprints. See the [frontier guide](2026.md) for evaluation limits and artifact availability.
+Latest curated notes, ordered by first public date. Conference acceptances (NeurIPS, CoRL, RSS, ICLR, IJCAI, AAAI) are explicitly tagged where established; unmarked entries are recent preprints. See the [frontier guide](2026.md) for evaluation limits and artifact availability.
 
+* [K-PWM: Structured bilinear world models under partial observation](K-PWM.md) — 8 Nov 2026 · **NeurIPS 2026**. Koopman-bilinear latent dynamics with EKF belief tracking and uncertainty-aware MPPI control.
 * [S2C: Stagewise semantics-to-contact manipulation RL](S2C.md) — 5 Nov 2026 · **NeurIPS 2026**. VLM spatial focusing plus force-feedback residual RL across six physical contact-rich tasks.
 * [Seeing Beyond the Next Step: World-model-guided navigation](WM-Nav.md) — 5 Nov 2026 · **NeurIPS 2026**. Training-time social and semantic world-model preference distillation for single-pass navigation.
 * [LARBRID: Latent noise bridging for diffusion policy RL](LARBRID.md) — 5 Nov 2026 · **NeurIPS 2026**. Eliminates noise aliasing via the LNL-MDP Bridge Equation for locomotion and manipulation.
@@ -56,9 +59,13 @@ Latest curated notes, ordered by first public date. Conference acceptances (Neur
 * [HaWMPO: Hallucination-aware policy optimization](HaWMPO.md) — 9 Sep 2026. Reliability-weighted imagined rollouts.
 * [VLA-Precision: Online RL for precision manipulation](VLA-Precision.md) — 3 Sep 2026. Human intervention, value calibration, and efficient updates.
 * [WorldSample: Real-robot RL with world modelling](WorldSample.md) — 2 Jul 2026. Synthetic transitions grounded in real experience.
+* [VLM-AR3L: Absolute and relative VLM rewards for RL](VLM-AR3L.md) — 1 Jul 2026 · **IJCAI 2026**. State-grounded absolute and transition-grounded relative VLM rewards across manipulation and Minecraft.
 * [Object-Centric Residual RL](Object-Centric-Residual-RL.md) — 17 Jun 2026. Simulation-trained corrections to a frozen VLA.
 * [RLA-WM: Visual feature world models via residual latent action](RLA-WM.md) — 8 May 2026 · **NeurIPS 2026**. DINO-residual flow matching for actionless video VLA adaptation and offline visual PPO.
+* [LCVN: Language-conditioned world modeling for visual navigation](LCVN.md) — 23 Mar 2026 · **NeurIPS 2026 Oral**. Compares latent-imagination actor-critic RL against unified world-action prediction across 39K trajectories.
 * [RL Token: Efficient online robot RL](RL-Token.md) — 19 Mar 2026 official release. Compact representations for precision skills.
+* [LPS: Latent policy steering through one-step flow policies](Latent-Policy-Steering.md) — 5 Mar 2026 · **RSS 2026**. Original-action-space Q-gradient steering through differentiable MeanFlow priors on OGBench and physical robots.
+* [Rhythm: Interactive whole-body control for dual humanoids](Rhythm.md) — 3 Mar 2026 · **RSS 2026**. Interaction-aware retargeting and graph-reward RL deployed sim-to-real on paired Unitree G1 humanoids.
 * [RISE: Compositional world-model RL](RISE.md) — 11 Feb 2026 · **RSS 2026**. Policy improvement through imagined dynamics and values.
 * [TwinRL: Digital twin-driven robot RL](TwinRL.md) — 9 Feb 2026. Simulation warm-up and human-guided physical refinement.
 * [USER: Unified system for real-world online policy learning](USER-RL.md) — 8 Feb 2026 · **RSS 2026**. Cloud-edge hardware abstraction and persistent asynchronous replay for physical robot RL.
@@ -66,29 +73,45 @@ Latest curated notes, ordered by first public date. Conference acceptances (Neur
 
 ## 2026 · Agent RL
 
+* [NOPO: Negative-only policy optimization for one-sided verifiers](NOPO.md) — 12 Nov 2026 · **NeurIPS 2026 Spotlight**. Suppresses trusted verified negatives without reinforcing false-positive shortcuts under partial checks.
+* [HyperSkill: Training-free omnimodal GRPO via skill hypergraphs](HyperSkill.md) — 11 Nov 2026 · **NeurIPS 2026**. Counterfactual advantage-ranked hypergraph skill evolution on frozen omnimodal backbones.
+* [TACA: Transition-aware credit assignment in tool-agent RL](TACA.md) — 8 Nov 2026 · **NeurIPS 2026**. Advantage projection, decision contrast, and replay to prevent multi-turn tool-calling collapse.
 * [Reward Budgeting: Reducing premature convergence in LLM RL](Reward-Budgeting.md) — 4 Nov 2026 · **NeurIPS 2026**. Fixed per-prompt reward budgets with diminishing returns on AIME24/25 and AMC23.
 * [Rubric Curriculum RL: Non-verifiable RL post-training](RcRL.md) — 4 Nov 2026 · **ICML 2026**. Pairwise rollout preferences with a non-stationary rubric curriculum on HealthBench and creative writing.
 * [ARPG: Dependency-aware LLM MDP design](ARPG.md) — 3 Nov 2026 · **NeurIPS 2026**. Automated MDP formulation and simulator generation before RL training.
 * [RLiD: Decision-plane RL for language agents](RLiD.md) — 2 Nov 2026. Single-pass action-menu optimization and trajectory distillation.
 * [ANTE: Verified-belief world models for coding agents](ANTE.md) — 11 Oct 2026. Pre-action outcome forecasts and belief-anchored credit on SWE-bench.
 * [EnvACE: Environment rehearsal for agentic RL](EnvACE.md) — 6 Aug 2026. Tool-agent RL; not a physical-robot result.
+* [SkillRL: Recursive skill-augmented agentic RL](SkillRL.md) — 9 Feb 2026 · **NeurIPS 2026**. Co-evolves an experience-distilled hierarchical `SkillBank` alongside GRPO policy updates.
+* [SDPO: Reinforcement learning via self-distillation](SDPO.md) — 28 Jan 2026 · **ICML 2026**. Token-level on-policy distillation from a feedback-conditioned self-teacher across code, tools, and science.
 * [MemRL: Runtime RL on episodic agent memory](MemRL.md) — 6 Jan 2026 · **NeurIPS 2026**. Non-parametric Q-value utility updates for two-phase episodic memory retrieval.
+* [LoongRL: Long-context reasoning RL via KeyChain synthesis](LoongRL.md) — 22 Oct 2025 arXiv · **ICLR 2026 Oral**. 16K-to-128K multi-hop reasoning transfer with emergent plan-retrieve-reason-recheck loops.
+* [T3: Reducing belief deviation in active-reasoning RL](T3-Belief-RL.md) — 14 Oct 2025 arXiv · **ICLR 2026 Oral**. Tracks belief drift and truncates uninformative rollout tails in multi-turn information-seeking agents.
 
 ## 2026 · Conference RL
 
-Core reinforcement learning theory, safe exploration, continual learning, offline diffusion control, and generative post-training highlights from NeurIPS 2026, ICML 2026, and ICLR 2026.
+Core reinforcement learning theory, LLM RL optimization mechanics, safe exploration, continual learning, multi-agent equilibria, and offline control highlights from NeurIPS 2026, ICML 2026, ICLR 2026, and IJCAI 2026.
 
+* [VEPO: Aligning LLM exploration via effective entropy](VEPO.md) — 11 Nov 2026 · **NeurIPS 2026**. Restricts entropy regularization to verified-valid reasoning subspaces to prevent degenerate exploration.
+* [LGPO: Likelihood-gated policy optimization without old-policy ratios](LGPO.md) — 11 Nov 2026 · **NeurIPS 2026**. Soft likelihood trust-region gating without recomputing importance ratios (~18% faster than GRPO).
+* [Off-Policy Learning with Excursion Policies](Excursion-Policies.md) — 9 Nov 2026 · **NeurIPS 2026**. Dynamic programming and convergent TD evaluation for multi-step target-policy excursions.
 * [Accelerating Safe RL with Massive Parallelism](Parallel-Safe-RL.md) — 5 Nov 2026 · **NeurIPS 2026**. Phase-aggregated episode cost estimation and constraint tightening for short-horizon parallel CMDPs.
 * [Permanent and Transient Representations for Continual RL](PTR-CRL.md) — 5 Nov 2026 · **NeurIPS 2026**. Parametric permanent values paired with non-parametric transient adaptation on Craftax-Classic.
 * [MEND: Proximal velocity matching for flow-model RL](MEND.md) — 5 Oct 2026. Reference-free differentiable reward post-training for flow-based generators.
 * [NSPG: Noisy-space policy gradient for diffusion offline RL](NSPG.md) — 7 Sep 2026 · **ICML 2026**. Denoising-free KL-regularized policy improvement on D4RL and vision-based OGBench.
 * [Relative Value Learning: Pairwise difference critics](Relative-Value-Learning.md) — 23 Jul 2026 · **ICLR 2026**. Contractive pairwise Bellman backups and Relative GAE (`R-GAE`) across 49 Atari games.
+* [Phi-Actor-Critic: Correlated equilibria in general-sum MARL](Phi-Actor-Critic.md) — 9 Jun 2026 · **IJCAI 2026**. Single-pass centralized attention swap-regret critics with Lagrangian social-welfare selection.
 * [SHAPO: Sharpness-aware policy optimization for safe exploration](SHAPO.md) — 8 Jun 2026 · **ICLR 2026**. Actor parameter-perturbation sensitivity as an ensemble-free epistemic uncertainty proxy.
+* [Distributional Inverse Reinforcement Learning](Distributional-IRL.md) — 3 Oct 2025 arXiv · **ICML 2026 Oral**. Models reward uncertainty and return distributions via stochastic dominance and distortion risk measures.
 
 ## 2026 · Embodied context
 
-Benchmark and foundation-policy developments are relevant to RL without necessarily introducing an RL algorithm.
+Benchmark, memory, transfer, and physical-modeling developments relevant to RL without necessarily introducing an RL policy-optimization algorithm.
 
+* [HeMeR: Heterogeneous memory reconciliation via structured KV reuse](HeMeR.md) — 12 Nov 2026 · **NeurIPS 2026 Oral**. Selective KV-cache reconciliation across declarative, procedural, and working embodied agent memory.
+* [HARP-Bench: Robot manipulation around active humans](HARP-Bench.md) — 8 Nov 2026 · **CoRL 2026**. Evaluates VLAs under human cueing, contribution, interruption, and co-presence.
+* [UniLatent: Cross-embodiment transfer via latent observation alignment](UniLatent.md) — 6 Nov 2026 · **CoRL 2026**. Paired simulation encoder alignment for zero- and few-shot cross-arm policy transfer.
+* [MDF++: End-to-end visuo-tactile world action model](MDF-Plus-Plus.md) — 6 Nov 2026 · **CoRL 2026**. Cross-modal anti-collapse diffusion WAM for physical bolt screwing and nut mating.
 * [BEAKER: Self-driving chemical laboratory embodied benchmark](BEAKER.md) — 4 Nov 2026 · **NeurIPS 2026 Spotlight**. 1,000 expert-curated QA instances diagnosing lab affordances, trajectories, and safety across 28 MLLMs.
 * [CRONOS: Non-episodic VLA RL benchmark](CRONOS.md) — 3 Nov 2026. Shared-scene ManiSkill3 benchmark for infrequent scene resets.
 * [MESA: Compositional, semantic, and spatial robot generalization](MESA.md) — 3 Nov 2026 · **CoRL 2026**. Single-arm (`MESA`) and bimanual (`BiMESA`) evaluation suites isolating four generalization axes.
@@ -96,6 +119,7 @@ Benchmark and foundation-policy developments are relevant to RL without necessar
 * [Recursive Self-Improvement in Physical AI](Physical-AI-RSI.md) — 28 Oct 2026. Survey and L0–L3 evidence rubric for learner versus improver updates.
 * [Gemini Robotics 2: Whole-body intelligence](Gemini-Robotics-2.md) — 30 Jul 2026 official announcement; RL recipe not established.
 * [Xiaomi-Robotics-1: VLA data scaling](Xiaomi-Robotics-1.md) — 16 Jul 2026. Pretraining/adaptation context.
+* [NeuralActuator: Differentiable actuation & sensorless force perception](NeuralActuator.md) — 13 Jul 2026 · **RSS 2026 Award**. Outstanding Systems Paper Award; torque-free actuation and external force modeling across \$500–\$30K arms.
 * [OopsieVerse: Damage-aware safety benchmark for manipulation](OopsieVerse.md) — 30 Jun 2026 · **RSS 2026**. Mechanical, thermal, and fluid damage simulation (`DamageSim`) in OmniGibson and RoboCasa.
 * [WorldArena: Functional world-model evaluation](WorldArena.md) — 9 Feb 2026. Benchmark, not an RL algorithm.
 

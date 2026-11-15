@@ -1,9 +1,9 @@
 'use strict';
-const VENUE_RE = /\b(NeurIPS\s*202[56](?:\s+Spotlight|\s+Oral)?|ICML\s*202[56](?:\s+Spotlight|\s+Oral)?|ICLR\s*202[56](?:\s+Spotlight|\s+Oral)?|CoRL\s*202[56](?:\s+Oral)?|RSS\s*202[56]|CVPR\s*202[56]|AAAI\s*202[56](?:\s+Oral)?)\b/i;
+const VENUE_RE = /\b(NeurIPS\s*202[56](?:\s+Spotlight|\s+Oral)?|ICML\s*202[56](?:\s+Spotlight|\s+Oral)?|ICLR\s*202[56](?:\s+Spotlight|\s+Oral)?|CoRL\s*202[56](?:\s+Oral)?|RSS\s*202[56](?:\s+Award)?|CVPR\s*202[56]|IJCAI\s*202[56]|IROS\s*202[56]|AAAI\s*202[56](?:\s+Oral)?)\b/i;
 const baseCatalog = (window.RL_CATALOG || []).map(item => {
   const blob = `${item.description || ''} ${item.body || ''}`;
   const m = blob.match(/\b(202[0-9]-\d{2}-\d{2})\b/);
-  const vm = item.id !== '2026' && item.id !== 'README' ? blob.match(/Conference venue:\s*([^\n.]+)|status:\s*paper;\s*arxiv record lists\s*(RSS 2026)|\b(NeurIPS 2026|ICML 2026|ICLR 2026|CoRL 2026|RSS 2026|AAAI 2026(?:\s+Oral)?)\b/i) : null;
+  const vm = item.id !== '2026' && item.id !== 'README' ? blob.match(/Conference venue:\s*([^\n]+?)\.(?:\s|$)|status:\s*paper;\s*arxiv record lists\s*(RSS 2026)|\b(NeurIPS 2026(?:\s+Oral|\s+Spotlight)?|ICML 2026(?:\s+Oral|\s+Spotlight)?|ICLR 2026(?:\s+Oral|\s+Spotlight)?|CoRL 2026|RSS 2026(?:\s+Award)?|IJCAI 2026|IROS 2026|AAAI 2026(?:\s+Oral)?)\b/i) : null;
   const venue = vm ? (vm[1] || vm[2] || vm[3] || '').replace(/\s*\([^)]*\)/g, '').trim() : '';
   return Object.assign({publishedAt: m ? m[1] : '', venue}, item);
 });
@@ -23,7 +23,7 @@ try {
   saved = new Set(Array.isArray(stored) ? stored.filter(id => typeof id === 'string' && (id.startsWith('live-') || baseCatalog.some(item => item.id === id))) : []);
 } catch { saved = new Set(); }
 let active = 'All resources', limit = 12, savedOnly = false;
-const baseFeatured = ['2026','S2C','WM-Nav','LARBRID','Parallel-Safe-RL','PTR-CRL','Reward-Budgeting','RcRL','BEAKER','HOI-DexRL','PolicyIK','ARPG','CRONOS','HLO-AMP','MESA','RLiD','RAVEL','VLA-Stem','Physical-AI-RSI','AtomicRL','WoVR-Plus','ANTE','DRIVE','MEND','eRLT','FIND','VLaRL','NSPG','Relative-Value-Learning','OopsieVerse','SHAPO','RLA-WM','USER-RL','MemRL','Embodied-R1','FMAPPO','HaWMPO','VLA-Precision','WorldSample','Object-Centric-Residual-RL','RL-Token','RISE','TwinRL','EnvACE','PPO','DQN'];
+const baseFeatured = ['2026','NOPO','HeMeR','VEPO','LGPO','HyperSkill','Excursion-Policies','K-PWM','TACA','HARP-Bench','UniLatent','MDF-Plus-Plus','LCVN','NeuralActuator','SDPO','Distributional-IRL','LoongRL','T3-Belief-RL','Latent-Policy-Steering','Rhythm','SkillRL','VLM-AR3L','Phi-Actor-Critic','S2C','WM-Nav','LARBRID','Parallel-Safe-RL','PTR-CRL','Reward-Budgeting','RcRL','BEAKER','HOI-DexRL','PolicyIK','ARPG','CRONOS','HLO-AMP','MESA','RLiD','RAVEL','VLA-Stem','Physical-AI-RSI','AtomicRL','WoVR-Plus','ANTE','DRIVE','MEND','eRLT','FIND','VLaRL','NSPG','Relative-Value-Learning','OopsieVerse','SHAPO','RLA-WM','USER-RL','MemRL','Embodied-R1','FMAPPO','HaWMPO','VLA-Precision','WorldSample','Object-Centric-Residual-RL','RL-Token','RISE','TwinRL','EnvACE','PPO','DQN'];
 let featured = baseFeatured.slice();
 const icons = ['◎','⌘','◇','⌁','⊞','△'];
 let groups = [...new Set(catalog.map(item => item.category))].sort();
@@ -180,8 +180,8 @@ function applyLiveCatalog(candidates, latestHint) {
   const liveItems = accepted.slice(0, 24);
   catalog = [...baseCatalog, ...liveItems];
   const liveIds = liveItems.map(i => i.id);
-  featured = ['2026', 'S2C', 'WM-Nav', 'LARBRID', 'Parallel-Safe-RL', 'PTR-CRL', 'Reward-Budgeting', 'RcRL', 'BEAKER', 'HOI-DexRL', ...liveIds.slice(0, 6), ...baseFeatured.slice(10), ...liveIds.slice(6)];
-  let latestDate = latestHint || '2026-11-07';
+  featured = [...baseFeatured.slice(0, 10), ...liveIds.slice(0, 6), ...baseFeatured.slice(10), ...liveIds.slice(6)];
+  let latestDate = latestHint || '2026-11-15';
   for (const item of liveItems) if (item.publishedAt && item.publishedAt > latestDate) latestDate = item.publishedAt;
   if ($('live-status')) {
     $('live-status').textContent = liveItems.length
@@ -192,7 +192,7 @@ function applyLiveCatalog(candidates, latestHint) {
     const embCount = catalog.filter(i => i.category === '2026 · Embodied RL').length;
     const agCount = catalog.filter(i => i.category === '2026 · Agent RL').length;
     const confCount = catalog.filter(i => i.category === '2026 · Conference RL').length;
-    $('frontier-update-summary').textContent = `Explore ${embCount} embodied RL studies, ${agCount} agent RL notes, ${confCount} core conference RL notes (NeurIPS, ICML, ICLR, CoRL, RSS, AAAI 2026), and ${liveItems.length} live preprints synced automatically from online feeds.`;
+    $('frontier-update-summary').textContent = `Explore ${embCount} embodied RL studies, ${agCount} agent RL notes, ${confCount} core conference RL notes (NeurIPS, ICML, ICLR, CoRL, RSS, IJCAI, AAAI 2026), and ${liveItems.length} live preprints synced automatically from online feeds.`;
   }
   render();
   return liveItems;
@@ -217,7 +217,7 @@ async function syncLiveOnline(manual = false) {
   ];
   const results = await Promise.all(endpoints);
   const pooled = [];
-  let latestHint = '2026-11-07';
+  let latestHint = '2026-11-15';
   for (const res of results) {
     if (!res) continue;
     if (Array.isArray(res)) pooled.push(...res);

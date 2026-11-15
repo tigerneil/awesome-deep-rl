@@ -17,7 +17,7 @@ Validation: Python compilation, JavaScript syntax checks, complete Markdown inde
 
 The Research labs section (`#labs`) contains a curated, unranked directory of 16 industry, academic, and nonprofit groups. Search names, locations, and topics; combine LLM/RL, organization, and region filters. Six entries appear initially, with an option to show all matching labs. Each card links to an official source reviewed on September 17, 2026. Edit the records in `assets/labs.js` to maintain the directory; verify the linked source before changing research descriptions. Region tags describe the locations listed, not every global office.
 
-The November 7, 2026 research update expands the 2026 coverage to 46 source-linked notes across NeurIPS 2026, ICML 2026, ICLR 2026, CoRL 2026, RSS 2026, and AAAI 2026: 24 in `2026 · Embodied RL`, 7 in `2026 · Agent RL`, 6 in `2026 · Conference RL`, and 9 in `2026 · Embodied context`. The homepage briefing opens `2026.md`, while dedicated shortcuts filter directly to `2026 · Embodied RL` and `2026 · Conference RL`. Rebuild `assets/catalog.js` after editing the notes or README so search and in-page reading reflect the source files.
+The November 15, 2026 research update expands the 2026 coverage to 68 source-linked notes across NeurIPS 2026, ICML 2026, ICLR 2026, CoRL 2026, RSS 2026, IJCAI 2026, and AAAI 2026: 29 in `2026 · Embodied RL`, 14 in `2026 · Agent RL`, 11 in `2026 · Conference RL`, and 14 in `2026 · Embodied context`. The homepage briefing opens `2026.md`, while dedicated shortcuts filter directly to `2026 · Embodied RL` and `2026 · Conference RL`. Rebuild `assets/catalog.js` after editing the notes or README so search and in-page reading reflect the source files.
 
 ### Automatic online update on page open
 

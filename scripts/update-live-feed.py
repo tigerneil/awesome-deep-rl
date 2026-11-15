@@ -42,7 +42,16 @@ VLA_OR_WM_TERMS = re.compile(
 )
 
 
-VENUE_RE = re.compile(r"\b(NeurIPS\s*202[56]|ICML\s*202[56]|ICLR\s*202[56]|CoRL\s*202[56]|RSS\s*202[56]|CVPR\s*202[56]|AAAI\s*202[56])\b", re.I)
+VENUE_RE = re.compile(
+    r"\b(NeurIPS\s*202[56](?:\s+(?:Spotlight|Oral))?|"
+    r"ICML\s*202[56](?:\s+(?:Spotlight|Oral))?|"
+    r"ICLR\s*202[56](?:\s+(?:Spotlight|Oral))?|"
+    r"CoRL\s*202[56](?:\s+Oral)?|"
+    r"RSS\s*202[56]|CVPR\s*202[56]|"
+    r"IJCAI\s*202[56]|IROS\s*202[56]|"
+    r"AAAI\s*202[56](?:\s+Oral)?)\b",
+    re.I,
+)
 
 
 def extract_venue(text: str) -> str:
@@ -52,7 +61,12 @@ def extract_venue(text: str) -> str:
     if not m:
         return ""
     raw = re.sub(r"\s+", " ", m.group(1)).upper()
-    return raw.replace("NEURIPS", "NeurIPS").replace("CORL", "CoRL")
+    return (
+        raw.replace("NEURIPS", "NeurIPS")
+        .replace("CORL", "CoRL")
+        .replace("SPOTLIGHT", "Spotlight")
+        .replace("ORAL", "Oral")
+    )
 
 
 def norm_title(title: str) -> str:
@@ -62,7 +76,7 @@ def norm_title(title: str) -> str:
 def load_existing_curated() -> tuple[set[str], set[str], str]:
     arxiv_ids: set[str] = set()
     titles: set[str] = set()
-    latest_date = "2026-11-07"
+    latest_date = "2026-11-15"
     for md in ROOT.glob("*.md"):
         text = md.read_text(encoding="utf-8", errors="ignore")
         for match in re.findall(r"\b(\d{4}\.\d{4,5})\b", text):
@@ -160,8 +174,8 @@ def fetch_arxiv_candidates() -> list[dict]:
     queries = [
         '(cat:cs.RO OR cat:cs.LG OR cat:cs.AI) AND '
         '(all:"reinforcement learning" OR all:"vision-language-action" OR all:"embodied agent")',
-        '(co:"NeurIPS 2026" OR co:"ICML 2026" OR co:"ICLR 2026" OR co:"CoRL 2026" OR co:"RSS 2026") AND '
-        '(all:"reinforcement learning" OR all:"world model" OR all:"vision-language-action")',
+        '(co:"NeurIPS 2026" OR co:"ICML 2026" OR co:"ICLR 2026" OR co:"CoRL 2026" OR co:"RSS 2026" OR co:"AAAI 2026" OR co:"IJCAI 2026" OR co:"IROS 2026") AND '
+        '(all:"reinforcement learning" OR all:"policy optimization" OR all:"world model" OR all:"vision-language-action")',
     ]
     candidates: list[dict] = []
     ns = {"atom": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
