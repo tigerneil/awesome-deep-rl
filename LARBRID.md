@@ -14,6 +14,16 @@ Fine-tuning pretrained diffusion and flow-matching robot policies with reinforce
 2. **Bridge Equation**: Analytically links noise-space values to action-space values via the shared representation, eliminating noise aliasing while inheriting near-optimality guarantees under FineTuneRL theory.
 3. **Latent Representation Bridging for Diffusion (LARBRID)**: Learns the bridging representation online and optimizes the initial noise distribution that steers the frozen or pretrained diffusion backbone without backpropagating through the full denoising trajectory.
 
+## Mathematical formulation
+
+Let $K_\phi(a \mid s, z_0)$ denote the pretrained diffusion denoising kernel mapping initial Gaussian noise $z_0 \in \mathcal{Z}$ to executed action $a \in \mathcal{A}$. Under the Latent Noise Linear MDP (LNL-MDP) representation $\psi(s, a) \in \mathbb{R}^d$, the **Bridge Equation** links noise-space action values $Q_{\text{noise}}(s, z_0)$ to action-space values $Q_{\text{act}}(s, a) = \langle \psi(s, a), w \rangle$:
+
+$$
+Q_{\text{noise}}(s, z_0) = \mathbb{E}_{a \sim K_\phi(\cdot \mid s, z_0)}\!\big[Q_{\text{act}}(s, a)\big] = \big\langle \bar{\psi}_\phi(s, z_0),\, w \big\rangle, \qquad \bar{\psi}_\phi(s, z_0) = \mathbb{E}_{a \sim K_\phi(\cdot \mid s, z_0)}\!\big[\psi(s, a)\big]
+$$
+
+enabling KL-regularized policy improvement over the initial noise actor $\pi_\theta(z_0 \mid s)$ without backpropagating gradients through the multi-step denoising chain.
+
 ## Evaluation and evidence boundary
 
 * **Reported scope**: Evaluated across simulated robotic locomotion and manipulation benchmarks, reporting up to 2–3× sample-efficiency and return gains over prior diffusion-RL fine-tuning baselines.

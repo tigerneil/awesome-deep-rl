@@ -14,6 +14,16 @@ PPO- and GRPO-style LLM post-training pipelines recompute old-policy token log-p
 2. **Old-policy-free likelihood gating**: Enforces a soft trust-region constraint directly through current-policy token likelihood gating, eliminating the forward pass and memory footprint needed to store or recompute $\pi_{\theta_{\mathrm{old}}}$.
 3. **Unified stability across on-policy and multi-epoch regimes**: Remains active even on the first gradient update of strictly on-policy rollouts while matching GRPO peak accuracy in multi-update settings.
 
+## Mathematical formulation
+
+In strictly on-policy single-step updates ($\theta = \theta_{\text{old}}$), the importance ratio $\rho_{i,t}(\theta) = \frac{\pi_\theta(y_{i,t} \mid x, y_{i,<t})}{\pi_{\theta_{\text{old}}}(y_{i,t} \mid x, y_{i,<t})} \equiv 1$ fails to trigger clipping even when low-probability tokens receive destructive gradient steps. LGPO eliminates $\pi_{\theta_{\text{old}}}$ and gates token policy gradients directly via a soft likelihood gate $g\!\big(\pi_\theta(y_{i,t} \mid x, y_{i,<t}); \hat{A}_i\big)$:
+
+$$
+\nabla_\theta \mathcal{J}_{\text{LGPO}}(\theta) = \mathbb{E}_{x,\, \{y_i\}_{i=1}^G}\!\left[\frac{1}{G}\sum_{i=1}^G \frac{1}{|y_i|}\sum_{t=1}^{|y_i|} g\!\Big(\pi_\theta(y_{i,t} \mid x, y_{i,<t});\, \hat{A}_i\Big)\,\hat{A}_i\,\nabla_\theta \log \pi_\theta(y_{i,t} \mid x, y_{i,<t})\right]
+$$
+
+softly attenuating aggressive positive pushes as $\pi_\theta \to 1$ and bounding negative suppression as $\pi_\theta \to 0$ without computing old-policy forward passes.
+
 ## Evaluation and evidence boundary
 
 * **Reported scope**: Reduces wall-clock RL post-training time by ~18% on average relative to standard GRPO implementations that recompute old-policy likelihoods, while preventing training collapse in strictly on-policy LLM RL regimes where standard GRPO diverges.

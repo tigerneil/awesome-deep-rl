@@ -1,4 +1,4 @@
-Deep Reinforcement Learning with Double Q-learning
+# Deep Reinforcement Learning with Double Q-learning
 
 Hado van Hasselt, Arthur Guez, David Silver
 
@@ -18,3 +18,12 @@ adaptation to the DQN algorithm and show that the resulting
 algorithm not only reduces the observed overestimations,
 as hypothesized, but that this also leads to much better
 performance on several games.
+
+## Mathematical formulation
+
+Standard DQN uses $\max_{a'} Q_{\theta^-}(s_{t+1}, a')$, coupling greedy action selection and evaluation under the same noisy estimator and inducing positive maximization bias $\mathbb{E}[\max_a Q(s,a)] \ge \max_a \mathbb{E}[Q(s,a)]$. Double DQN decouples selection (online weights $\theta$) from evaluation (target weights $\theta^-$):
+
+$$
+Y_t^{\text{DDQN}} = r_t + \gamma Q_{\theta^-}\!\Big(s_{t+1},\; \arg\max_{a'} Q_\theta(s_{t+1}, a')\Big), \qquad \mathcal{L}(\theta) = \mathbb{E}\!\Big[\big(Y_t^{\text{DDQN}} - Q_\theta(s_t, a_t)\big)^2\Big]
+$$
+

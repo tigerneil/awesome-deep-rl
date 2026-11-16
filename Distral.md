@@ -1,4 +1,4 @@
-Distral: Robust Multitask Reinforcement Learning
+# Distral: Robust Multitask Reinforcement Learning
 
 Yee Whye Teh, Victor Bapst, Wojciech Marian Czarnecki, John Quan,
 James Kirkpatrick, Raia Hadsell, Nicolas Heess, Razvan Pascanu
@@ -22,3 +22,12 @@ derived by optimizing a joint objective function. We show that our approach
 supports efficient transfer on complex 3D environments, outperforming several
 related methods. Moreover, the proposed learning process is more robust and more
 stable—attributes that are critical in deep reinforcement learning.
+
+## Mathematical formulation
+
+Across tasks $i \in \{1, \dots, n\}$, Distral jointly optimizes task-specific policies $\{\pi_i\}_{i=1}^n$ and a shared distilled centroid policy $\pi_0$ via KL-regularized entropy-augmented return maximization:
+
+$$
+J(\pi_0, \{\pi_i\}_{i=1}^n) = \sum_{i=1}^n \mathbb{E}_{\pi_i}\!\left[\sum_{t \ge 0} \gamma^t \left(r_i(s_t, a_t) - \frac{\alpha}{\beta} D_{\text{KL}}\big(\pi_i(\cdot \mid s_t) \,\|\, \pi_0(\cdot \mid s_t)\big) + \frac{1 - \alpha}{\beta} \mathcal{H}\big[\pi_i(\cdot \mid s_t)\big]\right)\right]
+$$
+

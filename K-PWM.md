@@ -14,6 +14,16 @@ K-PWM addresses sample- and compute-efficient model-based control on physical sy
 2. **Inference-network-free Gaussian belief tracking**: Performs probabilistic latent-state estimation directly through the learned generative dynamics via extended Kalman filtering and Rauch-Tung-Striebel smoothing, propagating Gaussian beliefs analytically across bilinear transitions without a separate amortized encoder.
 3. **Generalized ECM learning and uncertainty-aware MPPI**: Alternates closed-form generalized expectation conditional maximization (GECM) updates for latent generators, noise covariances, and priors with gradient-based decoder updates, supporting fast uncertainty-aware Model Predictive Path Integral (MPPI) control rollouts.
 
+## Mathematical formulation
+
+K-PWM models partially observed dynamics in a Koopman-bilinear latent space $z_t \in \mathbb{R}^{d_z}$ with action dimensions $u_t = (u_{t,1}, \dots, u_{t,m})$ and nonlinear sensor emission $h_\psi$:
+
+$$
+z_{t+1} = \left(A + \sum_{j=1}^{m} u_{t,j} B_j\right) z_t + C u_t + w_t, \qquad y_t = h_\psi(z_t) + v_t
+$$
+
+where $w_t \sim \mathcal{N}(0, \Sigma_w)$ and $v_t \sim \mathcal{N}(0, \Sigma_v)$. Because the transition is affine in $z_t$ given $u_t$, Gaussian belief propagation $p(z_t \mid y_{1:t}, u_{1:t-1}) = \mathcal{N}(\mu_t, P_t)$ is exact in prediction and tracked via EKF/RTS smoothing without an inference encoder, enabling uncertainty-aware MPPI action synthesis $u_{t:t+H}^* \propto \mathbb{E}\!\left[\exp\!\big(-\frac{1}{\lambda} \mathcal{J}(\mu_{t:t+H}, P_{t:t+H}, u_{t:t+H})\big)\right]$.
+
 ## Evaluation and evidence boundary
 
 * **Reported scope**: Evaluated under partial observation and limited offline/online data on Gymnasium MuJoCo benchmarks and high-dimensional robot models from MuJoCo Menagerie, reporting lower multi-step prediction error and faster per-step planning times than neural world-model baselines.

@@ -14,6 +14,16 @@ Off-policy value estimation faces a fundamental bias-variance-stability trade-of
 2. **Dynamic programming characterization**: Derives exact Bellman operators and dynamic programming properties for excursion value functions, situating state-wise mixture policies as just one point inside a broader temporal interpolation space.
 3. **Provably convergent off-policy TD**: Constructs sound off-policy temporal-difference evaluation algorithms for excursion values without unstable long-horizon importance-weight products.
 
+## Mathematical formulation
+
+Given behavior policy $\mu$, target policy $\pi$, and continuation probability $\alpha \in [0, 1)$, an $n$-step or $\alpha$-continued **excursion policy** executes $\pi$ during an active excursion before reverting to $\mu$, inducing the excursion value recursion:
+
+$$
+V^{\pi, \mu}_{\alpha}(s) = \mathbb{E}_{a \sim \pi(\cdot \mid s),\, s' \sim P(\cdot \mid s, a)}\!\Big[r(s, a) + \gamma\big(\alpha\, V^{\pi, \mu}_{\alpha}(s') + (1 - \alpha)\, V^\mu(s')\big)\Big]
+$$
+
+Because effective importance-sampling horizons are contracted by $\gamma\alpha < \gamma$, off-policy TD evaluation of $V^{\pi, \mu}_{\alpha}$ enjoys strictly tighter contraction and bounded variance between $\alpha = 0$ (one-step policy improvement over $V^\mu$) and $\alpha \to 1$ (full off-policy evaluation of $V^\pi$).
+
 ## Evaluation and evidence boundary
 
 * **Reported scope**: Establishes convergence guarantees for excursion TD evaluation and evaluates bias-variance-stability trade-offs on tabular diagnostics and continuous-control benchmarks against mixture-policy baselines.

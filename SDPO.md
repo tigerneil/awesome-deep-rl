@@ -14,6 +14,16 @@ Standard RL with Verifiable Rewards (RLVR) collapses rich execution traces—com
 2. **On-policy token-level distillation**: Minimizes divergence between the unconditioned student policy and the feedback-informed self-teacher directly along the student's own generated trajectories, avoiding off-policy distribution mismatch.
 3. **Test-time discovery**: Applies iterative on-policy self-distillation to single hard instances at inference time to accelerate solution discovery over naive `best-of-k` sampling.
 
+## Mathematical formulation
+
+Given prompt $x$, sampled on-policy rollout $y \sim \pi_\theta(\cdot \mid x)$, and rich environment feedback $f(x, y)$ (such as compiler errors, unit-test traces, or judge diagnostics), SDPO constructs a stop-gradient self-teacher $\pi_{\text{sg}(\theta)}(\cdot \mid x, f(x, y))$ and minimizes per-token divergence along the student's own trajectory:
+
+$$
+\mathcal{L}_{\text{SDPO}}(\theta) = \mathbb{E}_{x \sim \mathcal{D},\, y \sim \pi_{\text{sg}(\theta)}(\cdot \mid x)}\!\left[\sum_{t=1}^{|y|} D_{\text{KL}}\!\Big(\pi_{\text{sg}(\theta)}\!\big(\cdot \mid x, f(x, y), y_{<t}\big) \,\Big\|\, \pi_\theta\!\big(\cdot \mid x, y_{<t}\big)\Big)\right]
+$$
+
+converting sparse trajectory-level verification into dense, credit-assigned token supervision without an external teacher model.
+
 ## Evaluation and evidence boundary
 
 * **Reported scope**: Evaluated across LiveCodeBench v6 competitive programming, multi-step tool use, and scientific reasoning, improving sample efficiency and final accuracy over GRPO baselines while achieving matched test-time discovery rates in 3x fewer attempts. (Published in the ICML 2026 main conference; an earlier workshop version also received a Best Paper Award at the ICLR 2026 Lifelong Agents Workshop.)

@@ -224,9 +224,31 @@ def fetch_arxiv_candidates() -> list[dict]:
     return candidates
 
 
+def normalize_tex(text: str) -> str:
+    text = re.sub(r"\\\[([\s\S]+?)\\\]", lambda m: f"$$ {m.group(1).strip()} $$", text or "")
+    text = re.sub(r"\\\(([^\n]+?)\\\)", lambda m: f"${m.group(1).strip()}$", text)
+    return text
+
+
+def safe_truncate(text: str, max_len: int = 225) -> str:
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) <= max_len:
+        return text
+    spans = [m.span() for m in re.finditer(r"(?<!\\)\$[^$\n]+?(?<!\\)\$", text)]
+    cutoff = max_len
+    for start, end in spans:
+        if start < cutoff < end:
+            cutoff = end if end <= max_len + 36 else start
+            break
+    sliced = text[:cutoff].rstrip(" ,;:-")
+    return sliced + "…"
+
+
 def build_live_item(paper: dict, category: str) -> dict:
     pid = paper["arxivId"]
-    title = paper["title"]
+    title = normalize_tex(paper["title"])
+    summary = normalize_tex(paper["summary"])
+    ai_summary = normalize_tex(paper["aiSummary"])
     pub = paper["publishedAt"]
     venue = paper.get("venue") or ""
     authors_list = paper["authors"]
@@ -234,9 +256,9 @@ def build_live_item(paper: dict, category: str) -> dict:
     if not authors_str:
         authors_str = "arXiv authors"
 
-    short_summary = paper["aiSummary"] or paper["summary"]
+    short_summary = ai_summary or summary
     venue_prefix = f"[{venue}] " if venue else ""
-    description = f"({pub}) — {venue_prefix}{short_summary}"[:230]
+    description = safe_truncate(f"({pub}) — {venue_prefix}{short_summary}", 225)
     arxiv_abs = f"https://arxiv.org/abs/{pid}"
     arxiv_pdf = f"https://arxiv.org/pdf/{pid}"
 
@@ -258,7 +280,7 @@ def build_live_item(paper: dict, category: str) -> dict:
         f"Authors: {authors_str}.\n\n"
         f"Classification: {category} ({status_label}).\n\n"
         f"## Abstract & key idea\n\n"
-        f"{paper['summary']}{kw_line}\n\n"
+        f"{summary}{kw_line}\n\n"
         f"## Evidence boundary\n\n"
         f"This entry was automatically indexed from live public research feeds on {pub} and reflects the authors' "
         f"public preprint abstract (`arXiv:{pid}`). Separate reinforcement-learning training claims from purely "
@@ -266,6 +288,7 @@ def build_live_item(paper: dict, category: str) -> dict:
         f"## Sources and artifacts\n\n"
         + "\n".join(links)
     )
+    has_math = bool(re.search(r"(?<!\\)\$[^$\n]+?(?<!\\)\$|\$\$[\s\S]+?\$\$", f"{title} {summary}"))
 
     return {
         "id": f"live-{pid}",
@@ -275,6 +298,7 @@ def build_live_item(paper: dict, category: str) -> dict:
         "description": description,
         "publishedAt": pub,
         "venue": venue,
+        "hasMath": has_math,
         "url": arxiv_abs,
         "file": "",
         "body": body,

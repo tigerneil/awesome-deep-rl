@@ -1,4 +1,4 @@
-The Uncertainty Bellman Equation and Exploration
+# The Uncertainty Bellman Equation and Exploration (UBE)
 
 Brendan O’Donoghue, Ian Osband, Remi Munos, Volodymyr Mnih
 Deepmind
@@ -16,4 +16,13 @@ unique fixed point of the UBE yields an upper bound on the variance of the estim
 policy. This bound can be much tighter than traditional count-based bonuses that compound standard
 deviation rather than variance. Importantly, and unlike several existing approaches to optimism, this
 method scales naturally to large systems with complex generalization. Substituting our UBE-exploration
-strategy for -greedy improves DQN performance on 51 out of 57 games in the Atari suite.
+strategy for $\epsilon$-greedy improves DQN performance on 51 out of 57 games in the Atari suite.
+
+## Mathematical formulation
+
+Let $v(s, a)$ upper-bound the local one-step posterior variance of expected reward and transition value at $(s, a)$. The Uncertainty Bellman Equation propagates epistemic variance—rather than standard deviation—across horizons to bound $\operatorname{Var}[\widehat{Q}^\pi(s, a)] \le u^\pi(s, a)$:
+
+$$
+u^\pi(s, a) = v(s, a) + \gamma^2 \mathbb{E}_{s' \sim P(\cdot \mid s, a),\, a' \sim \pi(\cdot \mid s')}\!\big[u^\pi(s', a')\big], \qquad a_t = \arg\max_a \left(\widehat{Q}(s_t, a) + \beta \sqrt{u(s_t, a)}\right)
+$$
+

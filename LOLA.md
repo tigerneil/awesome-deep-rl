@@ -1,4 +1,4 @@
-Learning with Opponent-Learning Awareness
+# Learning with Opponent-Learning Awareness (LOLA)
 
 Jakob N. Foerster2,†
 jakob.foerster@cs.ox.ac.uk
@@ -45,3 +45,16 @@ equilibrium. We also apply LOLA to a grid world task with
 an embedded social dilemma using deep recurrent policies.
 Again, by considering the learning of the other agent, LOLA
 agents learn to cooperate out of selfish interests.
+
+## Mathematical formulation
+
+Instead of optimizing against a stationary opponent $\theta^2$, a LOLA learner $\theta^1$ differentiates through the opponent's anticipated one-step gradient update $\Delta \theta^2 = \eta \nabla_{\theta^2} V^2(\theta^1, \theta^2)$ via a first-order Taylor expansion:
+
+$$
+V^1\big(\theta^1, \theta^2 + \Delta \theta^2\big) \approx V^1(\theta^1, \theta^2) + (\Delta \theta^2)^\top \nabla_{\theta^2} V^1(\theta^1, \theta^2)
+$$
+
+$$
+\Delta \theta_{\text{LOLA}}^1 = \alpha \left(\nabla_{\theta^1} V^1(\theta^1, \theta^2) + \eta\,\big(\nabla_{\theta^1}\nabla_{\theta^2} V^2(\theta^1, \theta^2)\big)\nabla_{\theta^2} V^1(\theta^1, \theta^2)\right)
+$$
+

@@ -1,29 +1,37 @@
-# Deep RL Atlas
+# Deep RL Atlas — Architecture & Developer Guide
 
-A static explorer for the entire Markdown collection, with a rotating 3D canvas graph, topic and full-text search, local reading list, grid/list views, and an in-page research reader.
+Deep RL Atlas is a static, zero-build scientific explorer for the entire Markdown collection, combining a 3D geodesic policy-value manifold visualizer, an interactive Canonical Equations & 2026 Operators Explorer, KaTeX mathematical typesetting, topic and full-text search, a `∑ Formal math` filter, local reading list, dark/light instrument themes, and live online preprint synchronization.
 
 Run locally from the repository root:
 
 ```sh
-python3 scripts/build-catalog.py
+python3 -B scripts/build-catalog.py
 python3 -m http.server 8000
 ```
 
-Open http://localhost:8000. No package installation or build tool is needed. Re-run the catalog script after editing research Markdown. Deploy the repository as static files, including `index.html` and `assets/`.
+Open `http://localhost:8000`. No package installation or bundler is required. Re-run `scripts/build-catalog.py` after editing any Markdown research note or `README.md`. Deploy the repository directly as static files (`index.html` and `assets/`).
 
-The reading list is stored in this browser. The graph is illustrative, not a measured citation network. Motion respects the operating system's reduced-motion setting and can be paused. Google Fonts are optional; system fonts are the fallback. Original Markdown and external resources remain accessible from the reader.
+## Modular Frontend Architecture
 
-Validation: Python compilation, JavaScript syntax checks, complete Markdown indexing, desktop/mobile browser rendering, search, empty state, bookmarks, note reader, frontier guide, load more, motion control, and console-error checks.
+* `index.html` — Semantic single-page scientific layout with early theme hydration, KaTeX `0.16.11` stylesheet/script hooks, Canonical Equations Explorer (`#equations-section`), 2026 live telemetry briefing (`#frontier-section`), Research Labs directory (`#labs`), and searchable library (`#library`).
+* `assets/style.css` — Modular Vanilla CSS design system defining two calibrated HSL palettes: **Obsidian Telemetry** (`:root`, default dark mode) and **Alabaster Instrument** (`[data-theme="light"]`), tactile SVG fractal-noise micro-grain, responsive breakpoints, and mathematical display containers (`.math-block`, `.table-scroll`).
+* `assets/math-markdown.js` — Dedicated scientific Markdown and LaTeX typesetting engine (`window.RLMathMarkdown`). Parses headings, display equations (`$$...$$`, `\[...\]`), inline math (`$...$`, `\(...\)`), GFM pipe tables, ordered/unordered lists, blockquotes, code blocks, and internal `.md` cross-references. Uses KaTeX when loaded and falls back deterministically to clean Unicode/HTML math when offline, upgrading nodes automatically once KaTeX finishes loading.
+* `assets/network-canvas.js` — Interactive 3D Fibonacci geodesic policy-value manifold (`window.initRLNetworkCanvas`) with depth-sorted latent nodes, orbital trajectories, and Bellman backup pulses that adapt to the active theme and `prefers-reduced-motion`.
+* `assets/app.js` — Application state controller managing theme persistence (`rl-atlas-theme`), the Canonical Equations Explorer, category/search/formal-math/reading-list filtering, scientific reader modal (`#reader`), Markdown source copy, and live online preprint sync.
+* `assets/labs.js` — Curated, unranked directory of 16 industry, academic, and nonprofit research groups with organization, region, and LLM/RL focus filters (sources reviewed September 17, 2026).
 
-The Research labs section (`#labs`) contains a curated, unranked directory of 16 industry, academic, and nonprofit groups. Search names, locations, and topics; combine LLM/RL, organization, and region filters. Six entries appear initially, with an option to show all matching labs. Each card links to an official source reviewed on September 17, 2026. Edit the records in `assets/labs.js` to maintain the directory; verify the linked source before changing research descriptions. Region tags describe the locations listed, not every global office.
+## Catalog Build & Mathematical Indexing
 
-The November 15, 2026 research update expands the 2026 coverage to 68 source-linked notes across NeurIPS 2026, ICML 2026, ICLR 2026, CoRL 2026, RSS 2026, IJCAI 2026, and AAAI 2026: 29 in `2026 · Embodied RL`, 14 in `2026 · Agent RL`, 11 in `2026 · Conference RL`, and 14 in `2026 · Embodied context`. The homepage briefing opens `2026.md`, while dedicated shortcuts filter directly to `2026 · Embodied RL` and `2026 · Conference RL`. Rebuild `assets/catalog.js` after editing the notes or README so search and in-page reading reflect the source files.
+`scripts/build-catalog.py` indexes all root `*.md` documents and external links from `README.md` into `assets/catalog.js` (`window.RL_CATALOG`), extracting:
 
-### Automatic online update on page open
+* `publishedAt`, `venue`, and `arxivId` metadata from note headers.
+* `hasMath` (`bool`) detecting display or inline LaTeX formulas outside code blocks.
+* Clean prose `description` snippets that strip boilerplate metadata headers and never slice mid-way through an inline `$...$` expression.
 
-When `index.html` opens in the browser, `assets/app.js` immediately renders the curated static catalog (`window.RL_CATALOG`) and automatically runs `syncLiveOnline()` in the background:
+## Automatic Online Update on Page Open
 
-1. **Instant local cache + live online fetch**: Reads any cached live preprints from `localStorage` (`rl-atlas-live-v1`) and concurrently fetches `assets/live-feed.json` alongside public CORS-enabled research feeds (`huggingface.co/api/daily_papers` and topic searches for embodied, VLA, and agentic reinforcement learning).
-2. **Deduplication & evidence boundary**: Extracts all arXiv IDs and titles already present in curated Markdown notes so curated notes are never overwritten or duplicated. Newly discovered preprints are classified into `2026 · Embodied RL`, `2026 · Agent RL`, `2026 · Conference RL`, or `2026 · Embodied context` and clearly badged with their conference venue or `LIVE ARXIV · <YYYY-MM-DD>` alongside an explicit evidence-boundary section in the in-page reader.
-3. **Repository-side feed refresh**: Run `python3 -B scripts/update-live-feed.py` (automated daily via `.github/workflows/auto-update.yml`) to refresh `assets/live-feed.json` from arXiv and Hugging Face APIs.
+When `index.html` opens in the browser, `assets/app.js` renders the static catalog immediately and runs `syncLiveOnline()` in the background:
 
+1. **Instant local cache + live online fetch**: Hydrates cached preprints from `localStorage` (`rl-atlas-live-v1`) and concurrently queries `assets/live-feed.json` alongside public CORS-enabled Hugging Face paper feeds for embodied, VLA, and agentic reinforcement learning.
+2. **Deduplication, LaTeX normalization & evidence boundary**: Deduplicates against all arXiv IDs and titles already in curated notes, normalizes `\(...\)` / `\[...\]` LaTeX delimiters for inline KaTeX rendering, and includes an explicit evidence-boundary section in every auto-indexed note.
+3. **Scheduled feed refresh**: Run `python3 -B scripts/update-live-feed.py` (automated daily via `.github/workflows/auto-update.yml`) to refresh `assets/live-feed.json` from arXiv and Hugging Face APIs.

@@ -14,6 +14,14 @@ In general-sum mixed-motive multi-agent reinforcement learning (MARL), independe
 2. **Lagrangian welfare-maximizing equilibrium selection**: Maximizes collective social return subject to bounded swap-regret constraints via primal-dual Lagrangian optimization, selecting Pareto-efficient correlated equilibria that remain incentive-compatible.
 3. **Decentralizable coordination**: Uses centralized regret supervision during training to align mixed-motive policies without requiring monotonic team-value assumptions.
 
+## Mathematical formulation
+
+For an $N$-player general-sum Markov game with action-modification mappings $\phi_i \in \Phi_i : \mathcal{A}_i \to \mathcal{A}_i$, a joint policy $\pi$ forms an $\epsilon$-correlated equilibrium when every agent's counterfactual swap regret is bounded. $\Phi$-Actor-Critic maximizes social welfare $W(\pi) = \sum_{i=1}^N J_i(\pi)$ via a primal-dual saddle-point objective over non-negative multipliers $\lambda_{i,\phi_i} \ge 0$:
+
+$$
+\min_{\lambda \ge 0}\; \max_{\pi}\; \sum_{i=1}^{N} J_i(\pi) - \sum_{i=1}^{N} \sum_{\phi_i \in \Phi_i} \lambda_{i,\phi_i} \Big(\operatorname{Reg}_{i,\phi_i}(\pi) - \epsilon\Big), \qquad \operatorname{Reg}_{i,\phi_i}(\pi) = \mathbb{E}_{s, \mathbf{a} \sim \pi}\!\Big[Q_i^\pi\big(s, \phi_i(a_i), \mathbf{a}_{-i}\big) - Q_i^\pi(s, \mathbf{a})\Big]
+$$
+
 ## Evaluation and evidence boundary
 
 * **Reported scope**: Evaluated on canonical general-sum matrix games, Multi-Agent Particle Environments (MPE), and the Melting Pot *Harvest* social dilemma, achieving higher collective welfare and fairness than Nash-seeking and value-decomposition MARL baselines.

@@ -37,6 +37,34 @@ Start with the [2026 frontier guide](2026.md), or use the [interactive homepage]
 * **Classic test-of-time anchors**: DQN, A3C (ICML 2026 Test of Time Award), PPO, SAC, AlphaGo, MuZero, World Models, and Inverse RL remain the core conceptual reference stack.
 * **LLM and agent RL**: RLHF, DPO, GRPO, SDPO, ReAct, WebArena, and foundation-model policies such as OpenVLA and Octo.
 
+### Mathematical foundations at a glance
+
+Reinforcement learning models sequential decision-making over a Markov Decision Process $\mathcal{M} = (\mathcal{S}, \mathcal{A}, P, r, \gamma)$, optimizing a parameterized policy $\pi_\theta(a \mid s)$ to maximize expected discounted return $J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}\!\left[\sum_{t=0}^{\infty} \gamma^t r(s_t, a_t)\right]$:
+
+1. **Bellman optimality & temporal-difference control** ([DQN](DQN.md), [C51](C51.md)):
+
+$$
+Q^*(s, a) = r(s, a) + \gamma\,\mathbb{E}_{s' \sim P(\cdot \mid s, a)}\!\left[\max_{a' \in \mathcal{A}} Q^*(s', a')\right]
+$$
+
+2. **Policy gradient & advantage estimation** ([TRPO](TRPO.md), [EPG](EPG.md), [Relative Value Learning](Relative-Value-Learning.md)):
+
+$$
+\nabla_\theta J(\theta) = \mathbb{E}_{(s_t, a_t) \sim \pi_\theta}\!\left[\nabla_\theta \log \pi_\theta(a_t \mid s_t)\,A^{\pi_\theta}(s_t, a_t)\right], \qquad A^\pi(s, a) = Q^\pi(s, a) - V^\pi(s)
+$$
+
+3. **Proximal & group-relative trust-region surrogates** ([PPO](PPO.md), [Reward Budgeting](Reward-Budgeting.md), [LGPO](LGPO.md)):
+
+$$
+\mathcal{L}_{\text{CLIP}}(\theta) = \mathbb{E}_t\!\left[\min\!\Big(\rho_t(\theta)\,\hat{A}_t,\; \operatorname{clip}\big(\rho_t(\theta),\, 1 - \epsilon,\, 1 + \epsilon\big)\hat{A}_t\Big)\right], \qquad \rho_t(\theta) = \frac{\pi_\theta(a_t \mid s_t)}{\pi_{\theta_{\text{old}}}(a_t \mid s_t)}
+$$
+
+4. **KL-regularized post-training & on-policy self-distillation** ([MPO](MPO.md), [SDPO](SDPO.md), [LARBRID](LARBRID.md)):
+
+$$
+\max_{\pi_\theta}\; \mathbb{E}_{x \sim \mathcal{D},\, y \sim \pi_\theta(\cdot \mid x)}\!\big[\mathcal{R}(x, y)\big] - \beta\, D_{\text{KL}}\!\big(\pi_\theta(\cdot \mid x)\,\big\|\,\pi_{\text{ref}}(\cdot \mid x)\big)
+$$
+
 ## 2026 · Embodied RL
 
 Latest curated notes, ordered by first public date. Conference acceptances (NeurIPS, CoRL, RSS, ICLR, IJCAI, AAAI) are explicitly tagged where established; unmarked entries are recent preprints. See the [frontier guide](2026.md) for evaluation limits and artifact availability.

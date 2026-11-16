@@ -1,30 +1,305 @@
 <!doctype html>
-<html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Explore the connected world of deep reinforcement learning. An interactive library of papers, algorithms, and research notes."><meta name="theme-color" content="#f5f4ef"><title>Deep RL Atlas — Explore what’s possible</title><link rel="stylesheet" href="assets/style.css"><script defer src="assets/catalog.js"></script><script defer src="assets/app.js"></script><script defer src="assets/labs.js"></script></head>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Deep RL Atlas — An interactive scientific library of deep reinforcement learning papers, typeset mathematical formulations, algorithms, research labs, and live 2026 preprints.">
+  <meta name="theme-color" content="#090c10">
+  <title>Deep RL Atlas — Algorithms, Mathematical Formulations &amp; 2026 Frontiers</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('rl-atlas-theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous" onload="window.onKaTeXReady && window.onKaTeXReady()"></script>
+  <script defer src="assets/math-markdown.js"></script>
+  <script defer src="assets/network-canvas.js"></script>
+  <script defer src="assets/catalog.js"></script>
+  <script defer src="assets/app.js"></script>
+  <script defer src="assets/labs.js"></script>
+</head>
 <body>
-<header class="header"><a class="brand" href="#"><span class="brand-icon">✳</span> deep rl<span class="brand-atlas">/ atlas</span></a><nav aria-label="Main navigation"><a class="nav-active" href="#library">Explore library</a><a href="#labs">Research labs</a><a href="#" id="frontier-link">2026 frontier <span class="tiny-dot"></span></a><a href="https://github.com/tigerneil/awesome-deep-rl">GitHub ↗</a></nav><button class="saved-top" id="saved-top">▱ <span>Reading list</span><b id="saved-count">0</b></button></header>
-<main>
-<section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="status-dot"></span> AN OPEN MAP OF REINFORCEMENT LEARNING</div><h1>Small steps.<br>Intelligent <span>leaps.</span></h1><p>From the first reward to the next frontier.<br>Explore the ideas, algorithms, and research<br class="desktop-break"> shaping how machines learn to act.</p><div class="hero-actions"><a class="primary" href="#library">Explore the library <span>↗</span></a><button class="text-button" id="random">Surprise me <span>⤨</span></button></div><a class="labs-jump" href="#labs">Discover the research labs ↗</a><div class="hero-bottom"><span class="mini-orbits">◉</span><span>Curated by humans. Built for curiosity.</span></div></div>
-<div class="visual"><div class="visual-top"><span>THE CONNECTED INTELLIGENCE</span><span>FIG. 001</span></div><canvas id="network" aria-label="Interactive rotating three-dimensional network of reinforcement learning concepts"></canvas><span class="node-label label-one">Policy optimization</span><span class="node-label label-two">World models</span><span class="node-label label-three">Multi-agent systems</span><div class="visual-bottom"><span><i class="status-dot"></i> LIVE RESEARCH GRAPH</span><button id="motion" aria-pressed="false">Ⅱ Pause motion</button></div></div></section>
-<section class="stats" aria-label="Collection statistics"><div><strong id="resource-count">239</strong><span>Resources to explore</span></div><div><strong id="topic-count">—</strong><span>Connected research topics</span></div><div><strong>1992–2026</strong><span>Foundations to frontiers</span></div><div class="open-stat"><span class="open-icon">↗</span><div><strong>Always open.</strong><span>Community curated, endlessly curious</span></div></div></section>
-<section class="frontier-update" aria-labelledby="frontier-update-title"><div><div class="eyebrow"><span class="status-dot live-dot"></span><span id="live-status">RESEARCH UPDATE · NOVEMBER 15, 2026 · AUTO-SYNCING LATEST ONLINE WORK…</span></div><h2 id="frontier-update-title">From pretrained policies to learning robots.</h2><p id="frontier-update-summary">Explore 68 curated 2026 notes across NeurIPS, ICML, ICLR, CoRL, RSS, IJCAI, and AAAI 2026—29 embodied RL studies, 14 agent RL notes, 11 core conference RL notes, and 14 embodied benchmarks &amp; systems—automatically synced with the latest online preprints when you open the page.</p></div><div class="frontier-update-actions"><button id="latest-embodied" class="primary">Browse embodied RL ↗</button><button id="latest-conference" class="text-button">Browse top conference RL ↗</button><button id="sync-live" class="text-button">↻ Sync latest online</button><button id="read-frontier" class="text-button">Read the research briefing ↗</button></div></section>
-<section id="labs" class="labs-section" aria-labelledby="labs-title">
-  <div class="eyebrow"><span class="status-dot"></span> THE PEOPLE BEHIND THE PROGRESS</div>
-  <div class="heading-row labs-heading"><div><h2 id="labs-title">Meet the minds.<br>Follow the breakthroughs.</h2><p>A global directory of leading labs advancing language models,<br class="desktop-break"> reinforcement learning, and intelligent agents.</p></div><div class="labs-stamp"><strong id="lab-total">16</strong><span>LABS. SHARED CURIOSITY.</span></div></div>
-  <div class="labs-toolbar">
-    <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="lab-search" type="search" aria-label="Search research labs" placeholder="Find a lab, country, or research area…"></label>
-    <label class="lab-select">Organization<select id="lab-type"><option value="all">All organizations</option><option>Industry</option><option>Academic</option><option>Nonprofit</option></select></label>
-    <label class="lab-select">Region<select id="lab-region"><option value="all">All regions</option><option>North America</option><option>Europe</option><option>Asia</option><option>Middle East</option></select></label>
-  </div>
-  <div class="labs-controls"><div class="lab-filters" role="group" aria-label="Filter labs by research focus"><button data-focus="all" aria-pressed="true">All research</button><button data-focus="LLMs" aria-pressed="false">Language models</button><button data-focus="RL" aria-pressed="false">Reinforcement learning</button></div><span id="lab-results" role="status"></span></div>
-  <div id="lab-cards" class="lab-grid"></div>
-  <div id="lab-empty" hidden><h3>No labs match these filters.</h3><p>Try another topic, organization type, or region.</p><button id="lab-reset" class="primary">Clear filters ↗</button></div>
-  <button id="lab-more" class="load-more">Explore all labs ↓</button>
-  <div class="labs-footnote"><p>Curated for published LLM or RL research and publicly accessible research output. Alphabetical, unranked, and non-exhaustive. Source links reviewed September 17, 2026.</p><a href="https://github.com/tigerneil/awesome-deep-rl/issues/new?title=Suggest%20a%20research%20lab">Suggest a lab ↗</a></div>
-  <noscript><p>Enable JavaScript to search the directory, or visit <a href="https://deepmind.google/research/">Google DeepMind research</a> and <a href="https://bair.berkeley.edu/">Berkeley AI Research</a> directly.</p></noscript>
-</section>
-<section id="library" class="library"><div class="section-heading"><div class="eyebrow">FIND YOUR NEXT IDEA</div><div class="heading-row"><h2>A world of learning.</h2><p>Follow a thread. Discover a connection. Go deeper.</p></div></div><div class="library-layout"><aside><div class="aside-title">THE COLLECTION <span>↙</span></div><div id="categories"></div><div class="aside-note"><span>↗</span><h3>Knowledge grows<br>when it’s shared.</h3><p>Have something to add?<br>Help build the next chapter.</p><a href="https://github.com/tigerneil/awesome-deep-rl/issues/new">Contribute a resource ↗</a></div></aside><div class="results-area"><div class="search-row"><label class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Search papers, algorithms, ideas…" aria-label="Search the library"><kbd>/</kbd></label><button id="view-toggle" title="Switch to list view" aria-label="Switch to list view">☷</button></div><div class="results-meta"><span id="result-count" aria-live="polite"></span><label>Sort by <select id="sort" aria-label="Sort resources"><option value="featured">Featured first</option><option value="latest">Latest online first</option><option value="az">Title: A–Z</option><option value="za">Title: Z–A</option></select></label></div><div id="cards" class="cards"></div><div id="empty" hidden><h3>No resources found.</h3><p>Try another search or explore the full collection.</p><button class="primary" id="reset">Reset filters ↗</button></div><button id="load-more" class="load-more">Explore more resources <span>↓</span></button></div></div></section>
-<section class="closing"><div><div class="eyebrow">THE NEXT FRONTIER IS STILL OPEN</div><h2>Stay curious.<br>Keep exploring.</h2></div><button id="guide" class="primary">Explore the 2026 guide ↗</button></section>
-</main><footer><a class="brand" href="#"><span class="brand-icon">✳</span> deep rl<span class="brand-atlas">/ atlas</span></a><span>An open-source field guide to intelligent action.</span><a href="https://github.com/tigerneil/awesome-deep-rl">Made for the learning loop ↗</a></footer>
-<dialog id="reader"><div class="reader-bar"><span>DEEP RL / RESEARCH NOTE</span><button id="close-reader" aria-label="Close research note">✕</button></div><article id="reader-content"></article></dialog><div id="toast" role="status"></div>
-</body></html>
+  <header class="header">
+    <a class="brand" id="brand-home" href="#">
+      <span class="brand-icon" aria-hidden="true">✳</span>
+      deep rl<span class="brand-atlas">/ atlas</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a class="nav-active" id="nav-library" href="#library">Library</a>
+      <a id="nav-equations" href="#equations-section">Equations</a>
+      <a id="nav-labs" href="#labs">Research labs</a>
+      <a id="frontier-link" href="#frontier-section">2026 frontier <span class="tiny-dot" aria-hidden="true"></span></a>
+      <a id="nav-github" href="https://github.com/tigerneil/awesome-deep-rl" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Switch to Alabaster light theme" aria-pressed="false">☀ Light</button>
+      <button type="button" class="saved-top" id="saved-top" aria-pressed="false">
+        ▱ <span>Reading list</span> <b id="saved-count">0</b>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Atlas introduction">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="eyebrow-index">00 //</span> OPEN SCIENTIFIC ATLAS · 1992–2026
+        </div>
+        <h1>Small steps.<br>Intelligent <span>leaps.</span></h1>
+        <p class="hero-lead">
+          From Bellman’s fixed-point operators to generative robot policies and verifiable agentic post-training.
+          Explore curated papers, typeset mathematical formulations, and live research feeds shaping sequential decision-making.
+        </p>
+        <div class="hero-actions">
+          <a class="primary" id="explore-library-cta" href="#library">Explore the library <span aria-hidden="true">↗</span></a>
+          <button type="button" class="text-button" id="random">Surprise me <span aria-hidden="true">⤨</span></button>
+        </div>
+        <div class="hero-links">
+          <a class="labs-jump" id="jump-equations" href="#equations-section">Inspect canonical equations ↓</a>
+          <a class="labs-jump" id="jump-labs" href="#labs">Global research labs directory ↗</a>
+        </div>
+        <div class="hero-bottom">
+          <span class="mini-orbits" aria-hidden="true">◉</span>
+          <span>Curated human syntheses · KaTeX mathematical typesetting · Live arXiv sync</span>
+        </div>
+      </div>
+
+      <div class="visual">
+        <div class="visual-top">
+          <span>POLICY–VALUE GEODESIC MANIFOLD</span>
+          <span>FIG. 001 · 3D TOPOLOGY</span>
+        </div>
+        <canvas id="network" aria-label="Interactive rotating three-dimensional manifold of reinforcement learning state-action trajectories and Bellman value backups"></canvas>
+        <span class="node-label label-one">πθ(a | s) · Policy optimization</span>
+        <span class="node-label label-two">𝒯*Q · World &amp; value models</span>
+        <span class="node-label label-three">Embodied &amp; multi-agent RL</span>
+        <div class="visual-bottom">
+          <span><i class="status-dot" aria-hidden="true"></i> LIVE VALUE PROPAGATION</span>
+          <button type="button" id="motion" aria-pressed="false">Ⅱ Pause motion</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Collection statistics">
+      <div>
+        <strong id="resource-count">239</strong>
+        <span>Indexed papers &amp; resources</span>
+      </div>
+      <div>
+        <strong id="math-total-stat">43</strong>
+        <span>Notes with formal LaTeX math</span>
+      </div>
+      <div>
+        <strong id="topic-count">—</strong>
+        <span>Connected research tracks</span>
+      </div>
+      <div class="open-stat">
+        <span class="open-icon" aria-hidden="true">∑</span>
+        <div>
+          <strong>1992–2026</strong>
+          <span>Foundational operators to live preprints</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="equations-section" class="equations-section" aria-labelledby="equations-title">
+      <div class="eyebrow">
+        <span class="eyebrow-index">01 //</span> MATHEMATICAL ARCHITECTURE OF SEQUENTIAL DECISION-MAKING
+      </div>
+      <div class="heading-row">
+        <div>
+          <h2 id="equations-title">From Bellman contractions<br>to latent policy steering.</h2>
+          <p>Select a paradigm to inspect its formal objective and jump directly to the underlying research notes.</p>
+        </div>
+      </div>
+      <div class="equations-shell">
+        <div id="equation-tabs" class="equation-tabs" role="tablist" aria-label="Reinforcement learning mathematical paradigms"></div>
+        <div id="equation-stage" class="equation-stage" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="frontier-section" class="frontier-update" aria-labelledby="frontier-update-title">
+      <div>
+        <div class="eyebrow">
+          <span class="status-dot live-dot" aria-hidden="true"></span>
+          <span id="live-status">02 // LIVE TELEMETRY · NOVEMBER 15, 2026 · AUTO-SYNCING LATEST ONLINE WORK…</span>
+        </div>
+        <h2 id="frontier-update-title">From pretrained policies to learning robots.</h2>
+        <p id="frontier-update-summary">
+          Explore 68 curated 2026 notes across NeurIPS, ICML, ICLR, CoRL, RSS, IJCAI, and AAAI 2026—29 embodied RL studies,
+          14 agent RL notes, 11 core conference RL notes, and 14 embodied benchmarks &amp; systems—automatically synced with
+          the latest online preprints when you open the page.
+        </p>
+      </div>
+      <div class="frontier-update-actions">
+        <button type="button" id="latest-embodied" class="primary">Browse embodied RL ↗</button>
+        <button type="button" id="latest-conference" class="text-button">Browse top conference RL ↗</button>
+        <button type="button" id="sync-live" class="text-button">↻ Sync latest online</button>
+        <button type="button" id="read-frontier" class="text-button">Read the 2026 briefing ↗</button>
+      </div>
+    </section>
+
+    <section id="labs" class="labs-section" aria-labelledby="labs-title">
+      <div class="eyebrow">
+        <span class="eyebrow-index">03 //</span> GLOBAL RESEARCH INSTITUTIONS
+      </div>
+      <div class="heading-row labs-heading">
+        <div>
+          <h2 id="labs-title">Meet the minds.<br>Follow the breakthroughs.</h2>
+          <p>An unranked global directory of leading labs advancing language models,<br class="desktop-break"> reinforcement learning, and embodied intelligence.</p>
+        </div>
+        <div class="labs-stamp">
+          <strong id="lab-total">16</strong>
+          <span>VERIFIED LABS</span>
+        </div>
+      </div>
+      <div class="labs-toolbar">
+        <label class="search-wrap" for="lab-search">
+          <span aria-hidden="true">⌕</span>
+          <input id="lab-search" type="search" aria-label="Search research labs" placeholder="Find a lab, country, or research area…">
+        </label>
+        <label class="lab-select" for="lab-type">
+          Organization
+          <select id="lab-type">
+            <option value="all">All organizations</option>
+            <option>Industry</option>
+            <option>Academic</option>
+            <option>Nonprofit</option>
+          </select>
+        </label>
+        <label class="lab-select" for="lab-region">
+          Region
+          <select id="lab-region">
+            <option value="all">All regions</option>
+            <option>North America</option>
+            <option>Europe</option>
+            <option>Asia</option>
+            <option>Middle East</option>
+          </select>
+        </label>
+      </div>
+      <div class="labs-controls">
+        <div class="lab-filters" role="group" aria-label="Filter labs by research focus">
+          <button type="button" id="lab-focus-all" data-focus="all" aria-pressed="true">All research</button>
+          <button type="button" id="lab-focus-llm" data-focus="LLMs" aria-pressed="false">Language models</button>
+          <button type="button" id="lab-focus-rl" data-focus="RL" aria-pressed="false">Reinforcement learning</button>
+        </div>
+        <span id="lab-results" role="status"></span>
+      </div>
+      <div id="lab-cards" class="lab-grid"></div>
+      <div id="lab-empty" hidden>
+        <h3>No labs match these filters.</h3>
+        <p>Try another topic, organization type, or region.</p>
+        <button type="button" id="lab-reset" class="primary">Clear filters ↗</button>
+      </div>
+      <button type="button" id="lab-more" class="load-more">Explore all labs ↓</button>
+      <div class="labs-footnote">
+        <p>Curated for published LLM or RL research and publicly accessible research output. Alphabetical, unranked, and non-exhaustive. Source links reviewed September 17, 2026.</p>
+        <a id="suggest-lab-link" href="https://github.com/tigerneil/awesome-deep-rl/issues/new?title=Suggest%20a%20research%20lab" target="_blank" rel="noopener noreferrer">Suggest a lab ↗</a>
+      </div>
+      <noscript>
+        <p>Enable JavaScript to search the directory, or visit <a href="https://deepmind.google/research/">Google DeepMind research</a> and <a href="https://bair.berkeley.edu/">Berkeley AI Research</a> directly.</p>
+      </noscript>
+    </section>
+
+    <section id="library" class="library" aria-labelledby="library-title">
+      <div class="section-heading">
+        <div class="eyebrow">
+          <span class="eyebrow-index">04 //</span> CURATED RESEARCH CORPUS &amp; LIVE ARCHIVE
+        </div>
+        <div class="heading-row">
+          <div>
+            <h2 id="library-title">A world of learning.</h2>
+            <p>Search algorithms, conference venues, and formal mathematical derivations across three decades of RL.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="library-layout">
+        <aside>
+          <div class="aside-title">TRACKS &amp; TAXONOMY <span aria-hidden="true">↙</span></div>
+          <div id="categories"></div>
+          <div class="aside-note">
+            <span aria-hidden="true">↗</span>
+            <h3>Knowledge compounds<br>when shared openly.</h3>
+            <p>Have a paper, derivation, or benchmark to contribute?</p>
+            <a id="contribute-link" href="https://github.com/tigerneil/awesome-deep-rl/issues/new" target="_blank" rel="noopener noreferrer">Contribute a resource ↗</a>
+          </div>
+        </aside>
+
+        <div class="results-area">
+          <div class="search-row">
+            <label class="search-wrap" for="search">
+              <span aria-hidden="true">⌕</span>
+              <input id="search" type="search" placeholder="Search papers, equations, venues (NeurIPS, ICML, ICLR, RSS)…" aria-label="Search the library">
+              <kbd>/</kbd>
+            </label>
+            <button type="button" class="filter-chip-btn" id="math-filter" aria-pressed="false" title="Show only notes with formal mathematical formulations">∑ Formal math</button>
+            <button type="button" id="view-toggle" title="Switch to list view" aria-label="Switch to list view">☷ List</button>
+          </div>
+
+          <div class="results-meta">
+            <span id="result-count" aria-live="polite"></span>
+            <label for="sort">
+              Sort
+              <select id="sort" aria-label="Sort resources">
+                <option value="featured">Featured first</option>
+                <option value="latest">Latest online first</option>
+                <option value="az">Title: A–Z</option>
+                <option value="za">Title: Z–A</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="cards" class="cards"></div>
+
+          <div id="empty" hidden>
+            <h3>No resources match these filters.</h3>
+            <p>Try clearing the formal-math filter, choosing another track, or broadening your search query.</p>
+            <button type="button" class="primary" id="reset">Reset filters ↗</button>
+          </div>
+
+          <button type="button" id="load-more" class="load-more">Explore more resources <span aria-hidden="true">↓</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-index">05 //</span> CONTINUOUS DISCOVERY</div>
+        <h2 id="closing-title">Stay curious.<br>Keep exploring.</h2>
+      </div>
+      <button type="button" id="guide" class="primary">Open the 2026 frontier guide ↗</button>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" id="footer-home" href="#">
+      <span class="brand-icon" aria-hidden="true">✳</span>
+      deep rl<span class="brand-atlas">/ atlas</span>
+    </a>
+    <span>An open-source scientific field guide to reinforcement learning and intelligent action.</span>
+    <a id="footer-github" href="https://github.com/tigerneil/awesome-deep-rl" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a>
+  </footer>
+
+  <dialog id="reader" aria-label="Scientific research note reader">
+    <div class="reader-bar">
+      <span>DEEP RL ATLAS // SCIENTIFIC RESEARCH NOTE</span>
+      <div class="reader-bar-actions">
+        <button type="button" class="reader-action-btn" id="copy-note-md" title="Copy Markdown &amp; LaTeX source">⎘ Copy Markdown</button>
+        <button type="button" id="close-reader" aria-label="Close research note">✕ Close</button>
+      </div>
+    </div>
+    <article id="reader-content"></article>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

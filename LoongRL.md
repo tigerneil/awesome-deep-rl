@@ -14,6 +14,14 @@ LoongRL targets long-context multi-hop reasoning with reinforcement learning wit
 2. **Emergent `plan-retrieve-reason-recheck` behavior**: Group Relative Policy Optimization (GRPO) over `KeyChain` tasks induces structured multi-step retrieval and verification loops rather than shallow keyword guessing.
 3. **Short-to-long length generalization**: Training RL rollouts at 16K context length transfers zero-shot to 128K-token tasks while preserving short-context mathematical and general reasoning accuracy.
 
+## Mathematical formulation
+
+Given a `KeyChain` instance $x_{L_{\text{train}}}$ embedding an $m$-hop UUID pointer chain $(u_0 \to u_1 \to \dots \to u_m \to q^*)$ inside distractor context of length $L_{\text{train}} = 16\text{K}$, LoongRL optimizes the clipped group-relative objective over rollout groups $\{y_i\}_{i=1}^G$ with verifiable exact-match reward $r_i \in \{0, 1\}$:
+
+$$
+\mathcal{J}_{\text{LoongRL}}(\theta) = \mathbb{E}_{x_{L_{\text{train}}},\, \{y_i\}_{i=1}^G \sim \pi_{\theta_{\text{old}}}}\!\left[\frac{1}{G}\sum_{i=1}^G \frac{1}{|y_i|}\sum_{t=1}^{|y_i|} \min\!\Big(\rho_{i,t}(\theta)\hat{A}_i,\; \operatorname{clip}\big(\rho_{i,t}(\theta), 1-\epsilon, 1+\epsilon\big)\hat{A}_i\Big)\right], \qquad \hat{A}_i = \frac{r_i - \bar{r}}{\sigma_r + \delta}
+$$
+
 ## Evaluation and evidence boundary
 
 * **Reported scope**: Evaluated on Qwen2.5-7B and Qwen2.5-14B, improving long-context multi-hop QA accuracy by +23.5 and +21.1 percentage points respectively (reaching 74.2 on LoongRL-14B) and passing 128K needle-in-a-haystack stress tests.

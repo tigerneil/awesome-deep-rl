@@ -14,6 +14,16 @@ Safe exploration requires avoiding catastrophic actions in under-explored state 
 2. **Pessimistic sharpness-aware policy gradient**: Evaluates policy gradients at worst-case perturbed actor parameters, which analytically reweights gradient contributions to amplify rare unsafe trajectories and temper updates in uncertain regions.
 3. **Ensemble-free safe exploration**: Encourages conservative behavior in novel states without maintaining an expensive ensemble of dynamics or cost critics.
 
+## Mathematical formulation
+
+SHAPO formulates a pessimistic min-max surrogate over an $\ell_2$ parameter neighborhood $\|\delta\|_2 \le \rho$ around the actor parameters $\theta$, treating local loss curvature as an ensemble-free epistemic uncertainty signal:
+
+$$
+\max_{\theta} \min_{\|\delta\|_2 \le \rho} \mathcal{J}_{\text{surr}}(\theta + \delta), \qquad \delta^*(\theta) \approx -\rho \frac{\nabla_\theta \mathcal{J}_{\text{surr}}(\theta)}{\|\nabla_\theta \mathcal{J}_{\text{surr}}(\theta)\|_2 + \varepsilon}
+$$
+
+Evaluating the policy update at the worst-case perturbed actor $\nabla_\theta \mathcal{J}_{\text{surr}}\!\big(\theta + \delta^*(\theta)\big)$ upweights high-sensitivity, under-explored trajectories so the policy avoids sharp, potentially unsafe action regions during online exploration.
+
 ## Evaluation and evidence boundary
 
 * **Reported scope**: Evaluated across continuous-control safe exploration benchmarks, expanding the reward-vs-safety Pareto frontier compared to standard constrained and risk-sensitive RL baselines.
