@@ -21,6 +21,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous" onload="window.onKaTeXReady && window.onKaTeXReady()"></script>
   <script defer src="assets/math-markdown.js"></script>
   <script defer src="assets/network-canvas.js"></script>
+  <script defer src="assets/equation-plots.js"></script>
   <script defer src="assets/catalog.js"></script>
   <script defer src="assets/app.js"></script>
   <script defer src="assets/labs.js"></script>
@@ -73,16 +74,25 @@
 
       <div class="visual">
         <div class="visual-top">
-          <span>POLICY–VALUE GEODESIC MANIFOLD</span>
-          <span>FIG. 001 · 3D TOPOLOGY</span>
+          <div class="visual-modes" role="tablist" aria-label="Scientific RL visualization mode">
+            <button type="button" class="visual-mode-btn" id="mode-bellman" data-visual-mode="bellman" role="tab" aria-selected="true">Bellman V(s)</button>
+            <button type="button" class="visual-mode-btn" id="mode-pendulum" data-visual-mode="pendulum" role="tab" aria-selected="false">HJB Phase (θ, θ̇)</button>
+            <button type="button" class="visual-mode-btn" id="mode-corpus" data-visual-mode="corpus" role="tab" aria-selected="false">Corpus Graph</button>
+          </div>
+          <span class="visual-fig-tag">FIG. 001</span>
         </div>
-        <canvas id="network" aria-label="Interactive rotating three-dimensional manifold of reinforcement learning state-action trajectories and Bellman value backups"></canvas>
-        <span class="node-label label-one">πθ(a | s) · Policy optimization</span>
-        <span class="node-label label-two">𝒯*Q · World &amp; value models</span>
-        <span class="node-label label-three">Embodied &amp; multi-agent RL</span>
+        <div class="visual-viewport">
+          <canvas id="network" aria-label="Interactive reinforcement learning value iteration surface, underactuated pendulum HJB phase portrait, and empirical corpus lineage graph"></canvas>
+        </div>
         <div class="visual-bottom">
-          <span><i class="status-dot" aria-hidden="true"></i> LIVE VALUE PROPAGATION</span>
-          <button type="button" id="motion" aria-pressed="false">Ⅱ Pause motion</button>
+          <span class="visual-readout">
+            <i class="status-dot" aria-hidden="true"></i>
+            <span id="visual-readout">Solving Soft-Bellman operator…</span>
+          </span>
+          <div class="visual-controls">
+            <button type="button" class="visual-ctrl-btn" id="visual-perturb">↻ Perturb MDP</button>
+            <button type="button" id="motion" aria-pressed="false">Ⅱ Pause</button>
+          </div>
         </div>
       </div>
     </section>

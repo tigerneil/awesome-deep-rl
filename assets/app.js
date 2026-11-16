@@ -175,6 +175,9 @@
     if (window.RLNetworkCanvas && typeof window.RLNetworkCanvas.redraw === 'function') {
       window.RLNetworkCanvas.redraw();
     }
+    if (window.RLEquationPlotActive && typeof window.RLEquationPlotActive.redraw === 'function') {
+      window.RLEquationPlotActive.redraw();
+    }
   }
 
   /* ------------------------------------------------------------------------
@@ -245,7 +248,11 @@
       linksRow.append(chip);
     });
 
-    stageEl.append(top, display, intuition, linksRow);
+    stageEl.append(top, display);
+    if (window.RLEquationPlots && typeof window.RLEquationPlots.mountEquationLab === 'function') {
+      window.RLEquationPlots.mountEquationLab(stageEl, current.id);
+    }
+    stageEl.append(intuition, linksRow);
   }
 
   /* ------------------------------------------------------------------------
@@ -882,10 +889,15 @@
     }
   });
 
-  // Initialize theme, 3D geodesic canvas, canonical equations, static catalog, and live sync
+  // Initialize theme, 3-mode scientific RL instrument, canonical equations, catalog, and live sync
   applyTheme(document.documentElement.dataset.theme || 'dark', false);
   if (typeof window.initRLNetworkCanvas === 'function') {
-    window.initRLNetworkCanvas($('network'), $('motion'));
+    window.initRLNetworkCanvas($('network'), {
+      motionBtn: $('motion'),
+      perturbBtn: $('visual-perturb'),
+      readoutEl: $('visual-readout'),
+      onOpenNote: openNote
+    });
   }
   renderEquationsExplorer();
   render();
