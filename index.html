@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Deep RL Atlas — An interactive scientific library of deep reinforcement learning papers, typeset mathematical formulations, algorithms, research labs, and live 2026 preprints.">
+  <meta name="description" content="Deep RL Atlas — A real-time updating scientific field guide to the complete landscape of deep reinforcement learning (1992–2026): 12 canonical domains, typeset mathematical operators, interactive numerical simulations, and live arXiv sync.">
   <meta name="theme-color" content="#090c10">
-  <title>Deep RL Atlas — Algorithms, Mathematical Formulations &amp; 2026 Frontiers</title>
+  <title>Deep RL Atlas — Complete Landscape, Mathematical Operators &amp; Real-Time Research Radar</title>
   <script>
     try {
       const savedTheme = localStorage.getItem('rl-atlas-theme');
@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="assets/style.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous" onload="window.onKaTeXReady && window.onKaTeXReady()"></script>
   <script defer src="assets/math-markdown.js"></script>
+  <script defer src="assets/landscape-data.js"></script>
+  <script defer src="assets/live-radar.js"></script>
   <script defer src="assets/network-canvas.js"></script>
   <script defer src="assets/equation-plots.js"></script>
   <script defer src="assets/catalog.js"></script>
@@ -33,13 +35,17 @@
       deep rl<span class="brand-atlas">/ atlas</span>
     </a>
     <nav aria-label="Main navigation">
-      <a class="nav-active" id="nav-library" href="#library">Library</a>
+      <a id="nav-live" href="#frontier-section">Live radar <span class="tiny-dot" aria-hidden="true"></span></a>
+      <a id="nav-landscape" href="#landscape">Landscape</a>
       <a id="nav-equations" href="#equations-section">Equations</a>
-      <a id="nav-labs" href="#labs">Research labs</a>
-      <a id="frontier-link" href="#frontier-section">2026 frontier <span class="tiny-dot" aria-hidden="true"></span></a>
+      <a class="nav-active" id="nav-library" href="#library">Library</a>
+      <a id="nav-labs" href="#labs">Labs</a>
       <a id="nav-github" href="https://github.com/tigerneil/awesome-deep-rl" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </nav>
     <div class="header-actions">
+      <button type="button" class="icon-btn cmd-trigger" id="open-cmd-palette" aria-label="Open quick command palette (Command+K)">
+        <span aria-hidden="true">⌕</span> <span>Jump</span> <kbd>⌘K</kbd>
+      </button>
       <button type="button" class="icon-btn" id="theme-toggle" aria-label="Switch to Alabaster light theme" aria-pressed="false">☀ Light</button>
       <button type="button" class="saved-top" id="saved-top" aria-pressed="false">
         ▱ <span>Reading list</span> <b id="saved-count">0</b>
@@ -51,24 +57,27 @@
     <section class="hero" aria-label="Atlas introduction">
       <div class="hero-copy">
         <div class="eyebrow">
-          <span class="eyebrow-index">00 //</span> OPEN SCIENTIFIC ATLAS · 1992–2026
+          <span class="eyebrow-index">00 //</span> COMPLETE SCIENTIFIC ATLAS · 1992–2026 · REAL-TIME SYNC
         </div>
         <h1>Small steps.<br>Intelligent <span>leaps.</span></h1>
         <p class="hero-lead">
-          From Bellman’s fixed-point operators to generative robot policies and verifiable agentic post-training.
-          Explore curated papers, typeset mathematical formulations, and live research feeds shaping sequential decision-making.
+          The complete mathematical and empirical landscape of deep reinforcement learning—from Bellman’s contractions
+          and trust-region actor-critics to world models, generative VLA robot policies, and verifiable reasoning agents,
+          continuously updated online.
         </p>
         <div class="hero-actions">
-          <a class="primary" id="explore-library-cta" href="#library">Explore the library <span aria-hidden="true">↗</span></a>
+          <a class="primary" id="explore-landscape-cta" href="#landscape">Map the 12 domains <span aria-hidden="true">↓</span></a>
+          <a class="text-button" id="explore-library-cta" href="#library">Browse corpus <span aria-hidden="true">↗</span></a>
           <button type="button" class="text-button" id="random">Surprise me <span aria-hidden="true">⤨</span></button>
         </div>
         <div class="hero-links">
-          <a class="labs-jump" id="jump-equations" href="#equations-section">Inspect canonical equations ↓</a>
-          <a class="labs-jump" id="jump-labs" href="#labs">Global research labs directory ↗</a>
+          <a class="labs-jump" id="jump-live" href="#frontier-section">Live research stream ↓</a>
+          <a class="labs-jump" id="jump-equations" href="#equations-section">Canonical operators ↓</a>
+          <a class="labs-jump" id="jump-labs" href="#labs">Global research labs ↗</a>
         </div>
         <div class="hero-bottom">
           <span class="mini-orbits" aria-hidden="true">◉</span>
-          <span>Curated human syntheses · KaTeX mathematical typesetting · Live arXiv sync</span>
+          <span>12 canonical domains · KaTeX derivations · Continuous 5-minute live preprint radar</span>
         </div>
       </div>
 
@@ -99,34 +108,94 @@
 
     <section class="stats" aria-label="Collection statistics">
       <div>
-        <strong id="resource-count">239</strong>
-        <span>Indexed papers &amp; resources</span>
+        <strong id="resource-count">302</strong>
+        <span>Indexed papers &amp; live preprints</span>
       </div>
       <div>
-        <strong id="math-total-stat">43</strong>
+        <strong id="math-total-stat">72</strong>
         <span>Notes with formal LaTeX math</span>
       </div>
       <div>
-        <strong id="topic-count">—</strong>
-        <span>Connected research tracks</span>
+        <strong id="domain-stat">12</strong>
+        <span>Canonical RL domains (1992–2026)</span>
       </div>
       <div class="open-stat">
-        <span class="open-icon" aria-hidden="true">∑</span>
+        <span class="open-icon" aria-hidden="true">⟳</span>
         <div>
-          <strong>1992–2026</strong>
-          <span>Foundational operators to live preprints</span>
+          <strong id="live-stat-count">36 live</strong>
+          <span id="live-stat-sub">Real-time arXiv &amp; HF stream</span>
         </div>
+      </div>
+    </section>
+
+    <section id="frontier-section" class="frontier-update" aria-labelledby="frontier-update-title">
+      <div class="radar-header-row">
+        <div>
+          <div class="eyebrow">
+            <span class="status-dot live-dot" id="radar-pulse-dot" aria-hidden="true"></span>
+            <span id="live-status">01 // LIVE RADAR · CONNECTING TO PUBLIC ARXIV &amp; HF FEEDS…</span>
+          </div>
+          <h2 id="frontier-update-title">Real-time research stream.</h2>
+          <p id="frontier-update-summary">
+            Streaming fresh reinforcement learning, world-model, VLA robotics, and verifiable agentic preprints alongside
+            74 curated 2026 conference &amp; frontier syntheses across NeurIPS, ICML, ICLR, CoRL, RSS, IJCAI, and AAAI.
+          </p>
+        </div>
+        <div class="radar-controls">
+          <button type="button" class="radar-pill-btn" id="toggle-autosync" aria-pressed="true" title="Toggle continuous 5-minute background polling">
+            Auto-sync: ON
+          </button>
+          <button type="button" id="sync-live" class="text-button">↻ Sync now</button>
+          <button type="button" id="read-frontier" class="primary">2026 Briefing ↗</button>
+        </div>
+      </div>
+
+      <div id="live-stream-strip" class="live-stream-strip" role="region" aria-label="Incoming live preprints"></div>
+
+      <div class="frontier-update-actions">
+        <button type="button" id="latest-live-stream" class="text-button">Filter all live preprints ↓</button>
+        <button type="button" id="latest-embodied" class="text-button">Browse 2026 Embodied RL ↓</button>
+        <button type="button" id="latest-conference" class="text-button">Browse top conference RL ↓</button>
+      </div>
+    </section>
+
+    <section id="landscape" class="landscape-section" aria-labelledby="landscape-title">
+      <div class="eyebrow">
+        <span class="eyebrow-index">02 //</span> COMPLETE TAXONOMY &amp; GUIDED CURRICULA · 1992–2026
+      </div>
+      <div class="heading-row">
+        <div>
+          <h2 id="landscape-title">Twelve canonical domains.<br>One unified field.</h2>
+          <p>
+            Every paradigm in modern sequential decision-making—mapped by its governing mathematical operator,
+            foundational landmarks, and 2026 research frontier. Select any note to read its derivation or filter the library by domain.
+          </p>
+        </div>
+        <button type="button" class="text-button" id="view-corpus-graph">Open lineage graph ↑</button>
+      </div>
+
+      <div id="landscape-grid" class="landscape-grid"></div>
+
+      <div class="roadmaps-block" aria-labelledby="roadmaps-heading">
+        <div class="roadmaps-head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-index">CURRICULA //</span> STRUCTURED READING PATHS</div>
+            <h3 id="roadmaps-heading">Follow a guided 8-paper progression from foundations to 2026 frontiers.</h3>
+          </div>
+          <div id="roadmap-tabs" class="roadmap-tabs" role="tablist" aria-label="Guided learning paths"></div>
+        </div>
+        <div id="roadmap-stage" class="roadmap-stage" role="tabpanel" aria-live="polite"></div>
       </div>
     </section>
 
     <section id="equations-section" class="equations-section" aria-labelledby="equations-title">
       <div class="eyebrow">
-        <span class="eyebrow-index">01 //</span> MATHEMATICAL ARCHITECTURE OF SEQUENTIAL DECISION-MAKING
+        <span class="eyebrow-index">03 //</span> MATHEMATICAL ARCHITECTURE OF SEQUENTIAL DECISION-MAKING
       </div>
       <div class="heading-row">
         <div>
           <h2 id="equations-title">From Bellman contractions<br>to latent policy steering.</h2>
-          <p>Select a paradigm to inspect its formal objective and jump directly to the underlying research notes.</p>
+          <p>Select a paradigm to inspect its formal objective, vary its analytical operator parameters, and jump to the underlying notes.</p>
         </div>
       </div>
       <div class="equations-shell">
@@ -135,30 +204,92 @@
       </div>
     </section>
 
-    <section id="frontier-section" class="frontier-update" aria-labelledby="frontier-update-title">
-      <div>
+    <section id="library" class="library" aria-labelledby="library-title">
+      <div class="section-heading">
         <div class="eyebrow">
-          <span class="status-dot live-dot" aria-hidden="true"></span>
-          <span id="live-status">02 // LIVE TELEMETRY · NOVEMBER 15, 2026 · AUTO-SYNCING LATEST ONLINE WORK…</span>
+          <span class="eyebrow-index">04 //</span> CURATED RESEARCH CORPUS &amp; LIVE ARCHIVE
         </div>
-        <h2 id="frontier-update-title">From pretrained policies to learning robots.</h2>
-        <p id="frontier-update-summary">
-          Explore 68 curated 2026 notes across NeurIPS, ICML, ICLR, CoRL, RSS, IJCAI, and AAAI 2026—29 embodied RL studies,
-          14 agent RL notes, 11 core conference RL notes, and 14 embodied benchmarks &amp; systems—automatically synced with
-          the latest online preprints when you open the page.
-        </p>
+        <div class="heading-row">
+          <div>
+            <h2 id="library-title">A world of learning.</h2>
+            <p>Search algorithms, domains, conference venues, and formal mathematical derivations across three decades of RL.</p>
+          </div>
+          <div class="library-head-actions">
+            <button type="button" class="text-button" id="export-reading-list" title="Download saved reading list as Markdown">↓ Export reading list (.md)</button>
+          </div>
+        </div>
       </div>
-      <div class="frontier-update-actions">
-        <button type="button" id="latest-embodied" class="primary">Browse embodied RL ↗</button>
-        <button type="button" id="latest-conference" class="text-button">Browse top conference RL ↗</button>
-        <button type="button" id="sync-live" class="text-button">↻ Sync latest online</button>
-        <button type="button" id="read-frontier" class="text-button">Read the 2026 briefing ↗</button>
+
+      <div class="library-layout">
+        <aside>
+          <div class="aside-header-bar">
+            <span class="aside-title-text">TAXONOMY</span>
+            <div class="taxonomy-switch" role="group" aria-label="Sidebar taxonomy grouping">
+              <button type="button" id="tax-mode-domains" class="tax-switch-btn" aria-pressed="true">12 Domains</button>
+              <button type="button" id="tax-mode-tracks" class="tax-switch-btn" aria-pressed="false">Sub-tracks</button>
+            </div>
+          </div>
+          <div id="categories"></div>
+          <div class="aside-note">
+            <span aria-hidden="true">↗</span>
+            <h3>Knowledge compounds<br>when shared openly.</h3>
+            <p>Press <kbd>⌘K</kbd> anytime to jump across papers, equations, and domains.</p>
+            <a id="contribute-link" href="https://github.com/tigerneil/awesome-deep-rl/issues/new" target="_blank" rel="noopener noreferrer">Contribute a resource ↗</a>
+          </div>
+        </aside>
+
+        <div class="results-area">
+          <div class="search-row">
+            <label class="search-wrap" for="search">
+              <span aria-hidden="true">⌕</span>
+              <input id="search" type="search" placeholder="Search papers, operators, authors, venues (NeurIPS, ICML, ICLR, RSS)…" aria-label="Search the library">
+              <kbd>/</kbd>
+            </label>
+            <button type="button" class="filter-chip-btn" id="math-filter" aria-pressed="false" title="Show only notes with formal mathematical formulations">∑ Formal math</button>
+            <button type="button" id="view-toggle" title="Switch to list view" aria-label="Switch to list view">☷ List</button>
+          </div>
+
+          <div class="era-bar" role="group" aria-label="Filter by era or live feed">
+            <button type="button" class="era-pill" id="era-all" data-era="all" aria-pressed="true">All eras</button>
+            <button type="button" class="era-pill" id="era-live" data-era="live" aria-pressed="false">● Live stream</button>
+            <button type="button" class="era-pill" id="era-2026" data-era="2026" aria-pressed="false">2026 Frontier</button>
+            <button type="button" class="era-pill" id="era-modern" data-era="modern" aria-pressed="false">2020–2025 Pillars</button>
+            <button type="button" class="era-pill" id="era-canon" data-era="canon" aria-pressed="false">Foundational ≤2019</button>
+          </div>
+
+          <div class="results-meta">
+            <div class="results-status-wrap">
+              <span id="result-count" aria-live="polite"></span>
+              <button type="button" id="clear-active-filters" class="clear-filters-inline" hidden>✕ Reset filters</button>
+            </div>
+            <label for="sort">
+              Sort
+              <select id="sort" aria-label="Sort resources">
+                <option value="featured">Featured first</option>
+                <option value="latest">Latest online first</option>
+                <option value="chronological">Lineage: 1992 → 2026</option>
+                <option value="az">Title: A–Z</option>
+                <option value="za">Title: Z–A</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="cards" class="cards"></div>
+
+          <div id="empty" hidden>
+            <h3>No resources match these filters.</h3>
+            <p>Try resetting the era or formal-math filter, choosing another domain, or broadening your search query.</p>
+            <button type="button" class="primary" id="reset">Reset all filters ↗</button>
+          </div>
+
+          <button type="button" id="load-more" class="load-more">Explore more resources <span aria-hidden="true">↓</span></button>
+        </div>
       </div>
     </section>
 
     <section id="labs" class="labs-section" aria-labelledby="labs-title">
       <div class="eyebrow">
-        <span class="eyebrow-index">03 //</span> GLOBAL RESEARCH INSTITUTIONS
+        <span class="eyebrow-index">05 //</span> GLOBAL RESEARCH INSTITUTIONS
       </div>
       <div class="heading-row labs-heading">
         <div>
@@ -219,71 +350,9 @@
       </noscript>
     </section>
 
-    <section id="library" class="library" aria-labelledby="library-title">
-      <div class="section-heading">
-        <div class="eyebrow">
-          <span class="eyebrow-index">04 //</span> CURATED RESEARCH CORPUS &amp; LIVE ARCHIVE
-        </div>
-        <div class="heading-row">
-          <div>
-            <h2 id="library-title">A world of learning.</h2>
-            <p>Search algorithms, conference venues, and formal mathematical derivations across three decades of RL.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="library-layout">
-        <aside>
-          <div class="aside-title">TRACKS &amp; TAXONOMY <span aria-hidden="true">↙</span></div>
-          <div id="categories"></div>
-          <div class="aside-note">
-            <span aria-hidden="true">↗</span>
-            <h3>Knowledge compounds<br>when shared openly.</h3>
-            <p>Have a paper, derivation, or benchmark to contribute?</p>
-            <a id="contribute-link" href="https://github.com/tigerneil/awesome-deep-rl/issues/new" target="_blank" rel="noopener noreferrer">Contribute a resource ↗</a>
-          </div>
-        </aside>
-
-        <div class="results-area">
-          <div class="search-row">
-            <label class="search-wrap" for="search">
-              <span aria-hidden="true">⌕</span>
-              <input id="search" type="search" placeholder="Search papers, equations, venues (NeurIPS, ICML, ICLR, RSS)…" aria-label="Search the library">
-              <kbd>/</kbd>
-            </label>
-            <button type="button" class="filter-chip-btn" id="math-filter" aria-pressed="false" title="Show only notes with formal mathematical formulations">∑ Formal math</button>
-            <button type="button" id="view-toggle" title="Switch to list view" aria-label="Switch to list view">☷ List</button>
-          </div>
-
-          <div class="results-meta">
-            <span id="result-count" aria-live="polite"></span>
-            <label for="sort">
-              Sort
-              <select id="sort" aria-label="Sort resources">
-                <option value="featured">Featured first</option>
-                <option value="latest">Latest online first</option>
-                <option value="az">Title: A–Z</option>
-                <option value="za">Title: Z–A</option>
-              </select>
-            </label>
-          </div>
-
-          <div id="cards" class="cards"></div>
-
-          <div id="empty" hidden>
-            <h3>No resources match these filters.</h3>
-            <p>Try clearing the formal-math filter, choosing another track, or broadening your search query.</p>
-            <button type="button" class="primary" id="reset">Reset filters ↗</button>
-          </div>
-
-          <button type="button" id="load-more" class="load-more">Explore more resources <span aria-hidden="true">↓</span></button>
-        </div>
-      </div>
-    </section>
-
     <section class="closing" aria-labelledby="closing-title">
       <div>
-        <div class="eyebrow"><span class="eyebrow-index">05 //</span> CONTINUOUS DISCOVERY</div>
+        <div class="eyebrow"><span class="eyebrow-index">06 //</span> CONTINUOUS DISCOVERY</div>
         <h2 id="closing-title">Stay curious.<br>Keep exploring.</h2>
       </div>
       <button type="button" id="guide" class="primary">Open the 2026 frontier guide ↗</button>
@@ -300,14 +369,37 @@
   </footer>
 
   <dialog id="reader" aria-label="Scientific research note reader">
+    <div class="reader-progress-track" aria-hidden="true">
+      <div id="reader-progress" class="reader-progress-fill"></div>
+    </div>
     <div class="reader-bar">
-      <span>DEEP RL ATLAS // SCIENTIFIC RESEARCH NOTE</span>
+      <div class="reader-bar-left">
+        <button type="button" class="reader-action-btn" id="reader-back" hidden>← Back</button>
+        <span class="reader-bar-label">DEEP RL ATLAS // RESEARCH NOTE</span>
+      </div>
       <div class="reader-bar-actions">
-        <button type="button" class="reader-action-btn" id="copy-note-md" title="Copy Markdown &amp; LaTeX source">⎘ Copy Markdown</button>
+        <button type="button" class="reader-action-btn" id="reader-save" aria-pressed="false">▱ Save</button>
+        <button type="button" class="reader-action-btn" id="copy-note-bibtex" title="Copy BibTeX citation">⎘ BibTeX</button>
+        <button type="button" class="reader-action-btn" id="copy-note-link" title="Copy shareable direct link">🔗 Share</button>
+        <button type="button" class="reader-action-btn" id="copy-note-md" title="Copy Markdown &amp; LaTeX source">⎘ Markdown</button>
         <button type="button" id="close-reader" aria-label="Close research note">✕ Close</button>
       </div>
     </div>
     <article id="reader-content"></article>
+  </dialog>
+
+  <dialog id="cmd-palette" aria-label="Quick navigation and search palette">
+    <div class="cmd-search-bar">
+      <span class="cmd-search-icon" aria-hidden="true">⌕</span>
+      <input id="cmd-input" type="search" placeholder="Jump to any paper, 12 domains, equation, roadmap, or action…" aria-label="Command palette search" autocomplete="off">
+      <button type="button" class="cmd-esc-btn" id="close-cmd-palette" aria-label="Close command palette">ESC</button>
+    </div>
+    <div id="cmd-results" class="cmd-results" role="listbox" aria-label="Matching items"></div>
+    <div class="cmd-footer">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>ESC</kbd> close</span>
+    </div>
   </dialog>
 
   <div id="toast" role="status" aria-live="polite"></div>

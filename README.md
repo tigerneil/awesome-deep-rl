@@ -8,6 +8,8 @@
 > 
 > **Dec 2021 update: Unsupervised RL**
 
+> **November 18, 2026: [Complete Deep RL Landscape (1992–2026) & Real-Time Interactive Atlas](index.html#landscape), 228 curated Markdown research notes (including 23 foundational/modern RL pillars + 74 curated 2026 notes across NeurIPS, ICML, ICLR, CoRL, RSS, IJCAI, and AAAI 2026), `⌘K` instant command palette, and continuous real-time multi-source preprint radar. Sources checked through November 18, 2026.**
+>
 > **November 15, 2026: [Top AI conference Oral, Spotlight & RL update](2026.md#november-2026-update-embodied-and-agentic-rl), 68 curated 2026 research notes across NeurIPS 2026, ICML 2026, ICLR 2026, CoRL 2026, RSS 2026, IJCAI 2026, and AAAI 2026, plus the [interactive atlas](index.html) with automatic online preprint sync. Sources checked through November 15, 2026.**
 >
 > **November 7, 2026: [Top AI conference & embodied RL update](2026.md#november-2026-update-embodied-and-agentic-rl), 46 curated 2026 research notes across NeurIPS 2026, ICML 2026, ICLR 2026, CoRL 2026, RSS 2026, and AAAI 2026, plus the [interactive atlas](index.html) with automatic online preprint sync.**
@@ -23,19 +25,38 @@ Reinforcement learning is the fundamental framework for building AGI. Therefore 
 
 ![updated Landscape of **DRL**](images/awesome-drl.png)
 
+### Complete 12-Domain Taxonomy (1992–2026)
+
+To unify three decades of sequential decision-making—from tabular Bellman contractions to generative visuomotor flow policies and verifiable reasoning post-training—the [interactive Deep RL Atlas](index.html#landscape) organizes the entire literature into **12 canonical mathematical & systems domains**:
+
+| Domain | Era span | Core mathematical paradigm | Canonical & 2026 anchors |
+| --- | --- | --- | --- |
+| **01 · Value Operators & TD Control** | 1988–2026 | Bellman contractions, target decoupling, pairwise relative & excursion backups | [DQN](DQN.md), [DDQN](DDQN.md), [Dueling](Dueling.md), [PER](PER.md), [Rainbow](Rainbow.md), [Relative Value Learning](Relative-Value-Learning.md), [Excursion Policies](Excursion-Policies.md) |
+| **02 · Policy Gradients & Actor-Critic** | 1999–2026 | $\operatorname{GAE}(\gamma,\lambda)$, trust regions, twin critics, V-trace & phasic updates | [TRPO](TRPO.md), [GAE](GAE.md), [A3C](A3C.md), [PPO](PPO.md), [TD3](TD3.md), [IMPALA](IMPALA.md), [PPG](PPG.md), [LGPO](LGPO.md) |
+| **03 · Distributional & MaxEnt RL** | 2017–2026 | Random-return Bellman equations, quantile regression & soft entropy duals | [C51](C51.md), [QR-DQN](QR-DQN.md), [IQN](IQN.md), [SAC](SAC.md), [MPO](MPO.md), [Distributional IRL](Distributional-IRL.md) |
+| **04 · World Models & Tree Search** | 2016–2026 | Value-equivalent MCTS, RSSM latent imagination, Koopman & 4D JEPA planning | [AlphaZero](AlphaZero.md), [World Models](World-Models.md), [MuZero](MuZero.md), [DreamerV3](DreamerV3.md), [TD-MPC2](TD-MPC2.md), [K-PWM](K-PWM.md), [JEPA4R](JEPA4R.md) |
+| **05 · Offline, Sequence & Flow RL** | 2019–2026 | Pessimistic $Q$-bounds, expectile backups, causal sequences & diffusion/flow steering | [CQL](CQL.md), [IQL](IQL.md), [Decision Transformer](Decision-Transformer.md), [Diffusion Policy](Diffusion-Policy.md), [LPS](Latent-Policy-Steering.md), [NSPG](NSPG.md), [LARBRID](LARBRID.md) |
+| **06 · Exploration & Intrinsic Skills** | 2016–2026 | Epistemic uncertainty Bellman bonuses, ensemble disagreement & effective entropy | [UBE](UBE.md), [NoisyNet](NoisyNet.md), [Disagreement](Disagreement.md), [EDDICT](EDDICT.md), [VISR](VISR.md), [VEPO](VEPO.md) |
+| **07 · Hierarchical, Memory & Meta-RL** | 2016–2026 | Options, latent context adaptation, episodic/KV memory & continual plasticity | [Distral](Distral.md), [VALOR](VALOR.md), [PEARL](PEARL.md), [HIRO](HIRO.md), [MemRL](MemRL.md), [PTR-CRL](PTR-CRL.md), [HeMeR](HeMeR.md) |
+| **08 · Multi-Agent & Game Equilibria** | 2017–2026 | CTDE monotonic mixing, opponent-learning awareness & swap-regret equilibria | [MADDPG](MADDPG.md), [LOLA](LOLA.md), [QMIX](QMIX.md), [MAPPO](MAPPO.md), [Phi-Actor-Critic](Phi-Actor-Critic.md), [Rhythm](Rhythm.md), [Heave-Ho](Heave-Ho.md) |
+| **09 · Imitation, IRL & Safe Control** | 2000–2026 | Occupancy matching, constrained MDPs, sharpness pessimism & human-aware safety | [GAIL](GAIL.md), [OP-GAIL](OP-GAIL.md), [Viper](Viper.md), [SHAPO](SHAPO.md), [Parallel Safe RL](Parallel-Safe-RL.md), [OopsieVerse](OopsieVerse.md), [HARP-Bench](HARP-Bench.md) |
+| **10 · LLM Alignment & Reasoning RL** | 2022–2026 | RLHF, DPO, critic-free GRPO, one-sided verifiers, self-distillation & RSC | [RLHF / InstructGPT](RLHF-InstructGPT.md), [DPO](DPO.md), [GRPO / DeepSeek-R1](GRPO-DeepSeek-R1.md), [LoongRL](LoongRL.md), [SDPO](SDPO.md), [NOPO](NOPO.md), [RSC](Regularized-Score-Centering.md) |
+| **11 · Tool-Using & Agentic RL** | 2022–2026 | Multi-turn tool credit, execution-verified coding beliefs & visual contrast RL | [T3](T3-Belief-RL.md), [SkillRL](SkillRL.md), [ANTE](ANTE.md), [TACA](TACA.md), [HyperSkill](HyperSkill.md), [ViRA](ViRA.md) |
+| **12 · Embodied Robotics & VLA Policies** | 2018–2026 | Tokenized & flow VLAs, contact residual RL, cross-embodiment latents & real-world RL | [OpenVLA](OpenVLA.md), [π0](Pi0-Flow-VLA.md), [Embodied-R1](Embodied-R1.md), [USER](USER-RL.md), [NeuralActuator](NeuralActuator.md), [S2C](S2C.md), [SALA](SALA.md), [ScaleVLA](ScaleVLA.md) |
+
 ## The 2026 frontier
 
-The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Top-conference RL work is now concentrated at NeurIPS, ICML, ICLR, CoRL/RSS, AAAI/IJCAI/AAMAS, and UAI, while the canonical test-of-time foundations still remain DQN, A3C, PPO, SAC, AlphaGo, MuZero, and world models. The latest frontier is also deeply shaped by LLM-agent RL, preference optimization (RLHF/DPO/GRPO), and embodied AI systems that couple perception, control, and long-horizon planning.
+The field is converging around data-centric and hybrid RL, world models, foundation policies for robotics, tool-using agents, scalable multi-agent coordination, and evaluation that measures generalization and safety. Top-conference RL work is now concentrated at NeurIPS, ICML, ICLR, CoRL/RSS, AAAI/IJCAI/AAMAS, and UAI, while the canonical test-of-time foundations still remain [DQN](DQN.md), [A3C](A3C.md), [PPO](PPO.md), [SAC](SAC.md), [AlphaZero](AlphaZero.md), [MuZero](MuZero.md), and [World Models](World-Models.md). The latest frontier is also deeply shaped by LLM-agent RL, preference optimization ([RLHF](RLHF-InstructGPT.md) / [DPO](DPO.md) / [GRPO](GRPO-DeepSeek-R1.md)), and embodied AI systems that couple perception, control, and long-horizon planning.
 
-Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to filter themes and track your reading locally—opening the homepage automatically syncs the latest online Embodied RL, VLA, and Agentic RL preprints alongside the curated notes (see [WEBSITE.md](WEBSITE.md#automatic-online-update-on-page-open)). Browse the [research lab directory](index.html#labs) to discover leading LLM and RL groups by research focus, organization type, and region.
+Start with the [2026 frontier guide](2026.md), or use the [interactive homepage](index.html) to explore the 12-domain landscape, launch guided learning paths, search instantaneously with `⌘K`, and stream live online preprints across all RL domains (see [WEBSITE.md](WEBSITE.md)). Browse the [research lab directory](index.html#labs) to discover leading LLM and RL groups by research focus, organization type, and region.
 
 ### Conference and foundational reading map
 
 * **NeurIPS, ICML, ICLR**: RL, world models, policy optimization, uncertainty-aware control, and sequence modeling for decision-making.
 * **CoRL / RSS / ICRA / IROS**: embodied AI, dexterous manipulation, sim-to-real transfer, and safe real-world control.
 * **AAAI / IJCAI / AAMAS / UAI**: agentic decision-making, planning, Bayesian RL, and multi-agent coordination.
-* **Classic test-of-time anchors**: DQN, A3C (ICML 2026 Test of Time Award), PPO, SAC, AlphaGo, MuZero, World Models, and Inverse RL remain the core conceptual reference stack.
-* **LLM and agent RL**: RLHF, DPO, GRPO, SDPO, ReAct, WebArena, and foundation-model policies such as OpenVLA and Octo.
+* **Classic test-of-time anchors**: [DQN](DQN.md), [A3C](A3C.md) (ICML 2026 Test of Time Award), [PPO](PPO.md), [SAC](SAC.md), [AlphaZero](AlphaZero.md), [MuZero](MuZero.md), [World Models](World-Models.md), and [GAIL](GAIL.md) remain the core conceptual reference stack.
+* **LLM and agent RL**: [RLHF](RLHF-InstructGPT.md), [DPO](DPO.md), [GRPO / DeepSeek-R1](GRPO-DeepSeek-R1.md), [SDPO](SDPO.md), ReAct, WebArena, and foundation-model policies such as [OpenVLA](OpenVLA.md) and [π0](Pi0-Flow-VLA.md).
 
 ### Mathematical foundations at a glance
 
@@ -47,13 +68,13 @@ $$
 Q^*(s, a) = r(s, a) + \gamma\,\mathbb{E}_{s' \sim P(\cdot \mid s, a)}\!\left[\max_{a' \in \mathcal{A}} Q^*(s', a')\right]
 $$
 
-2. **Policy gradient & advantage estimation** ([TRPO](TRPO.md), [EPG](EPG.md), [Relative Value Learning](Relative-Value-Learning.md)):
+2. **Policy gradient & advantage estimation** ([TRPO](TRPO.md), [GAE](GAE.md), [Relative Value Learning](Relative-Value-Learning.md)):
 
 $$
 \nabla_\theta J(\theta) = \mathbb{E}_{(s_t, a_t) \sim \pi_\theta}\!\left[\nabla_\theta \log \pi_\theta(a_t \mid s_t)\,A^{\pi_\theta}(s_t, a_t)\right], \qquad A^\pi(s, a) = Q^\pi(s, a) - V^\pi(s)
 $$
 
-3. **Proximal & group-relative trust-region surrogates** ([PPO](PPO.md), [Reward Budgeting](Reward-Budgeting.md), [LGPO](LGPO.md)):
+3. **Proximal & group-relative trust-region surrogates** ([PPO](PPO.md), [GRPO](GRPO-DeepSeek-R1.md), [LGPO](LGPO.md)):
 
 $$
 \mathcal{L}_{\text{CLIP}}(\theta) = \mathbb{E}_t\!\left[\min\!\Big(\rho_t(\theta)\,\hat{A}_t,\; \operatorname{clip}\big(\rho_t(\theta),\, 1 - \epsilon,\, 1 + \epsilon\big)\hat{A}_t\Big)\right], \qquad \rho_t(\theta) = \frac{\pi_\theta(a_t \mid s_t)}{\pi_{\theta_{\text{old}}}(a_t \mid s_t)}
@@ -69,6 +90,8 @@ $$
 
 Latest curated notes, ordered by first public date. Conference acceptances (NeurIPS, CoRL, RSS, ICLR, IJCAI, AAAI) are explicitly tagged where established; unmarked entries are recent preprints. See the [frontier guide](2026.md) for evaluation limits and artifact availability.
 
+* [Heave-Ho: Decentralized long-horizon multi-humanoid collaboration](Heave-Ho.md) — 17 Nov 2026. Multi-agent humanoid tracking post-training and speech-synchronized VLM planning scaling from 2 to 10 humanoids (`HH-Bench`).
+* [JEPA4R: Embodied JEPA world models with 4D point planning](JEPA4R.md) — 15 Nov 2026. Single-depth-camera 4D point-cloud JEPA latent planning and policy learning on OGBench, MetaWorld, Adroit, and physical arms.
 * [K-PWM: Structured bilinear world models under partial observation](K-PWM.md) — 8 Nov 2026 · **NeurIPS 2026**. Koopman-bilinear latent dynamics with EKF belief tracking and uncertainty-aware MPPI control.
 * [S2C: Stagewise semantics-to-contact manipulation RL](S2C.md) — 5 Nov 2026 · **NeurIPS 2026**. VLM spatial focusing plus force-feedback residual RL across six physical contact-rich tasks.
 * [Seeing Beyond the Next Step: World-model-guided navigation](WM-Nav.md) — 5 Nov 2026 · **NeurIPS 2026**. Training-time social and semantic world-model preference distillation for single-pass navigation.
@@ -101,6 +124,7 @@ Latest curated notes, ordered by first public date. Conference acceptances (Neur
 
 ## 2026 · Agent RL
 
+* [ViRA: Ultra-high-resolution visual agents via CrossRPO](ViRA.md) — 16 Nov 2026. Cross-Input Relative Policy Optimization over minimally edited visual contrast sets to eliminate prior guessing.
 * [NOPO: Negative-only policy optimization for one-sided verifiers](NOPO.md) — 12 Nov 2026 · **NeurIPS 2026 Spotlight**. Suppresses trusted verified negatives without reinforcing false-positive shortcuts under partial checks.
 * [HyperSkill: Training-free omnimodal GRPO via skill hypergraphs](HyperSkill.md) — 11 Nov 2026 · **NeurIPS 2026**. Counterfactual advantage-ranked hypergraph skill evolution on frozen omnimodal backbones.
 * [TACA: Transition-aware credit assignment in tool-agent RL](TACA.md) — 8 Nov 2026 · **NeurIPS 2026**. Advantage projection, decision contrast, and replay to prevent multi-turn tool-calling collapse.
@@ -118,8 +142,9 @@ Latest curated notes, ordered by first public date. Conference acceptances (Neur
 
 ## 2026 · Conference RL
 
-Core reinforcement learning theory, LLM RL optimization mechanics, safe exploration, continual learning, multi-agent equilibria, and offline control highlights from NeurIPS 2026, ICML 2026, ICLR 2026, and IJCAI 2026.
+Core reinforcement learning theory, LLM RL optimization mechanics, safe exploration, continual learning, multi-agent equilibria, and offline control highlights from NeurIPS 2026, ICML 2026, ICLR 2026, IJCAI 2026, and recent theoretical preprints.
 
+* [Regularized Score Centering: Stabilizing asynchronous off-policy RL](Regularized-Score-Centering.md) — 16 Nov 2026. Baseline-invariant score centering paired with token-level reverse KL anchoring across math and 6 asynchronous agentic suites.
 * [VEPO: Aligning LLM exploration via effective entropy](VEPO.md) — 11 Nov 2026 · **NeurIPS 2026**. Restricts entropy regularization to verified-valid reasoning subspaces to prevent degenerate exploration.
 * [LGPO: Likelihood-gated policy optimization without old-policy ratios](LGPO.md) — 11 Nov 2026 · **NeurIPS 2026**. Soft likelihood trust-region gating without recomputing importance ratios (~18% faster than GRPO).
 * [Off-Policy Learning with Excursion Policies](Excursion-Policies.md) — 9 Nov 2026 · **NeurIPS 2026**. Dynamic programming and convergent TD evaluation for multi-step target-policy excursions.
@@ -134,8 +159,10 @@ Core reinforcement learning theory, LLM RL optimization mechanics, safe explorat
 
 ## 2026 · Embodied context
 
-Benchmark, memory, transfer, and physical-modeling developments relevant to RL without necessarily introducing an RL policy-optimization algorithm.
+Benchmark, memory, transfer, VLA scaling, and physical-modeling developments relevant to RL without necessarily introducing an RL policy-optimization algorithm.
 
+* [ScaleVLA: Scaling vision-language-action models to 552B parameters](ScaleVLA.md) — 16 Nov 2026. Couples a 552B MoE VLM backbone to an action `DiT` at 216 ms latency; representation/imitation scaling context.
+* [SALA: Semantically aligned latent actions for dual-axis video scaling](SALA.md) — 15 Nov 2026. Language-guided soft neighborhood alignment between unpaired human and robot clips for Latent Action Models (`LAMs`).
 * [HeMeR: Heterogeneous memory reconciliation via structured KV reuse](HeMeR.md) — 12 Nov 2026 · **NeurIPS 2026 Oral**. Selective KV-cache reconciliation across declarative, procedural, and working embodied agent memory.
 * [HARP-Bench: Robot manipulation around active humans](HARP-Bench.md) — 8 Nov 2026 · **CoRL 2026**. Evaluates VLAs under human cueing, contribution, interruption, and co-presence.
 * [UniLatent: Cross-embodiment transfer via latent observation alignment](UniLatent.md) — 6 Nov 2026 · **CoRL 2026**. Paired simulation encoder alignment for zero- and few-shot cross-arm policy transfer.
@@ -224,6 +251,8 @@ Illustrations:
 * Reinforcement Learning with Action-Free Pre-Training from Videos [arxiv](https://arxiv.org/abs/2203.13880) [repo](https://github.com/younggyoseo/apv)
 
 ## Generalist policies
+* [$\pi_0$: A Vision-Language-Action Flow Model for General Robot Control](Pi0-Flow-VLA.md) 31 Oct 2024 [arxiv](https://arxiv.org/abs/2410.24164)
+* [OpenVLA: An Open-Source Vision-Language-Action Model](OpenVLA.md) 13 Jun 2024 [arxiv](https://arxiv.org/abs/2406.09246) [code](https://github.com/openvla/openvla)
 * [Foundation Policies with Hilbert Representations](HILP.md) [arxiv](https://arxiv.org/abs/2402.15567) [repo](https://github.com/seohongpark/HILP) 23 Feb 2024
 
 ## Foundations and theory
@@ -267,8 +296,12 @@ Illustrations:
 * [Curiosity-driven Exploration by Self-supervised Prediction](https://arxiv.org/pdf/1705.05363) 15 May 2017 
 
 ## Offline
+* [Diffusion Policy: Visuomotor Policy Learning via Action Diffusion](Diffusion-Policy.md) 7 Mar 2023 [arxiv](https://arxiv.org/abs/2303.04137) [code](https://github.com/real-stanford/diffusion_policy)
 * [PerSim: Data-efficient Offline Reinforcement Learning with Heterogeneous Agents via Personalized Simulators](https://arxiv.org/abs/2102.06961) 10 Nov 2021
-* [A General Offline Reinforcement Learning Framework for Interactive Recommendation]() AAAI 2021
+* [Offline Reinforcement Learning with Implicit Q-Learning (IQL)](IQL.md) 21 Oct 2021 [arxiv](https://arxiv.org/abs/2110.06169)
+* [Decision Transformer: Reinforcement Learning via Sequence Modeling](Decision-Transformer.md) 2 Jun 2021 [arxiv](https://arxiv.org/abs/2106.01345) [code](https://github.com/kzl/decision-transformer)
+* [A General Offline Reinforcement Learning Framework for Interactive Recommendation](https://ojs.aaai.org/index.php/AAAI/article/view/16579) AAAI 2021
+* [Conservative Q-Learning for Offline Reinforcement Learning (CQL)](CQL.md) 2 Jun 2020 [arxiv](https://arxiv.org/abs/2006.04779) [code](https://github.com/aviralkumar2907/CQL)
 
 
 ## Value based
@@ -287,6 +320,9 @@ Illustrations:
 
 ## Policy gradient
 
+* [Group Relative Policy Optimization & DeepSeek-R1 Reasoning RL](GRPO-DeepSeek-R1.md) 22 Jan 2025 [arxiv](https://arxiv.org/abs/2501.12948) [code](https://github.com/deepseek-ai/DeepSeek-R1)
+* [Direct Preference Optimization: Your Language Model is Secretly a Reward Model (DPO)](DPO.md) 29 May 2023 [arxiv](https://arxiv.org/abs/2305.18290)
+* [Training language models to follow instructions with human feedback (InstructGPT / RLHF)](RLHF-InstructGPT.md) 4 Mar 2022 [arxiv](https://arxiv.org/abs/2203.02155)
 * [Phasic Policy Gradient](PPG.md) 9 Sep 2020 [arxiv](https://arxiv.org/pdf/2009.04416.pdf) [code](https://github.com/openai/phasic-policy-gradient)
 * [An operator view of policy gradient methods](OVPG.md) 22 Jun 2020 [arxiv](https://arxiv.org/pdf/2006.11266.pdf)
 * [Direct Policy Gradients: Direct Optimization of Policies in Discrete Action Spaces](DirPG.md) 14 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.06062.pdf)
@@ -299,6 +335,7 @@ Illustrations:
 * [Emergence of Locomotion Behaviours in Rich Environments](DPPO.md) 7 July 2017
 * [Interpolated Policy Gradient: Merging On-Policy and Off-Policy Gradient Estimation for Deep Reinforcement Learning](IPG.md) 1 Jun 2017
 * [Equivalence Between Policy Gradients and Soft Q-Learning](PGSQL.md)
+* [High-Dimensional Continuous Control Using Generalized Advantage Estimation (GAE)](GAE.md) 8 Jun 2015 [arxiv](https://arxiv.org/abs/1506.02438)
 * [Trust Region Policy Optimization](TRPO.md)
 * [Reinforcement Learning with Deep Energy-Based Policies](DEBP.md)
 * [Q-PROP: SAMPLE-EFFICIENT POLICY GRADIENT WITH AN OFF-POLICY CRITIC](QPROP.md)
@@ -320,18 +357,23 @@ Illustrations:
 ## Actor-Critic
 
 * [Generalized Off-Policy Actor-Critic](Geoff-PAC.md) 27 Mar 2019
-* [Soft Actor-Critic Algorithms and Applications](https://arxiv.org/pdf/1812.05905.pdf) 29 Jan 2019
+* [Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor](SAC.md) 29 Jan 2019 [arxiv](https://arxiv.org/pdf/1812.05905.pdf)
+* [Addressing Function Approximation Error in Actor-Critic Methods (TD3)](TD3.md) 26 Feb 2018 [arxiv](https://arxiv.org/abs/1802.09477) [code](https://github.com/sfujim/TD3)
 * [The Reactor: A Sample-Efficient Actor-Critic Architecture](REACTOR.md) 15 Apr 2017
 * [SAMPLE EFFICIENT ACTOR-CRITIC WITH EXPERIENCE REPLAY](ACER.md)
 * [REINFORCEMENT LEARNING WITH UNSUPERVISED AUXILIARY TASKS](UNREAL.md)
+* [Asynchronous Methods for Deep Reinforcement Learning (A3C)](A3C.md) 4 Feb 2016 [arxiv](https://arxiv.org/abs/1602.01783)
 * [Continuous control with deep reinforcement learning](DDPG.md)
 
 ## Model-based
  
+* [TD-MPC2: Scalable, Robust World Models for Continuous Control](TD-MPC2.md) 24 Oct 2023 [arxiv](https://arxiv.org/abs/2310.16828) [code](https://github.com/nicklashansen/tdmpc2)
+* [Mastering Diverse Domains through World Models (DreamerV3)](DreamerV3.md) 10 Jan 2023 [arxiv](https://arxiv.org/abs/2301.04104) [code](https://github.com/danijar/dreamerv3)
 * [Self-Consistent Models and Values](sc.md) 25 Oct 2021 [arxiv](https://arxiv.org/pdf/2110.12840.pdf)
 * [When to use parametric models in reinforcement learning?](parametric.md) 12 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.05243.pdf)
 * [Model Based Reinforcement Learning for Atari](https://arxiv.org/pdf/1903.00374.pdf) 5 Mar 2019
 * [Model-Based Stabilisation of Deep Reinforcement Learning](MBDQN.md) 6 Sep 2018
+* [World Models](World-Models.md) 27 Mar 2018 [arxiv](https://arxiv.org/abs/1803.10122) [project](https://worldmodels.github.io/)
 * [Learning model-based planning from scratch](IBP.md) 19 July 2017
 
 ## Model-free + Model-based
@@ -374,15 +416,16 @@ Illustrations:
 
 ## Multi-agent
 
+* [The Surprising Effectiveness of PPO in Cooperative Multi-Agent Games (MAPPO)](MAPPO.md) 3 Mar 2021 [arxiv](https://arxiv.org/abs/2103.01955) [code](https://github.com/marlbenchmark/on-policy)
 * [No Press Diplomacy: Modeling Multi-Agent Gameplay](Dip.md) 4 Sep 2019 [arxiv](https://arxiv.org/pdf/1909.02128.pdf)
-* [Options as responses: Grounding behavioural hierarchies in multi-agent RL](OPRE) 6 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.01470.pdf)
+* [Options as responses: Grounding behavioural hierarchies in multi-agent RL](OPRE.md) 6 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.01470.pdf)
 * [Evolutionary Reinforcement Learning for Sample-Efficient Multiagent Coordination](MERL.md) 18 Jun 2019 [arxiv](https://arxiv.org/pdf/1906.07315.pdf)
 * [A Regularized Opponent Model with Maximum Entropy Objective](ROMMEO.md) 17 May 2019 [arxiv](https://arxiv.org/pdf/1905.08087.pdf)
 * [Deep Q-Learning for Nash Equilibria: Nash-DQN](NashDQN.md) 23 Apr 2019 [arxiv](https://arxiv.org/pdf/1904.10554.pdf)
 * [Malthusian Reinforcement Learning](MRL.md) 3 Mar 2019 [arxiv](https://arxiv.org/pdf/1812.07019.pdf)
 * [Bayesian Action Decoder for Deep Multi-Agent Reinforcement Learning](bad.md) 4 Nov 2018
 * [INTRINSIC SOCIAL MOTIVATION VIA CAUSAL INFLUENCE IN MULTI-AGENT RL](ISMCI.md) 19 Oct 2018
-* [QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning](http://www.cs.ox.ac.uk/people/shimon.whiteson/pubs/rashidicml18.pdf) 30 Mar 2018
+* [QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning](QMIX.md) 30 Mar 2018 [pdf](http://www.cs.ox.ac.uk/people/shimon.whiteson/pubs/rashidicml18.pdf)
 * [Modeling Others using Oneself in Multi-Agent Reinforcement Learning](SOM.md) 26 Feb 2018
 * [The Mechanics of n-Player Differentiable Games](SGA.md) 15 Feb 2018 
 * [Continuous Adaptation via Meta-Learning in Nonstationary and Competitive Environments](RoboSumo.md) 10 Oct 2017
@@ -393,7 +436,7 @@ Illustrations:
 
 ## New design
 
-* [IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Learner Architectures](https://arxiv.org/pdf/1802.01561.pdf) 9 Feb 2018
+* [IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Learner Architectures](IMPALA.md) 9 Feb 2018 [arxiv](https://arxiv.org/pdf/1802.01561.pdf)
 * [Reverse Curriculum Generation for Reinforcement Learning](RECUR.md)
 * [Trial without Error: Towards Safe Reinforcement Learning via Human Intervention](HIRL.md)
 * [Learning to Design Games: Strategic Environments in Deep Reinforcement Learning](DualMDP.md) 5 July 2017
@@ -430,7 +473,9 @@ Illustrations:
 
 ## Planning
 
+* [Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model (MuZero)](MuZero.md) 19 Nov 2019 [arxiv](https://arxiv.org/abs/1911.08265)
 * [Search on the Replay Buffer: Bridging Planning and Reinforcement Learning](SoRB.md) 12 June 2019 [arxiv](https://arxiv.org/pdf/1906.05253.pdf)
+* [Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm (AlphaZero)](AlphaZero.md) 5 Dec 2017 [arxiv](https://arxiv.org/abs/1712.01815)
 
 ## Safety
 

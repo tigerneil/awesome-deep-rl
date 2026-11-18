@@ -1,10 +1,11 @@
 # Deep RL Atlas — Architecture & Developer Guide
 
-Deep RL Atlas is a static, zero-build scientific explorer for the entire Markdown collection, combining a real-time 3-mode reinforcement learning numerical simulator (`Bellman V(s)`, `HJB Phase (θ, θ̇)`, and `Empirical Corpus Graph`), an interactive Canonical Equations & Analytical Operator Plots Explorer, KaTeX mathematical typesetting, topic and full-text search, a `∑ Formal math` filter, local reading list, dark/light instrument themes, and live online preprint synchronization.
+Deep RL Atlas is a static, zero-build, real-time updating scientific field guide for the complete landscape of deep reinforcement learning (`1992–2026`). It combines a 3-mode numerical RL simulator (`Bellman V(s)`, `HJB Phase (θ, θ̇)`, and `Complete 2015–2026 Lineage Graph`), an interactive **12-Domain Landscape & Guided Curricula Explorer**, a **Real-Time Research Radar** with continuous 5-minute online preprint synchronization, an interactive **Canonical Equations & Analytical Operator Plots** lab, KaTeX mathematical typesetting, an instant `⌘K` Command Palette, BibTeX/Markdown export, and shareable deep-linking.
 
 Run locally from the repository root:
 
 ```sh
+python3 -B scripts/update-live-feed.py
 python3 -B scripts/build-catalog.py
 python3 -m http.server 8000
 ```
@@ -13,26 +14,17 @@ Open `http://localhost:8000`. No package installation or bundler is required. Re
 
 ## Modular Frontend Architecture
 
-* `index.html` — Semantic single-page scientific layout with early theme hydration, KaTeX `0.16.11` stylesheet/script hooks, 3-mode Hero RL Instrument (`FIG. 001`), Canonical Equations & Operator Plots Explorer (`#equations-section`), 2026 live telemetry briefing (`#frontier-section`), Research Labs directory (`#labs`), and searchable library (`#library`).
-* `assets/style.css` — Modular Vanilla CSS design system defining two calibrated HSL palettes: **Obsidian Telemetry** (`:root`, default dark mode) and **Alabaster Instrument** (`[data-theme="light"]`), tactile SVG fractal-noise micro-grain, responsive breakpoints, and mathematical display containers (`.math-block`, `.equation-lab`, `.table-scroll`).
-* `assets/math-markdown.js` — Dedicated scientific Markdown and LaTeX typesetting engine (`window.RLMathMarkdown`). Parses headings, display equations (`$$...$$`, `\[...\]`), inline math (`$...$`, `\(...\)`), GFM pipe tables, ordered/unordered lists, blockquotes, code blocks, and internal `.md` cross-references. Uses KaTeX when loaded and falls back deterministically to clean Unicode/HTML math when offline, upgrading nodes automatically once KaTeX finishes loading.
-* `assets/network-canvas.js` — Real-time 3-mode scientific RL simulator (`window.initRLNetworkCanvas`): (1) **Soft-Bellman 3D Value Iteration** solving $V_{k+1}(s) = \tau \log \frac{1}{|\mathcal{A}|}\sum_a \exp((r(s,a)+\gamma\mathbb{E}V_k)/\tau)$ over $\mathcal{S} = [-1,1]^2$ with a 2D floor policy vector field $\pi_k(a\mid s)$ and Boltzmann streamlines; (2) **Underactuated Pendulum HJB Phase Portrait** $(\theta, \dot{\theta})$ solving torque-limited swing-up $|u| \le 2.2 < g/\ell$ with click-to-launch RK4 trajectories; and (3) **Empirical Corpus Lineage Graph** built directly from `window.RL_CATALOG` citation and operator couplings.
-* `assets/equation-plots.js` — Analytical operator diagnostic plots (`window.RLEquationPlots`) paired with parameter sliders ($\gamma, \lambda, \epsilon, \tau, \alpha, \beta$) for Bellman contraction & Double-Q maximization bias, $\operatorname{GAE}(\gamma,\lambda)$ bias–variance decomposition, PPO/GRPO clipped vs KL surrogates, C51 Cramér projection & MaxEnt policy tilt, MeanFlow latent steering vs OOD critic traps, and NOPO/VEPO frontier operators.
-* `assets/app.js` — Application state controller managing theme persistence (`rl-atlas-theme`), the Canonical Equations Explorer, category/search/formal-math/reading-list filtering, scientific reader modal (`#reader`), Markdown source copy, and live online preprint sync.
-* `assets/labs.js` — Curated, unranked directory of 16 industry, academic, and nonprofit research groups with organization, region, and LLM/RL focus filters (sources reviewed September 17, 2026).
+* `index.html` — Semantic single-page scientific layout with early theme hydration, KaTeX `0.16.11` hooks, 3-mode Hero RL Instrument (`FIG. 001`), Real-Time Research Radar stream (`#frontier-section`), 12-Domain Landscape & Guided Curricula (`#landscape`), Canonical Equations & Operator Plots (`#equations-section`), searchable Library (`#library`), Research Labs directory (`#labs`), Scientific Reader (`#reader`), and `⌘K` Command Palette (`#cmd-palette`).
+* `assets/style.css` — Modular Vanilla CSS design system defining two calibrated HSL palettes: **Obsidian Telemetry** (`:root`, default dark mode) and **Alabaster Instrument** (`[data-theme="light"]`), tactile SVG fractal-noise micro-grain, responsive breakpoints, and mathematical display containers.
+* `assets/landscape-data.js` — Defines `window.RL_LANDSCAPE`: the **12 Canonical Deep RL Domains** (`01 · Value & TD Control` through `12 · Embodied & VLA RL`) with governing LaTeX operators and landmark note IDs, **4 Guided 8-Step Learning Roadmaps**, and runtime `inferDomain(item)` classification.
+* `assets/live-radar.js` — Real-time online synchronization engine (`window.RLLiveRadar`): hydrates `<5ms` from `localStorage` (`rl-atlas-live-v2`), queries `assets/live-feed.json` and 7 CORS-enabled Hugging Face paper feeds in parallel with `10s` `AbortController` timeouts, deduplicates against curated notes, tracks unseen `NEW` arrivals (`rl-atlas-seen-live-v1`), and polls continuously every 5 minutes while visible (`visibilitychange` & `online` aware).
+* `assets/math-markdown.js` — Scientific Markdown and LaTeX typesetting engine (`window.RLMathMarkdown`). Parses headings, display equations (`$$...$$`, `\[...\]`), inline math (`$...$`, `\(...\)`), GFM pipe tables, lists, blockquotes, code blocks, and internal `.md` cross-references with offline Unicode fallback.
+* `assets/network-canvas.js` — Real-time 3-mode scientific RL simulator (`window.initRLNetworkCanvas`): (1) **Soft-Bellman 3D Value Iteration** over $\mathcal{S} = [-1,1]^2$ with 2D policy quiver $\pi_k(a\mid s)$; (2) **Underactuated Pendulum HJB Phase Portrait** $(\theta, \dot{\theta})$ with RK4 swing-up trajectories; and (3) **Complete 2015–2026 Lineage Graph** across 6 domain lanes.
+* `assets/equation-plots.js` — Analytical operator diagnostic plots (`window.RLEquationPlots`) paired with parameter sliders ($\gamma, \lambda, \epsilon, \tau, \alpha, \beta$) across 6 core paradigms.
+* `assets/app.js` — Application state controller managing theme persistence, URL hash deep-linking (`#note=<ID>`, `#domain=<slug>`), 12-Domain Landscape & Roadmaps, Library domain/track/era filtering, Reading List `.md` export, Reader progress/history/TOC/BibTeX/related notes, and the `⌘K` Command Palette.
+* `assets/labs.js` — Curated, unranked directory of 16 industry, academic, and nonprofit research groups with organization, region, and LLM/RL focus filters.
 
-## Catalog Build & Mathematical Indexing
+## Catalog Build & Real-Time Edge Pipeline
 
-`scripts/build-catalog.py` indexes all root `*.md` documents and external links from `README.md` into `assets/catalog.js` (`window.RL_CATALOG`), extracting:
-
-* `publishedAt`, `venue`, and `arxivId` metadata from note headers.
-* `hasMath` (`bool`) detecting display or inline LaTeX formulas outside code blocks.
-* Clean prose `description` snippets that strip boilerplate metadata headers and never slice mid-way through an inline `$...$` expression.
-
-## Automatic Online Update on Page Open
-
-When `index.html` opens in the browser, `assets/app.js` renders the static catalog immediately and runs `syncLiveOnline()` in the background:
-
-1. **Instant local cache + live online fetch**: Hydrates cached preprints from `localStorage` (`rl-atlas-live-v1`) and concurrently queries `assets/live-feed.json` alongside public CORS-enabled Hugging Face paper feeds for embodied, VLA, and agentic reinforcement learning.
-2. **Deduplication, LaTeX normalization & evidence boundary**: Deduplicates against all arXiv IDs and titles already in curated notes, normalizes `\(...\)` / `\[...\]` LaTeX delimiters for inline KaTeX rendering, and includes an explicit evidence-boundary section in every auto-indexed note.
-3. **Scheduled feed refresh**: Run `python3 -B scripts/update-live-feed.py` (automated daily via `.github/workflows/auto-update.yml`) to refresh `assets/live-feed.json` from arXiv and Hugging Face APIs.
+1. **`scripts/build-catalog.py`**: Indexes all 228 root `*.md` documents and 38 external resources into `assets/catalog.js` (`window.RL_CATALOG`), assigning deterministic `domain` slugs across the 12 canonical domains, `year`, `authors`, `publishedAt`, `venue`, `arxivId`, `hasMath`, and math-safe `description` snippets.
+2. **`scripts/update-live-feed.py` & `.github/workflows/auto-update.yml`**: Runs every **6 hours** (`cron: '0 */6 * * *'`) on GitHub Actions to fetch, deduplicate, and classify up to **36** fresh preprints from Hugging Face and arXiv APIs into `assets/live-feed.json`.

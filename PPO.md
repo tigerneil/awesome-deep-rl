@@ -18,5 +18,5 @@ $$
 L^{\text{CLIP}}(\theta) = \hat{\mathbb{E}}_t\!\left[\min\!\Big(\rho_t(\theta)\hat{A}_t,\; \operatorname{clip}\big(\rho_t(\theta), 1 - \epsilon, 1 + \epsilon\big)\hat{A}_t\Big)\right]
 $$
 
-Combined with value-function regression $L_t^{\text{VF}}(\phi) = (V_\phi(s_t) - V_t^{\text{targ}})^2$ and entropy bonus $\mathcal{H}[\pi_\theta](s_t)$, the joint objective is $L_t^{\text{CLIP+VF+S}}(\theta, \phi) = \hat{\mathbb{E}}_t\!\big[L_t^{\text{CLIP}}(\theta) - c_1 L_t^{\text{VF}}(\phi) + c_2 \mathcal{H}[\pi_\theta](s_t)\big]$.
+Combined with value-function regression $L_t^{\text{VF}}(\phi) = (V_\phi(s_t) - V_t^{\text{targ}})^2$ and entropy bonus $\mathcal{H}\big(\pi_\theta(\cdot \mid s_t)\big)$, the joint objective is $L_t^{\text{CLIP+VF+S}}(\theta, \phi) = \hat{\mathbb{E}}_t\!\big[L_t^{\text{CLIP}}(\theta) - c_1 L_t^{\text{VF}}(\phi) + c_2 \mathcal{H}\big(\pi_\theta(\cdot \mid s_t)\big)\big]$.
 

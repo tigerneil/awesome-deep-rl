@@ -885,54 +885,80 @@
     let hoveredCorpusNode = null;
 
     const ERA_YEAR_HINTS = {
-      DQN: 2015, DDQN: 2016, Dueling: 2016, PER: 2016, TRPO: 2015, DDPG: 2016,
-      A3C: 2016, ACER: 2017, PPO: 2017, C51: 2017, NoisyNet: 2018, UBE: 2018,
-      Distral: 2017, I2As: 2017, LOLA: 2018, MPO: 2018
+      DQN: 2015, TRPO: 2015, GAE: 2016, DDQN: 2016, Dueling: 2016, PER: 2016,
+      DDPG: 2016, A3C: 2016, GAIL: 2016, ACER: 2017, PPO: 2017, C51: 2017,
+      AlphaZero: 2017, I2As: 2017, Distral: 2017, NoisyNet: 2018, UBE: 2018,
+      'World-Models': 2018, TD3: 2018, SAC: 2018, QMIX: 2018, IMPALA: 2018,
+      IQN: 2018, MPO: 2018, LOLA: 2018, PEARL: 2019, MuZero: 2020, PPG: 2020,
+      CQL: 2020, IQL: 2021, 'Decision-Transformer': 2021, MAPPO: 2022,
+      'RLHF-InstructGPT': 2022, DreamerV3: 2023, 'Diffusion-Policy': 2023,
+      DPO: 2023, 'TD-MPC2': 2024, OpenVLA: 2024, 'Pi0-Flow-VLA': 2024,
+      'GRPO-DeepSeek-R1': 2025
     };
 
     const LINEAGE_GROUPS = [
-      ['DQN', 'DDQN', 'Dueling', 'PER', 'C51', 'NoisyNet', 'UBE', 'Relative-Value-Learning', 'PTR-CRL'],
-      ['TRPO', 'PPO', 'ACER', 'LGPO', 'Reward-Budgeting', 'Parallel-Safe-RL', 'SHAPO'],
-      ['DDPG', 'MPO', 'Latent-Policy-Steering', 'NSPG', 'Excursion-Policies', 'MEND', 'K-PWM'],
-      ['C51', 'MPO', 'Distral', 'Distributional-IRL', 'I2As', 'K-PWM'],
-      ['LOLA', 'Phi-Actor-Critic'],
-      ['PPO', 'NOPO', 'VEPO', 'SDPO', 'LARBRID', 'TACA', 'LoongRL', 'T3-Belief-RL', 'HyperSkill', 'HeMeR']
+      ['DQN', 'DDQN', 'Dueling', 'PER', 'Rainbow', 'NoisyNet', 'UBE', 'Relative-Value-Learning'],
+      ['TRPO', 'GAE', 'A3C', 'PPO', 'IMPALA', 'PPG', 'LGPO', 'PTR-CRL'],
+      ['DDPG', 'TD3', 'SAC', 'MPO', 'C51', 'IQN', 'Distributional-IRL'],
+      ['I2As', 'AlphaZero', 'World-Models', 'MuZero', 'DreamerV3', 'TD-MPC2', 'K-PWM'],
+      ['CQL', 'IQL', 'Decision-Transformer', 'Diffusion-Policy', 'OpenVLA', 'Pi0-Flow-VLA', 'Latent-Policy-Steering', 'ScaleVLA', 'Heave-Ho', 'JEPA4R'],
+      ['QMIX', 'LOLA', 'MAPPO', 'Phi-Actor-Critic'],
+      ['RLHF-InstructGPT', 'DPO', 'GRPO-DeepSeek-R1', 'NOPO', 'VEPO', 'SDPO', 'Regularized-Score-Centering'],
+      ['GRPO-DeepSeek-R1', 'TACA', 'LoongRL', 'T3-Belief-RL', 'HyperSkill', 'SALA']
     ];
 
     function trackRowForItem(item) {
+      const dom = String(item.domain || '');
+      if (dom === 'value-td' || dom === 'exploration-intrinsic') return 0;
+      if (dom === 'policy-trust' || dom === 'multi-agent') return 1;
+      if (dom === 'dist-maxent' || dom === 'imitation-irl-safety' || dom === 'hierarchical-meta') return 2;
+      if (dom === 'world-planning' || dom === 'offline-generative') return 3;
+      if (dom === 'embodied-vla') return 4;
+      if (dom === 'llm-alignment-reasoning' || dom === 'agentic-tool-rl') return 5;
+
       const cat = String(item.category || '');
-      if (/Value|Q-Learning|Exploration/i.test(cat) || ['DQN', 'DDQN', 'Dueling', 'PER', 'NoisyNet', 'UBE', 'Relative-Value-Learning', 'PTR-CRL'].includes(item.id)) return 0;
-      if (/Policy|Actor|Trust/i.test(cat) || ['TRPO', 'PPO', 'DDPG', 'ACER', 'MPO', 'LGPO', 'SHAPO', 'Parallel-Safe-RL'].includes(item.id)) return 1;
-      if (/Model|Distributional|Multi-Agent|Hierarchical/i.test(cat) || ['C51', 'Distral', 'I2As', 'LOLA', 'Distributional-IRL', 'Phi-Actor-Critic'].includes(item.id)) return 2;
-      if (/Embodied/i.test(cat) || ['Latent-Policy-Steering', 'NSPG', 'Excursion-Policies', 'K-PWM', 'MEND', 'HeMeR'].includes(item.id)) return 3;
-      return 4; // Agentic & Verifiable Post-Training
+      if (/Value|Exploration/i.test(cat)) return 0;
+      if (/Policy|Actor|Multi-agent/i.test(cat)) return 1;
+      if (/Distributional|Safety|Inverse/i.test(cat)) return 2;
+      if (/Model|Planning|Offline/i.test(cat)) return 3;
+      if (/Embodied|Generalist/i.test(cat)) return 4;
+      return 5;
     }
 
     function buildCorpusGraph() {
       if (corpusBuilt) return;
+      corpusEdges = [];
       const catalog = window.RL_CATALOG || [];
       const priorityIds = new Set([
-        'DQN', 'DDQN', 'Dueling', 'PER', 'C51', 'NoisyNet', 'UBE', 'TRPO', 'PPO',
-        'DDPG', 'ACER', 'MPO', 'Distral', 'I2As', 'LOLA', 'NOPO', 'VEPO', 'LGPO',
-        'SDPO', 'LARBRID', 'Relative-Value-Learning', 'Reward-Budgeting',
-        'Excursion-Policies', 'Parallel-Safe-RL', 'PTR-CRL', 'K-PWM', 'TACA',
-        'Phi-Actor-Critic', 'Distributional-IRL', 'NSPG', 'Latent-Policy-Steering',
-        'SHAPO', 'MEND', 'HyperSkill', 'LoongRL', 'T3-Belief-RL', 'HeMeR'
+        'DQN', 'DDQN', 'Dueling', 'PER', 'Rainbow', 'C51', 'IQN', 'NoisyNet', 'UBE',
+        'TRPO', 'GAE', 'A3C', 'PPO', 'DDPG', 'TD3', 'SAC', 'IMPALA', 'PPG', 'MPO',
+        'QMIX', 'LOLA', 'MAPPO', 'GAIL', 'PEARL', 'I2As', 'AlphaZero', 'World-Models',
+        'MuZero', 'DreamerV3', 'TD-MPC2', 'CQL', 'IQL', 'Decision-Transformer',
+        'Diffusion-Policy', 'OpenVLA', 'Pi0-Flow-VLA', 'RLHF-InstructGPT', 'DPO',
+        'GRPO-DeepSeek-R1', 'NOPO', 'VEPO', 'LGPO', 'SDPO', 'Regularized-Score-Centering',
+        'Relative-Value-Learning', 'Excursion-Policies', 'K-PWM', 'TACA', 'SALA',
+        'ScaleVLA', 'Heave-Ho', 'JEPA4R', 'Latent-Policy-Steering', 'NSPG', 'MEND',
+        'HyperSkill', 'LoongRL', 'T3-Belief-RL', 'HeMeR'
       ]);
 
-      const selected = catalog.filter(
-        item => item.file && item.id !== 'README' && item.id !== 'WEBSITE' && item.id !== '2026' &&
-          (priorityIds.has(item.id) || item.hasMath)
-      ).slice(0, 44);
+      const selected = catalog
+        .filter(
+          item =>
+            item.file &&
+            item.id !== 'README' &&
+            item.id !== 'WEBSITE' &&
+            item.id !== '2026' &&
+            priorityIds.has(item.id)
+        )
+        .slice(0, 58);
 
       const byRowYear = new Map();
       corpusNodes = selected.map(item => {
-        let year = ERA_YEAR_HINTS[item.id] || 2019;
+        let year = Number(item.year) || ERA_YEAR_HINTS[item.id] || 2019;
         if (item.publishedAt && /^20\d\d/.test(item.publishedAt)) {
           year = Number(item.publishedAt.slice(0, 4));
-        } else if (String(item.category).startsWith('2026')) {
-          year = 2026;
         }
+        year = Math.max(2015, Math.min(2026, year));
         const row = trackRowForItem(item);
         const key = `${row}:${year}`;
         const slot = byRowYear.get(key) || 0;
@@ -953,7 +979,7 @@
       // 1. Explicit Markdown cross-links in repository notes
       corpusNodes.forEach((node, i) => {
         const body = node.item.body || '';
-        for (const m of body.matchAll(/\]\(([A-Za-z0-9_-]+)\.md\)/g)) {
+        for (const m of body.matchAll(/\]\(([A-Za-z0-9_+-]+)\.md\)/g)) {
           const j = idToIndex.get(m[1]);
           if (j !== undefined) addEdge(i, j, 'citation');
         }
@@ -972,12 +998,11 @@
 
     function layoutCorpusNodes() {
       const left = 96;
-      const right = width - 26;
-      const top = 36;
-      const bottom = height - 30;
-      const rowHeight = (bottom - top) / 4.4;
+      const right = width - 24;
+      const top = 34;
+      const bottom = height - 28;
+      const rowHeight = (bottom - top) / 5.45;
 
-      // Count slots per (row, yearBucket) to spread 2026 cluster cleanly without overlap
       const bucketCounts = new Map();
       corpusNodes.forEach(n => {
         const k = `${n.row}:${n.year}`;
@@ -986,14 +1011,16 @@
 
       corpusNodes.forEach(n => {
         const totalInBucket = bucketCounts.get(`${n.row}:${n.year}`) || 1;
-        // Nonlinear time scale giving extra horizontal resolution to the dense 2025–2026 frontier
         const tRaw = (n.year - 2015) / (2026 - 2015);
-        const tBase = Math.max(0, Math.min(1, Math.pow(tRaw, 0.72)));
-        const spreadX = totalInBucket > 1 ? ((n.slot / (totalInBucket - 1)) - 0.5) * Math.min(0.28, totalInBucket * 0.036) : 0;
-        const spreadY = totalInBucket > 1 ? (((n.slot % 3) - 1) * 11) : 0;
+        const tBase = Math.max(0, Math.min(1, Math.pow(tRaw, 0.82)));
+        const spreadX =
+          totalInBucket > 1
+            ? (n.slot / (totalInBucket - 1) - 0.5) * Math.min(0.18, totalInBucket * 0.028)
+            : 0;
+        const spreadY = totalInBucket > 1 ? ((n.slot % 3) - 1) * 9 : 0;
 
         n.x = left + Math.max(0.02, Math.min(0.98, tBase + spreadX)) * (right - left);
-        n.y = top + (n.row + 0.25) * rowHeight + spreadY;
+        n.y = top + (n.row + 0.24) * rowHeight + spreadY;
       });
     }
 
@@ -1001,34 +1028,41 @@
       buildCorpusGraph();
       layoutCorpusNodes();
 
-      const trackNames = ['Value / TD', 'Policy / Trust', 'Dist. / World', 'Embodied Flow', 'Agentic RLVR'];
-      const top = 36;
-      const bottom = height - 30;
-      const rowHeight = (bottom - top) / 4.4;
+      const trackNames = [
+        'Value / Explor.',
+        'Policy / MARL',
+        'Dist. / MaxEnt',
+        'World / Offline',
+        'Embodied VLA',
+        'LLM / Agent RL'
+      ];
+      const top = 34;
+      const bottom = height - 28;
+      const rowHeight = (bottom - top) / 5.45;
 
       ctx.font = '9.5px "JetBrains Mono", monospace';
       trackNames.forEach((label, r) => {
-        const y = top + (r + 0.25) * rowHeight;
+        const y = top + (r + 0.24) * rowHeight;
         ctx.strokeStyle = c.grid;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(92, y);
-        ctx.lineTo(width - 20, y);
+        ctx.lineTo(width - 18, y);
         ctx.stroke();
         ctx.fillStyle = c.muted;
-        ctx.fillText(label, 10, y + 3);
+        ctx.fillText(label, 8, y + 3);
       });
 
-      // Timeline ticks
-      [2015, 2017, 2020, 2026].forEach(yr => {
-        const t = Math.pow((yr - 2015) / 11, 0.72);
-        const x = 96 + t * (width - 122);
+      // Timeline ticks across full 2015–2026 span
+      [2015, 2018, 2021, 2024, 2026].forEach(yr => {
+        const t = Math.pow((yr - 2015) / 11, 0.82);
+        const x = 96 + t * (width - 120);
         ctx.fillStyle = c.muted;
-        ctx.fillText(String(yr), x - 12, height - 10);
+        ctx.fillText(String(yr), x - 12, height - 9);
       });
       ctx.fillStyle = c.secondary;
       ctx.fillText(
-        `Empirical Lineage Graph (${corpusNodes.length} math-indexed notes · ${corpusEdges.length} couplings · click node to open)`,
+        `Complete Lineage (${corpusNodes.length} landmark notes · ${corpusEdges.length} operator couplings · click to open)`,
         12,
         18
       );
@@ -1065,7 +1099,7 @@
         ctx.beginPath();
         const midX = (na.x + nb.x) * 0.5;
         ctx.moveTo(na.x, na.y);
-        ctx.quadraticCurveTo(midX, (na.y + nb.y) * 0.5 - 10, nb.x, nb.y);
+        ctx.quadraticCurveTo(midX, (na.y + nb.y) * 0.5 - 9, nb.x, nb.y);
         if (activeEdge) {
           ctx.strokeStyle = e.kind === 'citation' ? c.amber : c.teal;
           ctx.lineWidth = 1.65;
@@ -1073,11 +1107,15 @@
         } else {
           ctx.strokeStyle = e.kind === 'citation' ? c.amber : c.teal;
           ctx.lineWidth = 0.85;
-          ctx.globalAlpha = hoveredCorpusNode !== null ? 0.08 : 0.24;
+          ctx.globalAlpha = hoveredCorpusNode !== null ? 0.08 : 0.23;
         }
         ctx.stroke();
       });
       ctx.globalAlpha = 1;
+
+      const defaultLabels = new Set([
+        'DQN', 'PPO', 'SAC', 'MuZero', 'CQL', 'Diffusion-Policy', 'DPO', 'GRPO-DeepSeek-R1', 'Pi0-Flow-VLA', 'NOPO', 'Heave-Ho'
+      ]);
 
       // Paper Nodes
       corpusNodes.forEach((n, idxN) => {
@@ -1089,12 +1127,12 @@
         ctx.globalAlpha = dim ? 0.25 : 1;
         ctx.beginPath();
         ctx.fillStyle = isHov ? c.ink : is2026 ? c.amber : c.teal;
-        ctx.arc(n.x, n.y, isHov ? 5.2 : n.item.hasMath ? 3.6 : 2.8, 0, Math.PI * 2);
+        ctx.arc(n.x, n.y, isHov ? 5.2 : n.item.hasMath ? 3.5 : 2.8, 0, Math.PI * 2);
         ctx.fill();
 
-        if (isHov || (hoveredCorpusNode === null && ['DQN', 'PPO', 'C51', 'MPO', 'NOPO', 'Latent-Policy-Steering', 'K-PWM'].includes(n.id))) {
-          ctx.font = isHov ? '600 10.5px "JetBrains Mono", monospace' : '9.5px "JetBrains Mono", monospace';
-          const lbl = n.id;
+        if (isHov || (hoveredCorpusNode === null && defaultLabels.has(n.id))) {
+          ctx.font = isHov ? '600 10.5px "JetBrains Mono", monospace' : '9px "JetBrains Mono", monospace';
+          const lbl = n.id === 'GRPO-DeepSeek-R1' ? 'GRPO-R1' : n.id === 'Diffusion-Policy' ? 'DiffPolicy' : n.id;
           const tw = ctx.measureText(lbl).width;
           const lx = Math.min(width - tw - 10, Math.max(8, n.x - tw * 0.5));
           const ly = n.y - 8;
@@ -1108,11 +1146,11 @@
 
       if (hoveredCorpusNode !== null) {
         const hn = corpusNodes[hoveredCorpusNode].item;
-        const venueTag = hn.venue ? ` · ${hn.venue}` : '';
+        const venueTag = hn.venue ? ` · ${hn.venue}` : ` · ${corpusNodes[hoveredCorpusNode].year}`;
         updateReadout(`${hn.id}${venueTag} — click node to open typeset research note`);
       } else {
         updateReadout(
-          `${corpusNodes.length} formal RL notes (${corpusEdges.length} lineage & Markdown citation edges) · Hover node to inspect`
+          `${corpusNodes.length} landmark notes (2015–2026 · ${corpusEdges.length} lineage & citation couplings) · Hover node`
         );
       }
     }
@@ -1289,6 +1327,10 @@
 
     const api = {
       redraw: draw,
+      invalidateCorpus() {
+        corpusBuilt = false;
+        if (mode === 'corpus') draw();
+      },
       setMode(nextMode) {
         mode = nextMode;
         syncButtons();
