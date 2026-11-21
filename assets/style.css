@@ -1030,6 +1030,534 @@ h3 {
   gap: 0.65rem;
 }
 
+/* --------------------------------------------------------------------------
+   Interactive 3D Deep RL Evolution Dynamics (FIG. 002)
+   -------------------------------------------------------------------------- */
+
+.dynamics-3d-section {
+  margin-bottom: clamp(3.2rem, 5.8vw, 5rem);
+  scroll-margin-top: 84px;
+}
+
+.d3d-header-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  font-family: var(--font-mono);
+}
+
+#d3d-telemetry-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+#d3d-visible-count {
+  font-size: 0.69rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.d3d-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 338px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  box-shadow: var(--specular), var(--shadow-lg);
+  overflow: hidden;
+}
+
+.d3d-stage {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-right: 1px solid var(--hairline);
+}
+
+.d3d-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+  padding: 0.62rem 0.85rem;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--surface-subtle);
+}
+
+.d3d-mode-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.24rem;
+}
+
+.d3d-tab {
+  padding: 0.36rem 0.62rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  color: var(--ink-secondary);
+  transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out), border-color 0.16s var(--ease-out);
+}
+
+.d3d-tab:hover {
+  background: var(--surface-interactive);
+  color: var(--ink);
+}
+
+.d3d-tab[aria-selected="true"] {
+  background: var(--accent-soft);
+  border-color: var(--hairline-strong);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.d3d-cam-controls {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.d3d-ctrl {
+  padding: 0.3rem 0.48rem;
+  border-radius: 6px;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-secondary);
+  transition: background-color 0.15s var(--ease-out), color 0.15s var(--ease-out), border-color 0.15s var(--ease-out);
+}
+
+.d3d-ctrl:hover {
+  background: var(--surface-interactive);
+  border-color: var(--hairline-strong);
+  color: var(--ink);
+}
+
+.d3d-ctrl[aria-pressed="true"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.d3d-ctrl.d3d-zoom {
+  width: 26px;
+  padding-inline: 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.d3d-viewport {
+  position: relative;
+  width: 100%;
+  height: 485px;
+  background: var(--math-surface);
+  overflow: hidden;
+}
+
+#dynamics-3d-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+#dynamics-3d-canvas.is-dragging {
+  cursor: grabbing;
+}
+
+.d3d-overlay-bottom {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-muted);
+}
+
+#d3d-axis-legend {
+  padding: 0.24rem 0.55rem;
+  border-radius: 5px;
+  border: 1px solid var(--hairline);
+  background: var(--header-bg);
+  color: var(--ink-secondary);
+  backdrop-filter: blur(8px);
+}
+
+.d3d-drag-hint {
+  padding: 0.24rem 0.55rem;
+  border-radius: 5px;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+}
+
+.d3d-scrubber {
+  display: flex;
+  flex-direction: column;
+  gap: 0.68rem;
+  padding: 0.9rem 1.05rem 1rem;
+  border-top: 1px solid var(--hairline);
+  background: var(--surface-subtle);
+}
+
+.d3d-scrubber-top {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.d3d-play-btn {
+  flex-shrink: 0;
+  padding: 0.48rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface-raised);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out);
+}
+
+.d3d-play-btn:hover,
+.d3d-play-btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.d3d-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+}
+
+.d3d-slider-label {
+  font-size: 0.69rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+#d3d-year-slider {
+  flex: 1;
+  min-width: 110px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+#d3d-year-display {
+  min-width: 84px;
+  text-align: right;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+.d3d-era-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.42rem;
+}
+
+.d3d-era-chip {
+  padding: 0.4rem 0.55rem;
+  border-radius: 7px;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  color: var(--ink-secondary);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out), border-color 0.16s var(--ease-out);
+}
+
+.d3d-era-chip:hover {
+  background: var(--surface-interactive);
+  color: var(--ink);
+}
+
+.d3d-era-chip[aria-pressed="true"] {
+  background: var(--accent-soft);
+  border-color: var(--hairline-strong);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Right Telemetry Inspector Rail */
+.d3d-inspector {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elevated);
+  min-width: 0;
+}
+
+.d3d-inspector-head-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.92rem 1.1rem;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.d3d-live-key {
+  color: var(--signal);
+  font-weight: 600;
+}
+
+.d3d-inspector-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.1rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.d3d-insp-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+}
+
+.d3d-insp-badge {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.d3d-insp-year {
+  color: var(--ink-muted);
+}
+
+.d3d-insp-title {
+  font-size: 1.08rem;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+}
+
+.d3d-insp-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.56;
+  color: var(--ink-secondary);
+}
+
+.d3d-shift-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.72rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline);
+  background: var(--math-surface);
+}
+
+.d3d-shift-box strong {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.38;
+  color: var(--ink);
+}
+
+.d3d-sublabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.d3d-cap-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.48rem;
+}
+
+.d3d-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  color: var(--ink-secondary);
+}
+
+.d3d-bar-btn {
+  padding: 0.25rem 0.35rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+  transition: background-color 0.14s var(--ease-out), color 0.14s var(--ease-out);
+}
+
+.d3d-bar-btn:hover {
+  background: var(--surface-interactive);
+  color: var(--ink);
+}
+
+.d3d-bar-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--hairline);
+  overflow: hidden;
+}
+
+.d3d-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.24s var(--ease-out);
+}
+
+.d3d-lineage-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.d3d-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.34rem;
+}
+
+.d3d-lin-chip {
+  padding: 0.24rem 0.52rem;
+  border-radius: 5px;
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-secondary);
+  transition: background-color 0.14s var(--ease-out), color 0.14s var(--ease-out);
+}
+
+.d3d-lin-chip:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.d3d-insp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+  margin-top: auto;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.d3d-action-primary,
+.d3d-action-sec {
+  padding: 0.54rem 0.85rem;
+  font-size: 0.8rem;
+}
+
+.d3d-unpin-btn {
+  padding: 0.45rem 0.7rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+}
+
+.d3d-unpin-btn:hover {
+  background: var(--surface-interactive);
+  color: var(--ink);
+}
+
+.d3d-insp-hint {
+  margin: auto 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--hairline);
+  font-size: 0.78rem;
+  line-height: 1.48;
+  color: var(--ink-muted);
+}
+
+/* 12-Domain Spotlight Strip */
+.d3d-domain-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  margin-top: 0.85rem;
+}
+
+.d3d-dom-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.34rem 0.66rem;
+  border-radius: 6px;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-secondary);
+  transition: background-color 0.15s var(--ease-out), color 0.15s var(--ease-out), border-color 0.15s var(--ease-out);
+}
+
+.d3d-dom-chip:hover {
+  background: var(--surface-raised);
+  border-color: var(--hairline-strong);
+  color: var(--ink);
+}
+
+.d3d-dom-chip[aria-pressed="true"] {
+  background: var(--accent-soft);
+  border-color: var(--hairline-strong);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.d3d-dom-swatch {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 /* Complete 12-Domain Landscape Matrix */
 .landscape-section {
   margin-bottom: clamp(3.2rem, 5.8vw, 5rem);
@@ -2618,6 +3146,19 @@ footer a:last-child:hover {
     min-height: 360px;
   }
 
+  .d3d-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .d3d-stage {
+    border-right: none;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .d3d-viewport {
+    height: 440px;
+  }
+
   .landscape-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2710,6 +3251,43 @@ footer a:last-child:hover {
   .stats > div:nth-child(1),
   .stats > div:nth-child(2) {
     border-bottom: 1px solid var(--hairline);
+  }
+
+  .dynamics-3d-section {
+    scroll-margin-top: 118px;
+  }
+
+  .d3d-header-stamp {
+    align-items: flex-start;
+  }
+
+  .d3d-viewport {
+    height: 365px;
+  }
+
+  .d3d-drag-hint {
+    display: none;
+  }
+
+  .d3d-scrubber-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .d3d-era-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .d3d-domain-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+  }
+
+  .d3d-dom-chip {
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .landscape-grid,

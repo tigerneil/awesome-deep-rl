@@ -23,6 +23,7 @@
   <script defer src="assets/landscape-data.js"></script>
   <script defer src="assets/live-radar.js"></script>
   <script defer src="assets/network-canvas.js"></script>
+  <script defer src="assets/dynamics-3d.js"></script>
   <script defer src="assets/equation-plots.js"></script>
   <script defer src="assets/catalog.js"></script>
   <script defer src="assets/app.js"></script>
@@ -36,6 +37,7 @@
     </a>
     <nav aria-label="Main navigation">
       <a id="nav-live" href="#frontier-section">Live radar <span class="tiny-dot" aria-hidden="true"></span></a>
+      <a id="nav-dynamics" href="#dynamics-3d">3D Dynamics</a>
       <a id="nav-landscape" href="#landscape">Landscape</a>
       <a id="nav-equations" href="#equations-section">Equations</a>
       <a class="nav-active" id="nav-library" href="#library">Library</a>
@@ -72,12 +74,13 @@
         </div>
         <div class="hero-links">
           <a class="labs-jump" id="jump-live" href="#frontier-section">Live research stream ↓</a>
+          <a class="labs-jump" id="jump-dynamics" href="#dynamics-3d">3D evolution dynamics ↓</a>
           <a class="labs-jump" id="jump-equations" href="#equations-section">Canonical operators ↓</a>
           <a class="labs-jump" id="jump-labs" href="#labs">Global research labs ↗</a>
         </div>
         <div class="hero-bottom">
           <span class="mini-orbits" aria-hidden="true">◉</span>
-          <span>12 canonical domains · KaTeX derivations · Continuous 5-minute live preprint radar</span>
+          <span>12 canonical domains · Interactive 3D evolution dynamics · Continuous 5-minute live radar</span>
         </div>
       </div>
 
@@ -159,9 +162,85 @@
       </div>
     </section>
 
+    <section id="dynamics-3d" class="dynamics-3d-section" aria-labelledby="dynamics-3d-title">
+      <div class="eyebrow">
+        <span class="eyebrow-index">02 //</span> 3D EVOLUTION DYNAMICS · 1992–2026
+      </div>
+      <div class="heading-row">
+        <div>
+          <h2 id="dynamics-3d-title">How Deep RL evolves<br>across time, paradigms &amp; capability.</h2>
+          <p>
+            Orbit the live 3D manifold of 300+ papers and 60+ directed paradigm transfers. Scrub through three decades of
+            research momentum, switch between Spacetime Terrain, Capability Phase Space, and Paradigm Orbital views, or
+            click any node to trace its causal ancestry and read its synthesis.
+          </p>
+        </div>
+        <div class="d3d-header-stamp">
+          <span id="d3d-telemetry-pill">SPACETIME TERRAIN</span>
+          <span id="d3d-visible-count">302 PAPERS ACTIVE</span>
+        </div>
+      </div>
+
+      <div class="d3d-shell">
+        <div class="d3d-stage">
+          <div class="d3d-toolbar">
+            <div class="d3d-mode-tabs" role="tablist" aria-label="3D visualization lens">
+              <button type="button" class="d3d-tab" id="d3d-mode-terrain" data-d3d-mode="terrain" role="tab" aria-selected="true">Spacetime Terrain</button>
+              <button type="button" class="d3d-tab" id="d3d-mode-capability" data-d3d-mode="capability" role="tab" aria-selected="false">Capability Phase</button>
+              <button type="button" class="d3d-tab" id="d3d-mode-orbital" data-d3d-mode="orbital" role="tab" aria-selected="false">Paradigm Orbital</button>
+            </div>
+            <div class="d3d-cam-controls" aria-label="3D camera controls">
+              <button type="button" class="d3d-ctrl" id="d3d-preset-iso" data-d3d-preset="iso" title="Isometric 3D view">Iso</button>
+              <button type="button" class="d3d-ctrl" id="d3d-preset-top" data-d3d-preset="top" title="Top-down projection">Top</button>
+              <button type="button" class="d3d-ctrl" id="d3d-preset-side" data-d3d-preset="side" title="Front elevation profile">Side</button>
+              <button type="button" class="d3d-ctrl" id="d3d-orbit" aria-pressed="true" title="Toggle gentle 3D auto-orbit">↻ Orbit</button>
+              <button type="button" class="d3d-ctrl d3d-zoom" id="d3d-zoom-out" aria-label="Zoom out 3D scene">−</button>
+              <button type="button" class="d3d-ctrl d3d-zoom" id="d3d-zoom-in" aria-label="Zoom in 3D scene">+</button>
+              <span class="visual-fig-tag">FIG. 002 · 3D</span>
+            </div>
+          </div>
+
+          <div class="d3d-viewport">
+            <canvas id="dynamics-3d-canvas" aria-label="Interactive 3D visualization of evolving Deep RL research dynamics across 12 canonical domains from 1992 to 2026"></canvas>
+            <div class="d3d-overlay-bottom" aria-hidden="true">
+              <span id="d3d-axis-legend">X: Epoch (1992→2026) · Y: Research Momentum · Z: 12 Canonical Domains</span>
+              <span class="d3d-drag-hint">Drag to orbit · Shift+Scroll or +/− to zoom · Click node to inspect</span>
+            </div>
+          </div>
+
+          <div class="d3d-scrubber">
+            <div class="d3d-scrubber-top">
+              <button type="button" class="d3d-play-btn" id="d3d-play" aria-pressed="false">▶ Play evolution</button>
+              <label class="d3d-slider-wrap" for="d3d-year-slider">
+                <span class="d3d-slider-label">EPOCH</span>
+                <input type="range" id="d3d-year-slider" min="1992" max="2026.95" step="0.15" value="2026.95" aria-label="Scrub Deep RL research epoch year from 1992 to 2026">
+                <output id="d3d-year-display" for="d3d-year-slider">2026 · LIVE</output>
+              </label>
+            </div>
+            <div class="d3d-era-row" role="group" aria-label="Jump to research era">
+              <button type="button" class="d3d-era-chip" id="d3d-era-genesis" data-d3d-era="genesis" aria-pressed="false">1992–2016 · Genesis</button>
+              <button type="button" class="d3d-era-chip" id="d3d-era-scale" data-d3d-era="scale" aria-pressed="false">2017–2019 · Deep Scale</button>
+              <button type="button" class="d3d-era-chip" id="d3d-era-world" data-d3d-era="world-offline" aria-pressed="false">2020–2023 · World &amp; Offline</button>
+              <button type="button" class="d3d-era-chip" id="d3d-era-frontier" data-d3d-era="frontier" aria-pressed="true">2024–2026 · Reasoning &amp; VLA</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="d3d-inspector" aria-label="3D dynamics telemetry inspector">
+          <div class="d3d-inspector-head-bar">
+            <span>DYNAMICS TELEMETRY</span>
+            <span class="d3d-live-key">● LIVE STREAM</span>
+          </div>
+          <div id="d3d-inspector-body" class="d3d-inspector-body"></div>
+        </aside>
+      </div>
+
+      <div id="d3d-domain-bar" class="d3d-domain-bar" role="group" aria-label="Spotlight a domain in 3D"></div>
+    </section>
+
     <section id="landscape" class="landscape-section" aria-labelledby="landscape-title">
       <div class="eyebrow">
-        <span class="eyebrow-index">02 //</span> COMPLETE TAXONOMY &amp; GUIDED CURRICULA · 1992–2026
+        <span class="eyebrow-index">03 //</span> COMPLETE TAXONOMY &amp; GUIDED CURRICULA · 1992–2026
       </div>
       <div class="heading-row">
         <div>
@@ -190,7 +269,7 @@
 
     <section id="equations-section" class="equations-section" aria-labelledby="equations-title">
       <div class="eyebrow">
-        <span class="eyebrow-index">03 //</span> MATHEMATICAL ARCHITECTURE OF SEQUENTIAL DECISION-MAKING
+        <span class="eyebrow-index">04 //</span> MATHEMATICAL ARCHITECTURE OF SEQUENTIAL DECISION-MAKING
       </div>
       <div class="heading-row">
         <div>
@@ -207,7 +286,7 @@
     <section id="library" class="library" aria-labelledby="library-title">
       <div class="section-heading">
         <div class="eyebrow">
-          <span class="eyebrow-index">04 //</span> CURATED RESEARCH CORPUS &amp; LIVE ARCHIVE
+          <span class="eyebrow-index">05 //</span> CURATED RESEARCH CORPUS &amp; LIVE ARCHIVE
         </div>
         <div class="heading-row">
           <div>
@@ -289,7 +368,7 @@
 
     <section id="labs" class="labs-section" aria-labelledby="labs-title">
       <div class="eyebrow">
-        <span class="eyebrow-index">05 //</span> GLOBAL RESEARCH INSTITUTIONS
+        <span class="eyebrow-index">06 //</span> GLOBAL RESEARCH INSTITUTIONS
       </div>
       <div class="heading-row labs-heading">
         <div>
@@ -352,7 +431,7 @@
 
     <section class="closing" aria-labelledby="closing-title">
       <div>
-        <div class="eyebrow"><span class="eyebrow-index">06 //</span> CONTINUOUS DISCOVERY</div>
+        <div class="eyebrow"><span class="eyebrow-index">07 //</span> CONTINUOUS DISCOVERY</div>
         <h2 id="closing-title">Stay curious.<br>Keep exploring.</h2>
       </div>
       <button type="button" id="guide" class="primary">Open the 2026 frontier guide ↗</button>

@@ -184,6 +184,9 @@
     if (window.RLNetworkCanvas && typeof window.RLNetworkCanvas.redraw === 'function') {
       window.RLNetworkCanvas.redraw();
     }
+    if (window.RLDynamics3D && typeof window.RLDynamics3D.redraw === 'function') {
+      window.RLDynamics3D.redraw();
+    }
     if (window.RLEquationPlotActive && typeof window.RLEquationPlotActive.redraw === 'function') {
       window.RLEquationPlotActive.redraw();
     }
@@ -1252,6 +1255,13 @@
       },
       {
         group: 'Quick Actions',
+        title: 'Explore 3D Deep RL Evolution Dynamics (1992–2026)',
+        sub: 'Orbit Spacetime Terrain, Capability Phase Space, and Paradigm Orbital views',
+        tag: '3D VIEW',
+        run: () => smoothScrollTo($('dynamics-3d'))
+      },
+      {
+        group: 'Quick Actions',
         title: 'Open 2026 Deep RL Frontier Briefing',
         sub: 'Comprehensive synthesis of 74 conference & frontier RL notes',
         tag: 'GUIDE',
@@ -1437,6 +1447,9 @@
 
             renderLiveStreamStrip(items);
             renderLandscape();
+            if (window.RLDynamics3D && typeof window.RLDynamics3D.updateCatalog === 'function') {
+              window.RLDynamics3D.updateCatalog(catalog);
+            }
             render();
 
             if (meta.manual) {
@@ -1770,7 +1783,7 @@
 
   window.addEventListener('hashchange', applyHashRoute);
 
-  // Initialize theme, 3-mode scientific RL instrument, landscape, equations, catalog, and real-time radar
+  // Initialize theme, scientific RL instruments, 3D evolution dynamics, landscape, equations, catalog, and real-time radar
   applyTheme(document.documentElement.dataset.theme || 'dark', false);
   if (typeof window.initRLNetworkCanvas === 'function') {
     window.initRLNetworkCanvas($('network'), {
@@ -1778,6 +1791,14 @@
       perturbBtn: $('visual-perturb'),
       readoutEl: $('visual-readout'),
       onOpenNote: openNote
+    });
+  }
+  if (typeof window.initRLDynamics3D === 'function') {
+    window.initRLDynamics3D({
+      canvas: $('dynamics-3d-canvas'),
+      catalog,
+      onOpenNote: openNote,
+      onFilterDomain: domId => filterLibraryByDomain(domId, true)
     });
   }
   renderLiveStreamStrip([]);
