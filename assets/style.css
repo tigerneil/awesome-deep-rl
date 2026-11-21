@@ -221,6 +221,8 @@ h3 {
 .eyebrow-index {
   color: var(--accent);
   font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .status-dot {
@@ -1031,21 +1033,71 @@ h3 {
 }
 
 /* --------------------------------------------------------------------------
-   Interactive 3D Deep RL Evolution Dynamics (FIG. 002)
+   Front-Page Interactive 3D Deep RL Evolution Dynamics (FIG. 001 · 3D)
    -------------------------------------------------------------------------- */
 
-.dynamics-3d-section {
-  margin-bottom: clamp(3.2rem, 5.8vw, 5rem);
+.hero-3d {
+  padding-top: clamp(1.35rem, 2.5vw, 2.1rem);
+  margin-bottom: clamp(1.9rem, 3.2vw, 2.75rem);
   scroll-margin-top: 84px;
+}
+
+.hero-3d-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 1.15rem 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-3d-title-col .eyebrow {
+  margin-bottom: 0.55rem;
+}
+
+.hero-3d-title-col h1 {
+  font-size: clamp(2.15rem, 4.1vw, 3.55rem);
+  line-height: 1.03;
+  letter-spacing: -0.036em;
+}
+
+.hero-3d-title-col h1 span {
+  color: var(--accent);
+}
+
+.hero-3d-meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.hero-3d-lead {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.56;
+  color: var(--ink-secondary);
+}
+
+.hero-3d-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.hero-3d-actions .primary,
+.hero-3d-actions .text-button {
+  padding: 0.56rem 0.92rem;
+  font-size: 0.84rem;
 }
 
 .d3d-header-stamp {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.25rem;
+  gap: 0.12rem;
+  margin-left: auto;
   flex-shrink: 0;
-  padding: 0.65rem 0.9rem;
+  padding: 0.42rem 0.72rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--hairline);
   background: var(--surface);
@@ -1053,21 +1105,21 @@ h3 {
 }
 
 #d3d-telemetry-pill {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--accent);
 }
 
 #d3d-visible-count {
-  font-size: 0.69rem;
+  font-size: 0.65rem;
   letter-spacing: 0.06em;
   color: var(--ink-muted);
 }
 
 .d3d-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 338px;
+  grid-template-columns: minmax(0, 1fr) 340px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--hairline);
   background: var(--surface);
@@ -1088,7 +1140,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 0.45rem;
-  padding: 0.62rem 0.85rem;
+  padding: 0.58rem 0.82rem;
   border-bottom: 1px solid var(--hairline);
   background: var(--surface-subtle);
 }
@@ -1096,16 +1148,16 @@ h3 {
 .d3d-mode-tabs {
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 0.24rem;
+  gap: 0.22rem;
 }
 
 .d3d-tab {
-  padding: 0.36rem 0.62rem;
+  padding: 0.34rem 0.58rem;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   background: transparent;
   font-family: var(--font-mono);
-  font-size: 0.71rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.015em;
   color: var(--ink-secondary);
@@ -1128,11 +1180,72 @@ h3 {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.26rem;
+}
+
+/* Tactile Lead Authors Switch */
+.d3d-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.28rem 0.56rem 0.28rem 0.38rem;
+  margin-right: 0.18rem;
+  border-radius: 999px;
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out), border-color 0.16s var(--ease-out);
+}
+
+.d3d-switch:hover {
+  background: var(--surface-interactive);
+  color: var(--ink);
+}
+
+.d3d-switch-track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 24px;
+  height: 14px;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--hairline-strong);
+  transition: background-color 0.18s var(--ease-out);
+}
+
+.d3d-switch-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ink-secondary);
+  transform: translateX(0);
+  transition: transform 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
+}
+
+.d3d-switch[aria-checked="true"],
+.d3d-switch.is-on {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.d3d-switch[aria-checked="true"] .d3d-switch-track,
+.d3d-switch.is-on .d3d-switch-track {
+  background: var(--accent);
+}
+
+.d3d-switch[aria-checked="true"] .d3d-switch-thumb,
+.d3d-switch.is-on .d3d-switch-thumb {
+  background: var(--accent-ink);
+  transform: translateX(10px);
 }
 
 .d3d-ctrl {
-  padding: 0.3rem 0.48rem;
+  padding: 0.3rem 0.46rem;
   border-radius: 6px;
   border: 1px solid var(--hairline);
   background: var(--surface);
@@ -1154,7 +1267,7 @@ h3 {
 }
 
 .d3d-ctrl.d3d-zoom {
-  width: 26px;
+  width: 25px;
   padding-inline: 0;
   text-align: center;
   font-weight: 600;
@@ -1163,9 +1276,14 @@ h3 {
 .d3d-viewport {
   position: relative;
   width: 100%;
-  height: 485px;
+  height: 495px;
   background: var(--math-surface);
   overflow: hidden;
+}
+
+.visual-embedded {
+  margin-top: 1.5rem;
+  min-height: 420px;
 }
 
 #dynamics-3d-canvas {
@@ -1447,6 +1565,37 @@ h3 {
   transition: width 0.24s var(--ease-out);
 }
 
+.d3d-author-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.36rem;
+  padding: 0.68rem 0.82rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline);
+  background: var(--math-surface);
+}
+
+.d3d-author-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.d3d-author-lead {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: right;
+}
+
+.d3d-author-co {
+  font-size: 0.74rem;
+  line-height: 1.44;
+  color: var(--ink-muted);
+}
+
 .d3d-lineage-box {
   display: flex;
   flex-direction: column;
@@ -1475,6 +1624,11 @@ h3 {
 .d3d-lin-chip:hover {
   background: var(--accent-soft);
   color: var(--accent);
+}
+
+.d3d-author-chip {
+  background: var(--math-surface);
+  color: var(--ink);
 }
 
 .d3d-insp-actions {
@@ -3138,8 +3292,10 @@ footer a:last-child:hover {
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1040px) {
-  .hero {
+  .hero,
+  .hero-3d-header {
     grid-template-columns: minmax(0, 1fr);
+    align-items: start;
   }
 
   .visual {
@@ -3253,12 +3409,14 @@ footer a:last-child:hover {
     border-bottom: 1px solid var(--hairline);
   }
 
+  .hero-3d,
   .dynamics-3d-section {
     scroll-margin-top: 118px;
   }
 
   .d3d-header-stamp {
     align-items: flex-start;
+    margin-left: 0;
   }
 
   .d3d-viewport {

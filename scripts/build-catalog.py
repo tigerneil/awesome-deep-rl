@@ -340,6 +340,180 @@ CATEGORY_TO_DOMAIN: dict[str, str] = {
     "Generalist policies": "embodied-vla",
 }
 
+# Primary-source verified author attributions (arXiv / Hugging Face / canonical papers & suites)
+VERIFIED_AUTHORS: dict[str, str] = {
+    "ACER": "Ziyu Wang, Victor Bapst, Nicolas Heess, Volodymyr Mnih, Rémi Munos, Koray Kavukcuoglu, Nando de Freitas",
+    "ANTE": "Yi Ge, Kangrui Ruan, Jifan Chen, Manish Prajapat, Christian Bock, Xiaoyang Wang, Rein Houthooft, Aritra Sengupta",
+    "ARPG": "Hong Je-Gal, Jinwoo Kim, Chanbin Yi, Hyun-Suk Lee",
+    "AtomicRL": "Likui Zhang, Zhe Zhu, Zhihao Zhan, Yibo Bai, Hanlin Wang, Dongwei Li, Bin Wang, Tianle Zhang",
+    "C51": "Marc G. Bellemare, Will Dabney, Rémi Munos",
+    "C51-analysis": "Mark Rowland, Marc G. Bellemare, Will Dabney, Rémi Munos, Yee Whye Teh",
+    "CAPG": "Yasuhiro Fujita, Shin-ichi Maeda",
+    "CDC": "Daniel S. Bernstein, Shlomo Zilberstein, Neil Immerman",
+    "COMA": "Jakob N. Foerster, Gregory Farquhar, Triantafyllos Afouras, Nantas Nardelli, Shimon Whiteson",
+    "CRONOS": "Po-Yi Wu, Djengo Cyun-Jyun Fang, Dian Cheng, Tsung-Wei Ke",
+    "DDPG": "Timothy P. Lillicrap, Jonathan J. Hunt, Alexander Pritzel, Nicolas Heess, Tom Erez, Yuval Tassa, David Silver, Daan Wierstra",
+    "Dip": "Philip Paquette, Yuchen Lu, Seton Steven Bocco, Max Smith, Satya O-G, Jonathan K. Kummerfeld, Joelle Pineau, Satinder Singh, Aaron Courville",
+    "DQN": "Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Alex Graves, Ioannis Antonoglou, Daan Wierstra, Martin Riedmiller",
+    "DQfD": "Todd Hester, Matej Vecerik, Olivier Pietquin, Marc Lanctot, Tom Schaul, Bilal Piot, Dan Horgan, John Quan",
+    "DRIVE": "Haoru Li, Jinmei Liu, Zhiyong Wang, Xiaoming Li, Zhenhong Sun, Daoyi Dong, Chunlin Chen, Zhi Wang",
+    "DirPG": "Guy Lorberbom, Chris J. Maddison, Nicolas Heess, Tamir Hazan, Daniel Tarlow",
+    "E2": "Bradly C. Stadie, Ge Yang, Rein Houthooft, Xi Chen, Yan Duan, Yuhuai Wu, Pieter Abbeel, Ilya Sutskever",
+    "ECMAC": "Trapit Bansal, Jakub Pachocki, Szymon Sidor, Ilya Sutskever, Igor Mordatch",
+    "EPG": "Kamil Ciosek, Shimon Whiteson",
+    "EX2": "Justin Fu, John D. Co-Reyes, Sergey Levine",
+    "EnvACE": "Zishan Xu, Zhiyuan Yao, Yuxin Chen, Yifu Guo, Zhengxi Lu, Yuquan Lu, Jinyang Huang, Yan Xu",
+    "FIND": "Yuan Fang, Zechu Li, Haolei Tong, Puze Liu, Georgia Chalvatzaki",
+    "FMAPPO": "Abdalwhab Bakheet Mohamed Abdalwhab, Giovanni Beltrame, David St-Onge",
+    "Gemini-Robotics-2": "Google DeepMind Robotics Team",
+    "Geoff-PAC": "Shangtong Zhang, Wendelin Boehmer, Shimon Whiteson",
+    "HILP": "Seohong Park, Tobias Kreiman, Sergey Levine",
+    "HIRL": "William Saunders, Girish Sastry, Andreas Stuhlmüller, Owain Evans",
+    "HaWMPO": "Zengjue Chen, Peidong Liu, Jiawei Li, Qi Wang",
+    "I2As": "Théophane Weber, Sébastien Racanière, David P. Reichert, Lars Buesing, Arthur Guez, Danilo Jimenez Rezende, Adrià Puigdomènech Badia",
+    "IPG": "Shixiang Gu, Timothy Lillicrap, Zoubin Ghahramani, Richard E. Turner, Bernhard Schölkopf, Sergey Levine",
+    "ISMCI": "Natasha Jaques, Angeliki Lazaridou, Edward Hughes, Caglar Gulcehre, Pedro A. Ortega, DJ Strouse, Joel Z. Leibo",
+    "Intervaltime": "Ben Deverett, Ryan Faulkner, Meire Fortunato, Greg Wayne, Joel Z. Leibo",
+    "KL-RegulaRL": "Jonathan Schwarz, Guillaume Desjardins, Wojciech M. Czarnecki, Razvan Pascanu, Nicolas Heess",
+    "LEARN": "Prasoon Goyal, Scott Niekum, Raymond J. Mooney",
+    "LFOD": "Marlos C. Machado, Marc G. Bellemare, Michael Bowling",
+    "LOLA": "Jakob N. Foerster, Richard Y. Chen, Maruan Al-Shedivat, Shimon Whiteson, Pieter Abbeel, Igor Mordatch",
+    "MBIE-EB": "Adrien Ali Taïga, Aaron Courville, Marc G. Bellemare",
+    "MPO": "Daniel J. Mankowitz, Nir Levine, Rae Jeong, Abbas Abdolmaleki, Jost Tobias Springenberg, Timothy Mann, Todd Hester",
+    "MRL": "Joel Z. Leibo, Julien Perolat, Edward Hughes, Steven Wheelwright, Adam H. Marblestone, Edgar Duéñez-Guzmán, Thore Graepel",
+    "MSRL": "Kristopher De Asis, J. Fernando Hernandez-Garcia, G. Zacharias Holland, Richard S. Sutton",
+    "NDM": "Georg Ostrovski, Marc G. Bellemare, Aäron van den Oord, Rémi Munos",
+    "NoisyNet": "Meire Fortunato, Mohammad Gheshlaghi Azar, Bilal Piot, Jacob Menick, Ian Osband, Alex Graves, Vlad Mnih, Rémi Munos",
+    "OPRE": "Alexander Sasha Vezhnevets, Yuhuai Wu, Rémi Leblond, Joel Z. Leibo",
+    "OVPG": "Dibya Ghosh, Marlos C. Machado, Nicolas Le Roux",
+    "Object-Centric-Residual-RL": "Kinam Kim, Namiko Saito, Heecheol Kim, Katsushi Ikeuchi, Jaegul Choo, Yasuyuki Matsushita",
+    "PEB": "Fabio Pardo, Arash Tavakoli, Vitaly Levdik, Petar Kormushev",
+    "PGSQL": "John Schulman, Xi Chen, Pieter Abbeel",
+    "PPO": "John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov",
+    "PhiEB": "Jarryd Martin, Suraj Narayanan Sasikumar, Tom Everitt, Marcus Hutter",
+    "Physical-AI-RSI": "Xiaofeng Han, Kaize Luo, Zenghuang Fu, Zichong Zhu, Zhe Feng, Changwei Wang, Rongtao Xu, Weiliang Meng",
+    "PolicyIK": "Yuhan Liu, Xinqi Liu, Zixuan Dong, Keith W. Ross, Shenji Wan",
+    "QEnsemble": "Richard Y. Chen, Szymon Sidor, Pieter Abbeel, John Schulman",
+    "QPROP": "Shixiang Gu, Timothy Lillicrap, Zoubin Ghahramani, Richard E. Turner, Sergey Levine",
+    "QR-DQN": "Will Dabney, Mark Rowland, Marc G. Bellemare, Rémi Munos",
+    "RAVEL": "Ahanaf Hasan Ariq, Hasaan Ahmad",
+    "REACTOR": "Audrunas Gruslys, Will Dabney, Mohammad Gheshlaghi Azar, Bilal Piot, Marc Bellemare, Rémi Munos",
+    "RISE": "Jiazhi Yang, Kunyang Lin, Jinwei Li, Wencong Zhang, Tianwei Lin, Longyan Wu, Zhizhong Su, Hao Zhao",
+    "RL-Token": "Physical Intelligence",
+    "RLCRC": "Tom Everitt, Victoria Krakovna, Laurent Orseau, Marcus Hutter, Shane Legg",
+    "RLP": "Mengdi Wang",
+    "RLTUNER": "Natasha Jaques, Shixiang Gu, Dzmitry Bahdanau, José Miguel Hernández-Lobato, Richard E. Turner, Douglas Eck",
+    "RLiD": "Ziyi Chen, Yan Zhang, Jianhui Wei, Jianing Yin, Daoan Zhang",
+    "Reciprocity": "Tom Eccles, Edward Hughes, János Kramár, Steven Wheelwright, Joel Z. Leibo",
+    "RoboSumo": "Maruan Al-Shedivat, Trapit Bansal, Yuri Burda, Ilya Sutskever, Igor Mordatch, Pieter Abbeel",
+    "SGA": "David Balduzzi, Sébastien Racanière, James Martens, Jakob Foerster, Karl Tuyls, Thore Graepel",
+    "SRL": "Antonin Raffin, Ashley Hill, René Traoré, Timothée Lesort, Natalia Díaz-Rodríguez",
+    "TRPO": "John Schulman, Sergey Levine, Philipp Moritz, Michael I. Jordan, Pieter Abbeel",
+    "TwinRL": "Qinwen Xu, Jiaming Liu, Rui Zhou, Shaojun Shi, Nuowei Han, Zhuoyang Liu, Chenyang Gu, Shuo Gu",
+    "UBE": "Brendan O'Donoghue, Ian Osband, Rémi Munos, Volodymyr Mnih",
+    "UML": "Abhishek Gupta, Benjamin Eysenbach, Chelsea Finn, Sergey Levine",
+    "VALOR": "Joshua Achiam, Harrison Edwards, Dario Amodei, Pieter Abbeel",
+    "VLA-Precision": "Chenyu Su, Zhaolong Shen, Yuan Qian, Chen Qian, Rui Zhang, Feng Yan, Weixing Chen, Fei Zhang",
+    "VLA-Stem": "Bojun Zou, Wenhao Yu, Jiaohao Li, Jiaxuan Lin, Guanting Ye, Haohan Geng, Weihao Yu, Yanyong Zhang",
+    "VLaRL": "Namiko Saito, Kinam Kim, Heecheol Kim, Katsushi Ikeuchi, Yasuyuki Matsushita",
+    "WoVR-Plus": "Shangqing Zhou, Zhennan Jiang, Ning Ma, Xin Fu, Yupeng Zheng, Shuai Tian, Huangrui Li, Jiahao Liu",
+    "WorldArena": "Yu Shang, Zhuohang Li, Yiding Ma, Weikang Su, Xin Jin, Ziyou Wang, Lei Jin, Xin Zhang",
+    "WorldSample": "Yuquan Xue, Le Xu, Zeyi Liu, Zhenyu Wu, Zhengyi Gu, Xinyang Song, Bofang Jia, Ziwei Wang",
+    "Xiaomi-Robotics-1": "Xiaomi Robotics Team, Jun Guo, Piaopiao Jin, Jason Li, Peiyan Li, Yingyan Li, Futeng Liu, Wanli Peng",
+    "ZSTG": "Junhyuk Oh, Satinder Singh, Honglak Lee, Pushmeet Kohli",
+    "bad": "Jakob N. Foerster, Francis Song, Edward Hughes, Neil Burch, Iain Dunning, Shimon Whiteson, Matthew Botvinick, Michael Bowling",
+    "bdope": "Justin Fu, Mohammad Norouzi, Ofir Nachum, George Tucker, Ziyu Wang, Alexander Novikov, Mengjiao Yang, Michael R. Zhang",
+    "dmimic": "Xue Bin Peng, Pieter Abbeel, Sergey Levine, Michiel van de Panne",
+    "eRLT": "Dehao Huang, Jianbang Liu, Jianpan Gao, Chao Tang, Zilang Cen, Zedong Dan, Jiaheng Wang, Tingguang Li",
+    "incentivizing": "Bradly C. Stadie, Sergey Levine, Pieter Abbeel",
+    "p10": "David Silver",
+    "external-0": "Takuma Seno",
+    "external-2": "Marc Lanctot",
+    "external-3": "David Abel",
+    "external-5": "Joshua Achiam (OpenAI)",
+    "external-7": "Younggyo Seo, Kimin Lee, Stephen James, Pieter Abbeel",
+    "external-8": "C. Daniel Freeman (Google)",
+    "external-9": "Daniel Toyama (DeepMind)",
+    "external-10": "Emanuel Todorov",
+    "external-11": "Michael Laskin, Denis Yarats, Hao Liu, Kimin Lee",
+    "external-12": "Justin Fu, Aviral Kumar, Ofir Nachum, George Tucker, Sergey Levine",
+    "external-13": "Nicholas Watters (DeepMind)",
+    "external-14": "Yasuhiro Fujita (PFN)",
+    "external-15": "Pablo Samuel Castro (Google)",
+    "external-16": "Oriol Vinyals (DeepMind)",
+    "external-17": "DeepMind",
+    "external-18": "Yasuhiro Fujita (PFN)",
+    "external-19": "Baidu PaddlePaddle",
+    "external-20": "OpenDILab",
+    "external-21": "OpenDILab",
+    "external-22": "Michael Laskin, Denis Yarats, Hao Liu, Kimin Lee, Albert Zhan, Kevin Lu, Catherine Cang, Lerrel Pinto",
+    "external-23": "Hao Liu, Pieter Abbeel",
+    "external-24": "Hao Liu, Pieter Abbeel",
+    "external-25": "Denis Yarats, Rob Fergus, Alessandro Lazaric, Lerrel Pinto",
+    "external-26": "Lisa Lee, Benjamin Eysenbach, Emilio Parisotto, Eric Xing, Sergey Levine, Ruslan Salakhutdinov",
+    "external-27": "Deepak Pathak, Dhiraj Gandhi, Abhinav Gupta",
+    "external-28": "Yuri Burda, Harrison Edwards, Amos Storkey, Oleg Klimov",
+    "external-29": "Benjamin Eysenbach, Abhishek Gupta, Julian Ibarz, Sergey Levine",
+    "external-30": "Deepak Pathak, Pulkit Agrawal, Alexei A. Efros, Trevor Darrell",
+    "external-31": "Anish Agarwal, Abdullah Alomar, Varkey Alumootil, Devavrat Shah, Dennis Shen, Zhi Xu, Cindy Yang",
+    "external-33": "Gregory Farquhar, Tim Rocktäschel, Maximilian Igl, Shimon Whiteson",
+    "external-34": "Dan Horgan, John Quan, David Budden, Gabriel Barth-Maron, Matteo Hessel, Hado van Hasselt, David Silver",
+    "external-35": "Lukasz Kaiser, Mohammad Babaeizadeh, Piotr Milos, Blazej Osinski, Roy H. Campbell, Konrad Czechowski, Dumitru Erhan, Chelsea Finn",
+    "external-36": "Simon Schmitt, Jonathan J. Hudson, Augustin Zidek, Simon Osindero, Carl Doersch, Wojciech M. Czarnecki, Joel Z. Leibo, Heinrich Kuttler",
+    "external-37": "Deepak Pathak, Pulkit Agrawal, Alexei A. Efros, Trevor Darrell",
+}
+
+
+def clean_author_text(raw: str) -> str:
+    s = re.sub(r"^[>\s*_]+", "", raw).strip()
+    s = re.sub(r"\*\*$", "", s).strip()
+    s = re.sub(r"\s*[—–-]\s*(?:DeepMind|Google|OpenAI|Berkeley|MIT|Stanford).*$", "", s)
+    s = re.sub(r"\S+@\S+", "", s)
+    s = re.sub(r"[†‡∗*§¶]+", "", s)
+    s = re.sub(r"(?<=[A-Za-zÀ-ÿ])\d+(?:\s*,\s*\d+)*", "", s)
+    s = re.sub(r"\s+\d+(?=\s|$)", "", s)
+    s = re.sub(r"\s*,\s*$", "", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
+def extract_lead_author(authors: str) -> str:
+    if not authors:
+        return ""
+    cleaned = clean_author_text(authors)
+    if not cleaned:
+        return ""
+    first = re.split(r"\s*(?:,|;|\band\b|\bet al\.?\b)\s*", cleaned, maxsplit=1)[0].strip()
+    first = re.sub(r"\s*\([^)]*\)\s*$", "", first).strip()
+    return first
+
+
+def infer_authors_from_body(body: str, title: str) -> str:
+    lines = [l.strip() for l in body.splitlines() if l.strip()]
+    for idx, line in enumerate(lines[:10]):
+        s = clean_author_text(line)
+        if not s or len(s) < 6 or len(s) > 420:
+            continue
+        if s.lower() == title.lower():
+            continue
+        if re.search(r"[.!?:;]|http|```|^#|University|Institute|DeepMind|Google|Berkeley|Cambridge|Stanford|MIT|Meta|OpenAI|\b(The|This|We|In|For|A|An)\b", s):
+            continue
+        if "," not in s and " and " not in s:
+            continue
+        words = [
+            w for w in re.split(r"[\s,]+", s)
+            if w and w.lower() not in {"and", "et", "al", "van", "de", "der", "la", "le", "da", "di", "du", "von"}
+        ]
+        if len(words) < 2:
+            continue
+        if sum(1 for w in words if w[0].isupper()) / len(words) >= 0.78:
+            if idx > 0 and lines[idx - 1].startswith(">"):
+                prev = clean_author_text(lines[idx - 1])
+                if 4 < len(prev) < 42 and not re.search(r"[.!?:;]|#", prev):
+                    return f"{prev}, {s}"
+            return s
+    return ""
+
 
 def normalize_tex_delimiters(text: str) -> str:
     """Normalize \\(...\\) and \\[...\\] to $...$ and $$...$$ outside code spans."""
@@ -425,7 +599,7 @@ def extract_heading_title(body: str, fallback: str) -> str:
     return fallback
 
 
-def extract_metadata(stem: str, body: str) -> tuple[str, str, str, str]:
+def extract_metadata(stem: str, body: str, title: str = "") -> tuple[str, str, str, str]:
     """Extract (publishedAt, venue, arxivId, authors) from a Markdown research note."""
     if stem in {"2026", "README", "WEBSITE"}:
         return "", "", "", ""
@@ -441,8 +615,14 @@ def extract_metadata(stem: str, body: str) -> tuple[str, str, str, str]:
     arxiv_match = ARXIV_RE.search(body)
     arxiv_id = arxiv_match.group(1) if arxiv_match else ""
 
-    authors_match = AUTHORS_LINE_RE.search(body)
-    authors = authors_match.group(1).strip() if authors_match else ""
+    if stem in VERIFIED_AUTHORS:
+        authors = VERIFIED_AUTHORS[stem]
+    else:
+        authors_match = AUTHORS_LINE_RE.search(body)
+        if authors_match:
+            authors = clean_author_text(authors_match.group(1))
+        else:
+            authors = infer_authors_from_body(body, title)
     return published_at, venue, arxiv_id, authors
 
 
@@ -524,6 +704,7 @@ def parse_readme_index(readme_text: str) -> tuple[dict[str, tuple[str, str, int 
                 ext_id = f"external-{len(external)}"
                 ext_year = infer_year(ext_id, "", ext_arxiv, category, line_year)
                 ext_domain = infer_domain(ext_id, title, category, desc)
+                ext_authors = VERIFIED_AUTHORS.get(ext_id, "")
                 external.append(
                     {
                         "id": ext_id,
@@ -531,7 +712,8 @@ def parse_readme_index(readme_text: str) -> tuple[dict[str, tuple[str, str, int 
                         "category": category,
                         "domain": ext_domain,
                         "year": ext_year,
-                        "authors": "",
+                        "authors": ext_authors,
+                        "leadAuthor": extract_lead_author(ext_authors),
                         "description": safe_truncate_preserving_math(desc, 225),
                         "publishedAt": "",
                         "venue": "",
@@ -551,6 +733,7 @@ def build_catalog() -> None:
 
     items: list[dict] = []
     math_count = 0
+    author_count = 0
     for path in sorted(ROOT.glob("*.md")):
         body = normalize_tex_delimiters(path.read_text(encoding="utf-8"))
         default_cat = "Frontier guide" if path.stem == "2026" else "Research notes"
@@ -563,7 +746,10 @@ def build_catalog() -> None:
         elif path.stem == "WEBSITE":
             cat, title = "Overview", "Deep RL Atlas — Architecture & Developer Guide"
 
-        published_at, venue, arxiv_id, authors = extract_metadata(path.stem, body)
+        published_at, venue, arxiv_id, authors = extract_metadata(path.stem, body, title)
+        lead_author = extract_lead_author(authors)
+        if lead_author:
+            author_count += 1
         year = infer_year(path.stem, published_at, arxiv_id, cat, readme_year)
         domain = infer_domain(path.stem, title, cat, body)
         has_math = detect_has_math(body)
@@ -579,6 +765,7 @@ def build_catalog() -> None:
                 "domain": domain,
                 "year": year,
                 "authors": authors,
+                "leadAuthor": lead_author,
                 "description": description,
                 "publishedAt": published_at,
                 "venue": venue,
@@ -591,6 +778,7 @@ def build_catalog() -> None:
         )
 
     all_entries = items + external
+    ext_author_count = sum(1 for e in external if e.get("leadAuthor"))
     OUT_PATH.write_text(
         "window.RL_CATALOG = " + json.dumps(all_entries, ensure_ascii=False) + ";\n",
         encoding="utf-8",
@@ -600,8 +788,8 @@ def build_catalog() -> None:
         dom = entry["domain"]
         domain_counts[dom] = domain_counts.get(dom, 0) + 1
     print(
-        f"Indexed {len(items)} local documents ({math_count} with formal LaTeX math) "
-        f"and {len(external)} external resources across {len(domain_counts)} canonical domains."
+        f"Indexed {len(items)} local documents ({math_count} with formal LaTeX math, {author_count} with verified lead authors) "
+        f"and {len(external)} external resources ({ext_author_count} with lead authors) across {len(domain_counts)} canonical domains."
     )
 
 

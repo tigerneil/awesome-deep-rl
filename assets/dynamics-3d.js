@@ -373,6 +373,33 @@
     );
   }
 
+  function extractLeadAuthor(item) {
+    if (item && typeof item.leadAuthor === 'string' && item.leadAuthor.trim()) {
+      return item.leadAuthor.trim();
+    }
+    const raw = String((item && item.authors) || '').trim();
+    if (!raw) return '';
+    const first = raw.split(/\s*(?:,|;|\band\b|\bet al\.?\b)\s*/i)[0].trim();
+    return first.replace(/\s*\([^)]*\)\s*$/, '').replace(/[†‡∗*0-9]+/g, '').trim();
+  }
+
+  function formatShortAuthor(lead) {
+    if (!lead) return '';
+    if (/deepmind/i.test(lead)) return 'DeepMind';
+    if (/physical intelligence/i.test(lead)) return 'Phys. Intel.';
+    if (/xiaomi/i.test(lead)) return 'Xiaomi';
+    if (/opendilab/i.test(lead)) return 'OpenDILab';
+    if (/baidu/i.test(lead)) return 'Baidu';
+    const parts = lead.split(/\s+/).filter(Boolean);
+    if (parts.length <= 1) return lead.slice(0, 14);
+    const last = parts[parts.length - 1];
+    const prev = parts.length >= 2 ? parts[parts.length - 2].toLowerCase() : '';
+    if (['van', 'de', 'der', 'la', 'le', 'da', 'di', 'du', 'von'].includes(prev)) {
+      return `${parts[parts.length - 2]} ${last}`;
+    }
+    return last.length > 14 ? last.slice(0, 13) + '…' : last;
+  }
+
   function initRLDynamics3D(options = {}) {
     const canvas = options.canvas || document.getElementById('dynamics-3d-canvas');
     if (!canvas) return null;
@@ -390,6 +417,7 @@
     const visibleCountEl = document.getElementById('d3d-visible-count');
     const playBtn = document.getElementById('d3d-play');
     const orbitBtn = document.getElementById('d3d-orbit');
+    const authorsToggleBtn = document.getElementById('d3d-authors-toggle');
     const zoomInBtn = document.getElementById('d3d-zoom-in');
     const zoomOutBtn = document.getElementById('d3d-zoom-out');
     const domainBarEl = document.getElementById('d3d-domain-bar');
@@ -408,6 +436,7 @@
     let activeDomainFilter = 'all';
     let playingTimeline = false;
     let autoOrbit = !reduced.matches;
+    let showLeadAuthors = true;
     let isVisible = true;
     let animTime = 0;
 
@@ -500,6 +529,7 @@
       GENESIS_ANCHORS.forEach(g => {
         seenIds.add(g.id);
         const meta = LANDMARK_META[g.id];
+        const leadAuthor = extractLeadAuthor(g);
         built.push({
           id: g.id,
           label: g.label,
@@ -508,6 +538,8 @@
           domainIdx: domainIndexMap.get(g.domain) ?? 0,
           year: g.year,
           authors: g.authors,
+          leadAuthor,
+          shortAuthor: formatShortAuthor(leadAuthor),
           venue: g.venue,
           description: g.description,
           fallbackNoteId: g.fallbackNoteId,
@@ -551,6 +583,7 @@
 
         const isLandmark = Boolean(meta);
         const tier = meta ? meta.tier : item.live ? 1 : item.hasMath ? 1 : 0;
+        const leadAuthor = extractLeadAuthor(item);
 
         built.push({
           id: item.id,
@@ -560,6 +593,8 @@
           domainIdx: domIdx,
           year,
           authors: item.authors || '',
+          leadAuthor,
+          shortAuthor: formatShortAuthor(leadAuthor),
           venue: item.venue || (item.live ? `Live ${item.publishedAt || '2026'}` : String(Math.floor(year))),
           description: item.description || '',
           genesis: false,
@@ -1332,12 +1367,20 @@
         });
 
       ctx.save();
-      ctx.font = '600 10.5px "JetBrains Mono", monospace';
       ctx.textBaseline = 'middle';
       candidates.forEach(({ node, proj }) => {
         const isMain = focusNode && focusNode.id === node.id;
-        const txt = node.label;
-        const tw = ctx.measureText(txt).width + 10;
+        const primaryTxt = node.label;
+        const authorSuffix = showLeadAuthors && node.shortAuthor ? ` · ${node.shortAuthor}` : '';
+
+        ctx.font = '600 10.5px "JetBrains Mono", monospace';
+        const primaryW = ctx.measureText(primaryTxt).width;
+        let suffixW = 0;
+        if (authorSuffix) {
+          ctx.font = '500 9.5px "JetBrains Mono", monospace';
+          suffixW = ctx.measureText(authorSuffix).width;
+        }
+        const tw = primaryW + suffixW + 10;
         const th = 18;
         const lx = proj.sx + 9;
         const ly = proj.sy - 11;
@@ -1359,9 +1402,16 @@
         ctx.fill();
         ctx.stroke();
 
+        ctx.font = '600 10.5px "JetBrains Mono", monospace';
         ctx.fillStyle = isMain ? pal.accent : pal.ink;
         ctx.textAlign = 'left';
-        ctx.fillText(txt, lx + 5, ly + 0.5);
+        ctx.fillText(primaryTxt, lx + 5, ly + 0.5);
+
+        if (authorSuffix) {
+          ctx.font = '500 9.5px "JetBrains Mono", monospace';
+          ctx.fillStyle = isMain ? pal.ink : pal.secondary;
+          ctx.fillText(authorSuffix, lx + 5 + primaryW, ly + 0.5);
+        }
       });
       ctx.restore();
     }
@@ -1516,8 +1566,8 @@
       if (!inspectorEl) return;
       const focusNode = pinnedNode || hoveredNode;
       const key = focusNode
-        ? `node:${focusNode.id}:${pinnedNode ? 'pin' : 'hov'}`
-        : `epoch:${Math.floor(activeYear * 2)}:${activeDomainFilter}:${nodes.length}`;
+        ? `node:${focusNode.id}:${pinnedNode ? 'pin' : 'hov'}:${showLeadAuthors}`
+        : `epoch:${Math.floor(activeYear * 2)}:${activeDomainFilter}:${nodes.length}:${showLeadAuthors}`;
       if (!force && key === lastInspectorKey) return;
       lastInspectorKey = key;
 
@@ -1545,11 +1595,64 @@
         title.className = 'd3d-insp-title';
         title.textContent = focusNode.title;
 
+        inspectorEl.append(head, title);
+
+        // Prominent Lead Author & Co-Authors card (toggled cleanly by the Lead Authors switch)
+        if (showLeadAuthors && focusNode.leadAuthor) {
+          const authBox = document.createElement('div');
+          authBox.className = 'd3d-author-card';
+
+          const authTop = document.createElement('div');
+          authTop.className = 'd3d-author-top';
+          const authLbl = document.createElement('span');
+          authLbl.className = 'd3d-sublabel';
+          authLbl.textContent = 'LEAD AUTHOR';
+          const authName = document.createElement('strong');
+          authName.className = 'd3d-author-lead';
+          authName.textContent = focusNode.leadAuthor;
+          authTop.append(authLbl, authName);
+          authBox.append(authTop);
+
+          if (focusNode.authors && focusNode.authors.length > focusNode.leadAuthor.length + 2) {
+            const coLine = document.createElement('span');
+            coLine.className = 'd3d-author-co';
+            const coTrim = focusNode.authors.length > 108 ? focusNode.authors.slice(0, 105) + '…' : focusNode.authors;
+            coLine.textContent = coTrim;
+            authBox.append(coLine);
+          }
+
+          // Surface other papers by the same lead author in the 3D manifold
+          const sameAuthorPeers = nodes
+            .filter(
+              n =>
+                n.id !== focusNode.id &&
+                n.leadAuthor &&
+                n.leadAuthor.toLowerCase() === focusNode.leadAuthor.toLowerCase()
+            )
+            .slice(0, 4);
+          if (sameAuthorPeers.length) {
+            const peerRow = document.createElement('div');
+            peerRow.className = 'd3d-chip-row';
+            sameAuthorPeers.forEach(peer => {
+              const pb = document.createElement('button');
+              pb.type = 'button';
+              pb.className = 'd3d-lin-chip';
+              pb.textContent = `★ ${peer.label} (${Math.floor(peer.year)})`;
+              pb.title = `Jump to another paper led by ${focusNode.leadAuthor}`;
+              pb.addEventListener('click', () => focusNodeById(peer.id));
+              peerRow.append(pb);
+            });
+            authBox.append(peerRow);
+          }
+
+          inspectorEl.append(authBox);
+        }
+
         const desc = document.createElement('p');
         desc.className = 'd3d-insp-desc';
         desc.textContent = (focusNode.description || 'Research paper indexed in the Deep RL Atlas.').replace(/\$/g, '');
 
-        inspectorEl.append(head, title, desc);
+        inspectorEl.append(desc);
 
         // Capability profile readout bars
         const capWrap = document.createElement('div');
@@ -1593,7 +1696,10 @@
               const b = document.createElement('button');
               b.type = 'button';
               b.className = 'd3d-lin-chip';
-              b.textContent = `← ${uNode.label}`;
+              b.textContent =
+                showLeadAuthors && uNode.shortAuthor
+                  ? `← ${uNode.label} (${uNode.shortAuthor})`
+                  : `← ${uNode.label}`;
               b.addEventListener('click', () => focusNodeById(uNode.id));
               uRow.append(b);
             });
@@ -1610,7 +1716,10 @@
               const b = document.createElement('button');
               b.type = 'button';
               b.className = 'd3d-lin-chip';
-              b.textContent = `${dNode.label} →`;
+              b.textContent =
+                showLeadAuthors && dNode.shortAuthor
+                  ? `${dNode.label} (${dNode.shortAuthor}) →`
+                  : `${dNode.label} →`;
               b.addEventListener('click', () => focusNodeById(dNode.id));
               dRow.append(b);
             });
@@ -1708,7 +1817,7 @@
         return { dom, intensity, countUpTo };
       })
         .sort((a, b) => b.intensity - a.intensity || b.countUpTo - a.countUpTo)
-        .slice(0, 5);
+        .slice(0, 4);
 
       const momBox = document.createElement('div');
       momBox.className = 'd3d-cap-bars';
@@ -1735,11 +1844,62 @@
         momBox.append(row);
       });
 
+      inspectorEl.append(head, title, desc, shiftBox, momBox);
+
+      // Clickable Epoch Lead Authors bar when Lead Authors switch is enabled
+      if (showLeadAuthors) {
+        const eraNodes = nodes
+          .filter(
+            n =>
+              n.isLandmark &&
+              n.leadAuthor &&
+              n.year <= activeYear &&
+              (activeDomainFilter === 'all' || n.domain === activeDomainFilter)
+          )
+          .sort((a, b) => {
+            const aInEra = a.year >= epoch.minYear ? 1 : 0;
+            const bInEra = b.year >= epoch.minYear ? 1 : 0;
+            if (bInEra !== aInEra) return bInEra - aInEra;
+            if (b.tier !== a.tier) return b.tier - a.tier;
+            return b.year - a.year;
+          });
+
+        const uniqueAuthorPicks = [];
+        const seenLeads = new Set();
+        for (const n of eraNodes) {
+          const lk = n.leadAuthor.toLowerCase();
+          if (seenLeads.has(lk)) continue;
+          seenLeads.add(lk);
+          uniqueAuthorPicks.push(n);
+          if (uniqueAuthorPicks.length >= 6) break;
+        }
+
+        if (uniqueAuthorPicks.length) {
+          const leadBox = document.createElement('div');
+          leadBox.className = 'd3d-lineage-box';
+          const leadLbl = document.createElement('span');
+          leadLbl.className = 'd3d-sublabel';
+          leadLbl.textContent = `KEY LEAD AUTHORS (${epoch.range})`;
+          const leadRow = document.createElement('div');
+          leadRow.className = 'd3d-chip-row';
+          uniqueAuthorPicks.forEach(n => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'd3d-lin-chip d3d-author-chip';
+            btn.textContent = `${n.shortAuthor} · ${n.label}`;
+            btn.title = `${n.leadAuthor} — ${n.title} (${Math.floor(n.year)})`;
+            btn.addEventListener('click', () => focusNodeById(n.id));
+            leadRow.append(btn);
+          });
+          leadBox.append(leadLbl, leadRow);
+          inspectorEl.append(leadBox);
+        }
+      }
+
       const hint = document.createElement('p');
       hint.className = 'd3d-insp-hint';
-      hint.textContent = 'Hover or click any 3D node to trace its upstream derivations and downstream cross-domain influence.';
-
-      inspectorEl.append(head, title, desc, shiftBox, momBox, hint);
+      hint.textContent = 'Hover or click any 3D node to inspect its lead author, upstream derivations, and cross-domain influence.';
+      inspectorEl.append(hint);
     }
 
     function focusNodeById(nodeId) {
@@ -1979,6 +2139,22 @@
       });
     }
 
+    function setShowLeadAuthors(next) {
+      showLeadAuthors = Boolean(next);
+      if (authorsToggleBtn) {
+        authorsToggleBtn.setAttribute('aria-checked', String(showLeadAuthors));
+        authorsToggleBtn.classList.toggle('is-on', showLeadAuthors);
+      }
+      updateInspector(true);
+      renderFrame(performance.now());
+    }
+
+    if (authorsToggleBtn) {
+      authorsToggleBtn.setAttribute('aria-checked', String(showLeadAuthors));
+      authorsToggleBtn.classList.toggle('is-on', showLeadAuthors);
+      authorsToggleBtn.addEventListener('click', () => setShowLeadAuthors(!showLeadAuthors));
+    }
+
     if (zoomInBtn) {
       zoomInBtn.addEventListener('click', () => {
         cam.targetDist = clamp(cam.targetDist - 0.45, 2.55, 6.4);
@@ -2017,6 +2193,7 @@
         buildSceneData(nextCatalog);
       },
       setMode,
+      setShowLeadAuthors,
       setYear(yr) {
         activeYear = clamp(Number(yr) || 2026.95, 1992, 2026.95);
         syncYearControls();
@@ -2033,8 +2210,10 @@
           mode,
           activeYear,
           activeDomainFilter,
+          showLeadAuthors,
           nodeCount: nodes.length,
           edgeCount: edges.length,
+          withLeadAuthorCount: nodes.filter(n => Boolean(n.leadAuthor)).length,
           pinnedId: pinnedNode ? pinnedNode.id : null
         };
       }
