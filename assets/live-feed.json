@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-26T12:14:47Z",
+  "updatedAt": "2026-11-26T18:11:55Z",
   "latestDate": "2026-11-25",
   "count": 36,
   "items": [
@@ -676,16 +676,16 @@
       "domain": "llm-alignment-reasoning",
       "year": 2026,
       "authors": "Shreshth Rai, Rishii Kumar Singh, Aksh Aggarwal",
-      "description": "(2026-11-25) — Reinforcement learning (RL) for text-to-SQL agents pays a query when its result matches the reference on one database. However, a wrong query can match by luck when the data lack the rows that expose its bug. W…",
+      "description": "(2026-11-25) — A counterfactual-database reward for reinforcement learning text-to-SQL agents reduces full payment to buggy queries and reward hacks, though training with its mean form did not improve in-domain accuracy in a…",
       "publishedAt": "2026-11-25",
       "venue": "",
       "hasMath": false,
       "url": "https://arxiv.org/abs/2611.34363",
       "file": "",
-      "body": "# Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL\n\nFirst public date: 2026-11-25.\n\nAuthors: Shreshth Rai, Rishii Kumar Singh, Aksh Aggarwal.\n\nClassification: 2026 · Core & World RL (live auto-indexed preprint).\n\n## Abstract & key idea\n\nReinforcement learning (RL) for text-to-SQL agents pays a query when its result matches the reference on one database. However, a wrong query can match by luck when the data lack the rows that expose its bug. We study a counterfactual-database (CF) reward that also runs the final query on a few hidden, code-generated copies of the database and pays only if all results match (strict form) or by the share matched (mean form). On 1,302 synthetic audit questions, the strict form lowers the share of buggy queries paid in full from 29.5% to 16.8% and of reward hacks from 54.1% to 1.9%, rejecting 0 of 2,847 correct queries; copies from a family-blind generator do about as well. In a controlled GRPO comparison on a 3.35B model with three seeds per arm, training on the mean form did not improve in-domain accuracy (8.4% vs 11.7%), because the two rewards disagreed on only 5-7% of rollouts; on Spider it gained 1.6 points. One seed reverses both signs, so single-seed reward comparisons mislead. Code: https://github.com/RishiiGamer2201/counterfactual-sql-rewards ; data, models, demo: https://huggingface.co/counterfactual-sql\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on 2026-11-25 and reflects the authors' public preprint abstract (`arXiv:2611.34363`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n* Paper: [arXiv:2611.34363](https://arxiv.org/abs/2611.34363)\n* PDF: [arXiv PDF](https://arxiv.org/pdf/2611.34363)",
+      "body": "# Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL\n\nFirst public date: 2026-11-25.\n\nAuthors: Shreshth Rai, Rishii Kumar Singh, Aksh Aggarwal.\n\nClassification: 2026 · Core & World RL (live auto-indexed preprint).\n\n## Abstract & key idea\n\nReinforcement learning (RL) for text-to-SQL agents pays a query when its result matches the reference on one database. However, a wrong query can match by luck when the data lack the rows that expose its bug. We study a counterfactual-database (CF) reward that also runs the final query on a few hidden, code-generated copies of the database and pays only if all results match (strict form) or by the share matched (mean form). On 1,302 synthetic audit questions, the strict form lowers the share of buggy queries paid in full from 29.5% to 16.8% and of reward hacks from 54.1% to 1.9%, rejecting 0 of 2,847 correct queries; copies from a family-blind generator do about as well. In a controlled GRPO comparison on a 3.35B model with three seeds per arm, training on the mean form did not improve in-domain accuracy (8.4% vs 11.7%), because the two rewards disagreed on only 5-7% of rollouts; on Spider it gained 1.6 points. One seed reverses both signs, so single-seed reward comparisons mislead. Code: https://github.com/RishiiGamer2201/counterfactual-sql-rewards ; data, models, demo: https://huggingface.co/counterfactual-sql\n\nKeywords: reinforcement learning, text-to-SQL agents, counterfactual-database reward, strict form, mean form, reward hacks, GRPO, rollouts.\n\n## Evidence boundary\n\nThis entry was automatically indexed from live public research feeds on 2026-11-25 and reflects the authors' public preprint abstract (`arXiv:2611.34363`). Separate reinforcement-learning training claims from purely supervised or world-model components when comparing against manually curated notes.\n\n## Sources and artifacts\n\n* Paper: [arXiv:2611.34363](https://arxiv.org/abs/2611.34363)\n* PDF: [arXiv PDF](https://arxiv.org/pdf/2611.34363)\n* Code: [https://github.com/RishiiGamer2201/counterfactual-sql-rewards](https://github.com/RishiiGamer2201/counterfactual-sql-rewards)\n* Project page: [https://huggingface.co/spaces/counterfactual-sql/counterfactual-sql-demo](https://huggingface.co/spaces/counterfactual-sql/counterfactual-sql-demo)",
       "live": true,
-      "githubRepo": "",
-      "projectPage": ""
+      "githubRepo": "https://github.com/RishiiGamer2201/counterfactual-sql-rewards",
+      "projectPage": "https://huggingface.co/spaces/counterfactual-sql/counterfactual-sql-demo"
     }
   ]
 }
